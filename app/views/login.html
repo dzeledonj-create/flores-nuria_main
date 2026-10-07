@@ -6,8 +6,6 @@
   <title>Iniciar Sesión - Flores Nuria</title>
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="icon" href="../../assets/img/logo_fondo_blanco.jpg">
-  <script src="../../assets/js/core/api.js" defer></script>
-  <script src="../../assets/js/pages/login.js" defer></script>
 </head>
 <body>
   <section class="login-wrapper">
@@ -16,9 +14,7 @@
       <h1 class="login-title">Flores Nuria</h1>
       <p class="login-subtitle">Gestión de Administración</p>
 
-      <div class="login-error" id="login-error" style="display:none"></div>
-
-      <form id="login-form" class="login-form">
+      <form action="dashboard.html" method="get" class="login-form">
         <div class="form-group">
           <label for="correo">Correo Electrónico</label>
           <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required autocomplete="email">

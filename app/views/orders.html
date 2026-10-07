@@ -6,24 +6,58 @@
   <title>Floristería - Panel</title>
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="icon" href="../../assets/img/logo_fondo_blanco.jpg">
-  <script src="../../assets/js/core/api.js" defer></script>
-  <script src="../../assets/js/core/utils.js" defer></script>
-  <script src="../../assets/js/core/layout.js" defer></script>
-  <script src="../../assets/js/pages/orders.js" defer></script>
 </head>
 <body>
   <section class="app">
-    <div data-include="sidebar"></div>
+    <aside class="sidebar">
+      <section class="logo">
+        <span class="brand"><img src="../../assets/img/logo.png" alt="Flores Nuria"></span>
+      </section>
+      <nav class="nav" aria-label="navegación principal">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="reports.html">Informes</a></li>
+          <li><a href="payments.html">Cobros/Pagos</a></li>
+          <!-- <li><a href="schedule.html">Agenda</a></li> -->
+          <li><a href="products.html">Productos</a></li>
+          <li><a href="offers.html">Ofertas</a></li>
+          <li class="active"><a href="orders.html">Pedidos</a></li>
+          <!-- <li><a href="customers.html">Clientes</a></li> -->
+          <li><a href="suppliers.html">Proveedores</a></li>
+          <!-- <li><a href="employees.html">Empleados</a></li> -->
+        </ul>
+      </nav>
+    </aside>
     <main class="main">
-      <div data-include="header"></div>
+      <header class="header">
+        <section class="left">
+          <section class="logo">
+            <button class="menu-toggle" type="button">☰</button>
+          </section>
+          <nav class="breadcrumbs" aria-label="breadcrumb">
+            <ol><li>Dashboard</li><li>Pedidos emitidos</li></ol>
+          </nav>
+        </section>
+        <section class="right user-menu-container">
+          <button class="user-circle" type="button" aria-haspopup="true" aria-expanded="false">U</button>
+          <div class="user-dropdown" role="menu">
+            <div class="user-dropdown-info">
+              <strong>Usuario</strong>
+              <span class="user-dropdown-role">Personal</span>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a href="login.html" role="menuitem"><span class="icon">🚪</span> Cerrar Sesión</a>
+          </div>
+        </section>
+      </header>
       <section class="container">
-        <div id="msg"></div>
         <section class="toolbar d-flex gap-2 mb-3">
           <form id="search-form" class="d-flex gap-2 m-0">
             <input type="text" name="search" placeholder="Buscar por estado o proveedor..." class="px-3-py-1 border-base rounded-sm outline-none">
             <button type="submit" class="btn">Buscar</button>
           </form>
-          <button type="button" id="show-all" class="btn pill green d-flex align-center px-3">Mostrar Todo</button>
+          <a href="orders.html" class="btn pill green text-decoration-none d-flex align-center px-3">Mostrar Todo</a>
           <a href="create_order.html" class="btn secondary text-decoration-none d-flex align-center px-3">Realizar pedido</a>
         </section>
 
@@ -41,7 +75,9 @@
               </tr>
             </thead>
             <tbody id="orders-body">
-              <tr><td colspan="7" class="text-center">Cargando...</td></tr>
+              <tr><td>1</td><td>2</td><td>2026-09-28</td><td><span class="text-success fw-bold">Recibido</span></td><td>3 tipos</td><td class="d-flex gap-1"><button type="button" class="btn secondary btn-sm">Pendiente</button> <button type="button" class="btn btn-sm btn-success">Recibido</button> <button type="button" class="btn btn-sm btn-danger">Cancelado</button></td><td class="actions"><button type="button" class="btn-view">👁</button> <button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
+              <tr><td>2</td><td>1</td><td>2026-10-02</td><td><span class="text-warning fw-bold">Pendiente</span></td><td>2 tipos</td><td class="d-flex gap-1"><button type="button" class="btn secondary btn-sm">Pendiente</button> <button type="button" class="btn btn-sm btn-success">Recibido</button> <button type="button" class="btn btn-sm btn-danger">Cancelado</button></td><td class="actions"><button type="button" class="btn-view">👁</button> <button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
+              <tr><td>3</td><td>3</td><td>2026-10-05</td><td><span class="text-danger fw-bold">Cancelado</span></td><td>1 tipos</td><td class="d-flex gap-1"><button type="button" class="btn secondary btn-sm">Pendiente</button> <button type="button" class="btn btn-sm btn-success">Recibido</button> <button type="button" class="btn btn-sm btn-danger">Cancelado</button></td><td class="actions"><button type="button" class="btn-view">👁</button> <button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
             </tbody>
           </table>
         </section>

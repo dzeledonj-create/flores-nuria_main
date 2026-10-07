@@ -6,18 +6,52 @@
   <title>Floristería - Panel</title>
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="icon" href="../../assets/img/logo_fondo_blanco.jpg">
-  <script src="../../assets/js/core/api.js" defer></script>
-  <script src="../../assets/js/core/utils.js" defer></script>
-  <script src="../../assets/js/core/layout.js" defer></script>
-  <script src="../../assets/js/pages/products.js" defer></script>
 </head>
 <body>
   <section class="app">
-    <div data-include="sidebar"></div>
+    <aside class="sidebar">
+      <section class="logo">
+        <span class="brand"><img src="../../assets/img/logo.png" alt="Flores Nuria"></span>
+      </section>
+      <nav class="nav" aria-label="navegación principal">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="reports.html">Informes</a></li>
+          <li><a href="payments.html">Cobros/Pagos</a></li>
+          <!-- <li><a href="schedule.html">Agenda</a></li> -->
+          <li class="active"><a href="products.html">Productos</a></li>
+          <li><a href="offers.html">Ofertas</a></li>
+          <li><a href="orders.html">Pedidos</a></li>
+          <!-- <li><a href="customers.html">Clientes</a></li> -->
+          <li><a href="suppliers.html">Proveedores</a></li>
+          <!-- <li><a href="employees.html">Empleados</a></li> -->
+        </ul>
+      </nav>
+    </aside>
     <main class="main">
-      <div data-include="header"></div>
+      <header class="header">
+        <section class="left">
+          <section class="logo">
+            <button class="menu-toggle" type="button">☰</button>
+          </section>
+          <nav class="breadcrumbs" aria-label="breadcrumb">
+            <ol><li>Dashboard</li><li>Productos</li></ol>
+          </nav>
+        </section>
+        <section class="right user-menu-container">
+          <button class="user-circle" type="button" aria-haspopup="true" aria-expanded="false">U</button>
+          <div class="user-dropdown" role="menu">
+            <div class="user-dropdown-info">
+              <strong>Usuario</strong>
+              <span class="user-dropdown-role">Personal</span>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a href="login.html" role="menuitem"><span class="icon">🚪</span> Cerrar Sesión</a>
+          </div>
+        </section>
+      </header>
       <section class="container">
-        <div id="msg"></div>
         <section class="toolbar d-flex gap-2 mb-3">
           <form id="search-form" class="d-flex gap-2 m-0">
             <input type="text" name="search" placeholder="Buscar producto..." class="px-3-py-1 border-base rounded-sm outline-none">
@@ -26,11 +60,14 @@
           <form id="category-form" class="d-flex gap-2 m-0">
             <select name="category" id="category-select" class="px-3 py-1 rounded-sm">
               <option value="" selected>Seleccione categoria...</option>
+              <option value="flor">flor</option>
+              <option value="planta">planta</option>
+              <option value="accesorio">accesorio</option>
             </select>
             <button type="submit" class="btn secondary">Familias</button>
           </form>
 
-          <button type="button" id="show-all" class="btn pill green d-flex align-center px-3">Mostrar Todo</button>
+          <a href="products.html" class="btn pill green text-decoration-none d-flex align-center px-3">Mostrar Todo</a>
           <a href="create_product.html" class="btn secondary text-decoration-none d-flex align-center px-3">Nuevo producto</a>
         </section>
 
@@ -49,7 +86,11 @@
               </tr>
             </thead>
             <tbody id="products-body">
-              <tr><td colspan="8" class="text-center">Cargando...</td></tr>
+              <tr><td>Rosa roja</td><td><span class="pill green px-3-py-1 rounded-sm text-sm fw-bold">Oferta: -20%</span></td><td>2.50 €</td><td>21.00 %</td><td>2.42 €</td><td>120</td><td>Disponible</td><td class="actions"><button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
+              <tr><td>Tulipán amarillo</td><td><span class="pill green px-3-py-1 rounded-sm text-sm fw-bold">Oferta: -20%</span></td><td>1.80 €</td><td>21.00 %</td><td>1.74 €</td><td>200</td><td>Disponible</td><td class="actions"><button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
+              <tr><td>Orquídea blanca</td><td>Sin oferta activa</td><td>18.00 €</td><td>21.00 %</td><td>21.78 €</td><td>15</td><td>Disponible</td><td class="actions"><button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
+              <tr><td>Maceta de cerámica</td><td>Sin oferta activa</td><td>7.50 €</td><td>21.00 %</td><td>9.08 €</td><td>0</td><td>Agotado</td><td class="actions"><button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
+              <tr><td>Girasol</td><td>Sin oferta activa</td><td>1.20 €</td><td>21.00 %</td><td>1.45 €</td><td>80</td><td>Disponible</td><td class="actions"><button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
             </tbody>
           </table>
         </section>

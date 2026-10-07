@@ -6,26 +6,60 @@
   <title>Floristería - Panel</title>
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="icon" href="../../assets/img/logo_fondo_blanco.jpg">
-  <script src="../../assets/js/core/api.js" defer></script>
-  <script src="../../assets/js/core/utils.js" defer></script>
-  <script src="../../assets/js/core/layout.js" defer></script>
-  <script src="../../assets/js/pages/create_product.js" defer></script>
 </head>
 <body>
   <section class="app">
-    <div data-include="sidebar"></div>
+    <aside class="sidebar">
+      <section class="logo">
+        <span class="brand"><img src="../../assets/img/logo.png" alt="Flores Nuria"></span>
+      </section>
+      <nav class="nav" aria-label="navegación principal">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="reports.html">Informes</a></li>
+          <li><a href="payments.html">Cobros/Pagos</a></li>
+          <!-- <li><a href="schedule.html">Agenda</a></li> -->
+          <li class="active"><a href="products.html">Productos</a></li>
+          <li><a href="offers.html">Ofertas</a></li>
+          <li><a href="orders.html">Pedidos</a></li>
+          <!-- <li><a href="customers.html">Clientes</a></li> -->
+          <li><a href="suppliers.html">Proveedores</a></li>
+          <!-- <li><a href="employees.html">Empleados</a></li> -->
+        </ul>
+      </nav>
+    </aside>
     <main class="main">
-      <div data-include="header"></div>
+      <header class="header">
+        <section class="left">
+          <section class="logo">
+            <button class="menu-toggle" type="button">☰</button>
+          </section>
+          <nav class="breadcrumbs" aria-label="breadcrumb">
+            <ol><li>Dashboard</li><li>Crear Producto</li></ol>
+          </nav>
+        </section>
+        <section class="right user-menu-container">
+          <button class="user-circle" type="button" aria-haspopup="true" aria-expanded="false">U</button>
+          <div class="user-dropdown" role="menu">
+            <div class="user-dropdown-info">
+              <strong>Usuario</strong>
+              <span class="user-dropdown-role">Personal</span>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a href="login.html" role="menuitem"><span class="icon">🚪</span> Cerrar Sesión</a>
+          </div>
+        </section>
+      </header>
       <section class="container">
         <section class="toolbar d-flex gap-2 mb-3">
           <a href="products.html" class="btn secondary text-decoration-none d-flex align-center px-3">&laquo; Volver a Productos</a>
         </section>
 
         <h3 class="mt-5 mb-3">Crear Nuevo Producto</h3>
-        <div id="msg"></div>
 
         <section class="form">
-          <form id="form-create-product">
+          <form id="form-create-product" action="products.html" method="get">
             <section class="row">
               <section class="flex-2">
                 <label>Nombre del Producto *</label>

@@ -6,18 +6,52 @@
   <title>Floristería - Panel</title>
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="icon" href="../../assets/img/logo_fondo_blanco.jpg">
-  <script src="../../assets/js/core/api.js" defer></script>
-  <script src="../../assets/js/core/utils.js" defer></script>
-  <script src="../../assets/js/core/layout.js" defer></script>
-  <script src="../../assets/js/pages/payments.js" defer></script>
 </head>
 <body>
   <section class="app">
-    <div data-include="sidebar"></div>
+    <aside class="sidebar">
+      <section class="logo">
+        <span class="brand"><img src="../../assets/img/logo.png" alt="Flores Nuria"></span>
+      </section>
+      <nav class="nav" aria-label="navegación principal">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="reports.html">Informes</a></li>
+          <li class="active"><a href="payments.html">Cobros/Pagos</a></li>
+          <!-- <li><a href="schedule.html">Agenda</a></li> -->
+          <li><a href="products.html">Productos</a></li>
+          <li><a href="offers.html">Ofertas</a></li>
+          <li><a href="orders.html">Pedidos</a></li>
+          <!-- <li><a href="customers.html">Clientes</a></li> -->
+          <li><a href="suppliers.html">Proveedores</a></li>
+          <!-- <li><a href="employees.html">Empleados</a></li> -->
+        </ul>
+      </nav>
+    </aside>
     <main class="main">
-      <div data-include="header"></div>
+      <header class="header">
+        <section class="left">
+          <section class="logo">
+            <button class="menu-toggle" type="button">☰</button>
+          </section>
+          <nav class="breadcrumbs" aria-label="breadcrumb">
+            <ol><li>Dashboard</li><li>Cobros/Pagos</li></ol>
+          </nav>
+        </section>
+        <section class="right user-menu-container">
+          <button class="user-circle" type="button" aria-haspopup="true" aria-expanded="false">U</button>
+          <div class="user-dropdown" role="menu">
+            <div class="user-dropdown-info">
+              <strong>Usuario</strong>
+              <span class="user-dropdown-role">Personal</span>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a href="login.html" role="menuitem"><span class="icon">🚪</span> Cerrar Sesión</a>
+          </div>
+        </section>
+      </header>
       <section class="container">
-        <div id="msg"></div>
         <section class="panel">
           <h2>Cobros/pagos</h2>
           <p>Esta es una página de ejemplo para la sección de cobros/pagos.
@@ -36,7 +70,9 @@
               </tr>
             </thead>
             <tbody id="sales-body">
-              <tr><td colspan="6" class="text-center">Cargando...</td></tr>
+              <tr><td>1</td><td>2026-05-21</td><td>10</td><td>Nuria</td><td>Maria Menendez</td><td><button type="button" class="btn">Ver Info</button></td></tr>
+              <tr><td>2</td><td>2026-06-03</td><td>24.5</td><td>Nuria</td><td>Jose Maria Garcia</td><td><button type="button" class="btn">Ver Info</button></td></tr>
+              <tr><td>3</td><td>2026-06-10</td><td>7.26</td><td>Nuria</td><td>Maria Menendez</td><td><button type="button" class="btn">Ver Info</button></td></tr>
             </tbody>
           </table>
         </section>

@@ -6,22 +6,55 @@
   <title>Floristería - Panel</title>
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="icon" href="../../assets/img/logo_fondo_blanco.jpg">
-  <script src="https://d3js.org/d3.v7.min.js" defer></script>
-  <script src="../../assets/js/core/api.js" defer></script>
-  <script src="../../assets/js/core/utils.js" defer></script>
-  <script src="../../assets/js/core/layout.js" defer></script>
-  <script src="../../assets/js/pages/reports.js" defer></script>
 </head>
 <body>
   <section class="app">
-    <div data-include="sidebar"></div>
+    <aside class="sidebar">
+      <section class="logo">
+        <span class="brand"><img src="../../assets/img/logo.png" alt="Flores Nuria"></span>
+      </section>
+      <nav class="nav" aria-label="navegación principal">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li class="active"><a href="reports.html">Informes</a></li>
+          <li><a href="payments.html">Cobros/Pagos</a></li>
+          <!-- <li><a href="schedule.html">Agenda</a></li> -->
+          <li><a href="products.html">Productos</a></li>
+          <li><a href="offers.html">Ofertas</a></li>
+          <li><a href="orders.html">Pedidos</a></li>
+          <!-- <li><a href="customers.html">Clientes</a></li> -->
+          <li><a href="suppliers.html">Proveedores</a></li>
+          <!-- <li><a href="employees.html">Empleados</a></li> -->
+        </ul>
+      </nav>
+    </aside>
     <main class="main">
-      <div data-include="header"></div>
+      <header class="header">
+        <section class="left">
+          <section class="logo">
+            <button class="menu-toggle" type="button">☰</button>
+          </section>
+          <nav class="breadcrumbs" aria-label="breadcrumb">
+            <ol><li>Dashboard</li><li>Informes</li></ol>
+          </nav>
+        </section>
+        <section class="right user-menu-container">
+          <button class="user-circle" type="button" aria-haspopup="true" aria-expanded="false">U</button>
+          <div class="user-dropdown" role="menu">
+            <div class="user-dropdown-info">
+              <strong>Usuario</strong>
+              <span class="user-dropdown-role">Personal</span>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a href="login.html" role="menuitem"><span class="icon">🚪</span> Cerrar Sesión</a>
+          </div>
+        </section>
+      </header>
       <section class="container">
-        <div id="msg"></div>
         <section class="panel">
           <h2>Reportes Analíticos</h2>
-          <p>Gráficos generados con D3.js usando los datos de tickets, pedidos y bolsas de compra.</p>
+          <p>Gráficos de ejemplo con los datos de tickets, pedidos y bolsas de compra.</p>
         </section>
 
         <section class="charts-grid">
@@ -31,11 +64,50 @@
           </article> -->
           <article class="panel chart-panel">
             <h3>Pedidos por estado</h3>
-            <div id="orders-bar-chart" class="chart-canvas"></div>
+            <div id="orders-bar-chart" class="chart-canvas">
+            <svg viewBox="0 0 420 320" width="100%" height="320" role="img" aria-label="Pedidos por estado">
+              <g font-size="11" fill="#555" text-anchor="end">
+                <text x="42" y="264">0</text><text x="42" y="204">2</text><text x="42" y="144">4</text><text x="42" y="84">6</text><text x="42" y="24">8</text>
+              </g>
+              <line x1="50" y1="20" x2="50" y2="260" stroke="#999"/>
+              <line x1="50" y1="260" x2="400" y2="260" stroke="#999"/>
+              <rect x="80" y="140" width="70" height="120" fill="#ff9800"/>
+              <rect x="190" y="50" width="70" height="210" fill="#ff9800"/>
+              <rect x="300" y="230" width="70" height="30" fill="#ff9800"/>
+              <g font-size="12" fill="#333" text-anchor="middle">
+                <text x="115" y="280">Pendiente</text><text x="225" y="280">Recibido</text><text x="335" y="280">Cancelado</text>
+              </g>
+            </svg>
+            </div>
           </article>
           <article class="panel chart-panel chart-wide">
             <h3>Productos vendidos vs pedidos</h3>
-            <div id="product-grouped-chart" class="chart-canvas"></div>
+            <div id="product-grouped-chart" class="chart-canvas">
+            <svg viewBox="0 0 800 320" width="100%" height="320" role="img" aria-label="Productos vendidos vs pedidos">
+              <g font-size="11" fill="#555" text-anchor="end">
+                <text x="52" y="274">0</text><text x="52" y="214">20</text><text x="52" y="154">40</text><text x="52" y="94">60</text><text x="52" y="34">80</text>
+              </g>
+              <line x1="60" y1="30" x2="60" y2="270" stroke="#999"/>
+              <line x1="60" y1="270" x2="780" y2="270" stroke="#999"/>
+              <rect x="82" y="150" width="50" height="120" fill="#1976d2"/>
+              <rect x="134" y="90" width="50" height="180" fill="#d32f2f"/>
+              <text x="133" y="290" font-size="12" fill="#333" text-anchor="middle">Rosa roja</text>
+              <rect x="226" y="195" width="50" height="75" fill="#1976d2"/>
+              <rect x="278" y="120" width="50" height="150" fill="#d32f2f"/>
+              <text x="277" y="290" font-size="12" fill="#333" text-anchor="middle">Tulipán amarillo</text>
+              <rect x="370" y="246" width="50" height="24" fill="#1976d2"/>
+              <rect x="422" y="240" width="50" height="30" fill="#d32f2f"/>
+              <text x="421" y="290" font-size="12" fill="#333" text-anchor="middle">Orquídea blanca</text>
+              <rect x="514" y="255" width="50" height="15" fill="#1976d2"/>
+              <rect x="566" y="234" width="50" height="36" fill="#d32f2f"/>
+              <text x="565" y="290" font-size="12" fill="#333" text-anchor="middle">Maceta de cerámica</text>
+              <rect x="658" y="225" width="50" height="45" fill="#1976d2"/>
+              <rect x="710" y="210" width="50" height="60" fill="#d32f2f"/>
+              <text x="709" y="290" font-size="12" fill="#333" text-anchor="middle">Girasol</text>
+              <rect x="60" y="4" width="14" height="14" fill="#1976d2"/><text x="80" y="16" font-size="13" fill="#333">Ventas</text>
+              <rect x="200" y="4" width="14" height="14" fill="#d32f2f"/><text x="220" y="16" font-size="13" fill="#333">Pedidos</text>
+            </svg>
+            </div>
           </article>
         </section>
 

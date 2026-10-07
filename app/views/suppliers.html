@@ -6,24 +6,58 @@
   <title>Floristería - Panel</title>
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="icon" href="../../assets/img/logo_fondo_blanco.jpg">
-  <script src="../../assets/js/core/api.js" defer></script>
-  <script src="../../assets/js/core/utils.js" defer></script>
-  <script src="../../assets/js/core/layout.js" defer></script>
-  <script src="../../assets/js/pages/suppliers.js" defer></script>
 </head>
 <body>
   <section class="app">
-    <div data-include="sidebar"></div>
+    <aside class="sidebar">
+      <section class="logo">
+        <span class="brand"><img src="../../assets/img/logo.png" alt="Flores Nuria"></span>
+      </section>
+      <nav class="nav" aria-label="navegación principal">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="reports.html">Informes</a></li>
+          <li><a href="payments.html">Cobros/Pagos</a></li>
+          <!-- <li><a href="schedule.html">Agenda</a></li> -->
+          <li><a href="products.html">Productos</a></li>
+          <li><a href="offers.html">Ofertas</a></li>
+          <li><a href="orders.html">Pedidos</a></li>
+          <!-- <li><a href="customers.html">Clientes</a></li> -->
+          <li class="active"><a href="suppliers.html">Proveedores</a></li>
+          <!-- <li><a href="employees.html">Empleados</a></li> -->
+        </ul>
+      </nav>
+    </aside>
     <main class="main">
-      <div data-include="header"></div>
+      <header class="header">
+        <section class="left">
+          <section class="logo">
+            <button class="menu-toggle" type="button">☰</button>
+          </section>
+          <nav class="breadcrumbs" aria-label="breadcrumb">
+            <ol><li>Dashboard</li><li>Proveedores</li></ol>
+          </nav>
+        </section>
+        <section class="right user-menu-container">
+          <button class="user-circle" type="button" aria-haspopup="true" aria-expanded="false">U</button>
+          <div class="user-dropdown" role="menu">
+            <div class="user-dropdown-info">
+              <strong>Usuario</strong>
+              <span class="user-dropdown-role">Personal</span>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a href="login.html" role="menuitem"><span class="icon">🚪</span> Cerrar Sesión</a>
+          </div>
+        </section>
+      </header>
       <section class="container">
-        <div id="msg"></div>
         <section class="toolbar d-flex gap-2 mb-3">
           <form id="search-form" class="d-flex gap-2 m-0">
             <input type="text" name="search" placeholder="Buscar proveedor..." class="px-3-py-1 border-base rounded-sm outline-none">
             <button type="submit" class="btn">Buscar</button>
           </form>
-          <button type="button" id="show-all" class="btn pill green d-flex align-center px-3">Mostrar Todo</button>
+          <a href="suppliers.html" class="btn pill green text-decoration-none d-flex align-center px-3">Mostrar Todo</a>
           <a href="create_supplier.html" class="btn secondary text-decoration-none d-flex align-center px-3">Nuevo proveedor</a>
         </section>
 
@@ -33,7 +67,9 @@
               <tr><th>Nombre</th><th>Dirección</th><th>Teléfono</th><th>Correo</th><th></th></tr>
             </thead>
             <tbody id="suppliers-body">
-              <tr><td colspan="5" class="text-center">Cargando...</td></tr>
+              <tr><td>Viveros el Sol</td><td>Calle Principal 123</td><td>600123456</td><td>ventas@viveroselsol.com</td><td class="actions"><button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
+              <tr><td>Flores del Valle</td><td>Avenida de la Huerta 45</td><td>611234567</td><td>pedidos@floresdelvalle.com</td><td class="actions"><button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
+              <tr><td>Cerámicas Ruiz</td><td>Polígono Industrial 8</td><td>622345678</td><td>info@ceramicasruiz.com</td><td class="actions"><button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
             </tbody>
           </table>
         </section>
