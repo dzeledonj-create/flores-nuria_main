@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Floristería - Panel</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="icon" href="../../assets/img/logo_fondo_blanco.jpg">
+  <script src="../../assets/js/core/api.js" defer></script>
+  <script src="../../assets/js/core/utils.js" defer></script>
+  <script src="../../assets/js/core/layout.js" defer></script>
+  <script src="../../assets/js/pages/create_order.js" defer></script>
+</head>
+<body>
+  <section class="app">
+    <div data-include="sidebar"></div>
+    <main class="main">
+      <div data-include="header"></div>
+      <section class="container">
+        <section class="toolbar d-flex gap-2 mb-3">
+          <a href="orders.html" class="btn secondary text-decoration-none d-flex align-center px-3">&laquo; Volver a Pedidos</a>
+        </section>
+
+        <h3 class="mt-5 mb-3">Realizar Nuevo Pedido</h3>
+        <div id="msg"></div>
+
+        <section class="form">
+          <form id="form-create-order">
+            <section class="row">
+              <section class="flex-2">
+                <label>Proveedor *</label>
+                <select name="id_proveedor" id="select-proveedor" required>
+                  <option value="">-- Seleccionar Proveedor --</option>
+                </select>
+              </section>
+              <section class="flex-1">
+                <label>Fecha del Pedido</label>
+                <input type="date" name="fecha" id="fecha-pedido" required>
+              </section>
+              <section class="flex-1">
+                <label>Estado</label>
+                <select name="estado">
+                  <option value="Pendiente" selected>Pendiente</option>
+                  <option value="Recibido">Recibido</option>
+                  <option value="Cancelado">Cancelado</option>
+                </select>
+              </section>
+            </section>
+
+            <h4 class="mt-4 mb-3 border-bottom-light pb-2">Añadir Productos al Pedido</h4>
+            <section id="productos-container">
+              <!-- Fila de producto base -->
+              <section class="row producto-row mb-2">
+                <section class="flex-2">
+                  <select name="productos[]" class="select-producto">
+                    <option value="">-- Seleccionar Producto --</option>
+                  </select>
+                </section>
+                <section class="flex-1">
+                  <input type="number" name="cantidades[]" placeholder="Cantidad" min="0">
+                </section>
+                <section class="flex-0 align-self-center">
+                  <button type="button" class="btn secondary" data-remove-row>X</button>
+                </section>
+              </section>
+            </section>
+
+            <section class="mt-2">
+              <button type="button" class="btn secondary" id="add-row">+ Añadir otro producto</button>
+            </section>
+
+            <section class="row mt-4">
+              <button type="submit" class="btn">Guardar Pedido</button>
+            </section>
+          </form>
+        </section>
+
+        <footer class="footer">© 2026 Flores Nuria · Creación de pedidos</footer>
+      </section>
+    </main>
+  </section>
+</body>
+</html>

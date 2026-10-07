@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Floristería - Panel</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="icon" href="../../assets/img/logo_fondo_blanco.jpg">
+  <script src="../../assets/js/core/api.js" defer></script>
+  <script src="../../assets/js/core/utils.js" defer></script>
+  <script src="../../assets/js/core/layout.js" defer></script>
+  <script src="../../assets/js/pages/create_payment.js" defer></script>
+</head>
+<body>
+  <section class="app">
+    <div data-include="sidebar"></div>
+    <main class="main">
+      <div data-include="header"></div>
+      <section class="container">
+        <section class="toolbar d-flex gap-2 mb-3">
+          <a href="payments.html" class="btn secondary text-decoration-none d-flex align-center px-3">&laquo; Volver a Pagos</a>
+        </section>
+
+        <h3 class="mt-5 mb-3">Crear Nuevo Pago</h3>
+        <div id="msg"></div>
+
+        <section class="form">
+          <form id="form-create-payment">
+            <section class="row">
+
+              <section class="flex-2">
+                <label>Producto *</label>
+                <input type="text" id="search-prod" placeholder="Buscar producto..." class="flex-1 px-3-py-1 border-base rounded-sm" style="max-width: 300px;">
+                <select name="pedido_id" id="select-prod" required>
+                  <option value="">-- Seleccionar Producto --</option>
+                </select>
+              </section>
+
+              <section class="flex-2">
+                <label>Cliente</label>
+                <input type="text" id="search-client" placeholder="Nombre del cliente" class="flex-1 px-3-py-1 border-base rounded-sm">
+                <select name="cliente_id" id="select-client" required>
+                  <option value="">-- Seleccionar Cliente --</option>
+                </select>
+              </section>
+              <section class="flex-1">
+                <label>Monto (€) *</label>
+                <input type="number" step="0.01" name="monto" min="0.01" required>
+              </section>
+              <section class="flex-1">
+                <label>Método de Pago *</label>
+                <select name="metodo" required>
+                  <option value="">-- Seleccionar --</option>
+                  <option value="efectivo">Efectivo</option>
+                  <option value="tarjeta">Tarjeta</option>
+                  <option value="transferencia">Transferencia</option>
+                  <option value="otros">Otros</option>
+                </select>
+              </section>
+            </section>
+
+            <section class="row mt-4">
+              <section class="flex-1">
+                <label>Fecha</label>
+                <input type="date" name="fecha" id="fecha-pago">
+              </section>
+            </section>
+
+            <section class="row mt-4">
+              <button type="submit" class="btn">Guardar Pago</button>
+            </section>
+          </form>
+        </section>
+
+        <footer class="footer">© 2026 Flores Nuria · Creación de pagos</footer>
+      </section>
+    </main>
+  </section>
+</body>
+</html>

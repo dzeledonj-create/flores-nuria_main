@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Floristería - Panel</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="icon" href="../../assets/img/logo_fondo_blanco.jpg">
+  <script src="../../assets/js/core/api.js" defer></script>
+  <script src="../../assets/js/core/utils.js" defer></script>
+  <script src="../../assets/js/core/layout.js" defer></script>
+  <script src="../../assets/js/pages/orders.js" defer></script>
+</head>
+<body>
+  <section class="app">
+    <div data-include="sidebar"></div>
+    <main class="main">
+      <div data-include="header"></div>
+      <section class="container">
+        <div id="msg"></div>
+        <section class="toolbar d-flex gap-2 mb-3">
+          <form id="search-form" class="d-flex gap-2 m-0">
+            <input type="text" name="search" placeholder="Buscar por estado o proveedor..." class="px-3-py-1 border-base rounded-sm outline-none">
+            <button type="submit" class="btn">Buscar</button>
+          </form>
+          <button type="button" id="show-all" class="btn pill green d-flex align-center px-3">Mostrar Todo</button>
+          <a href="create_order.html" class="btn secondary text-decoration-none d-flex align-center px-3">Realizar pedido</a>
+        </section>
+
+        <section class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Proveedor (ID)</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+                <th>Productos</th>
+                <th>Acciones Rápidas</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="orders-body">
+              <tr><td colspan="7" class="text-center">Cargando...</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <h3 id="view-title" class="mt-5 d-none">Detalles del Pedido #<span id="view-id"></span></h3>
+        <section id="view-panel" class="form d-none bg-f9 p-4 rounded-md">
+          <h4 class="m-0 border-bottom-gray pb-2">Productos incluidos</h4>
+          <ul id="view-items-list" class="list-style-none p-0 m-0"></ul>
+          <button type="button" class="btn secondary mt-3" id="close-view">Cerrar detalles</button>
+        </section>
+
+        <h3 id="edit-title" class="mt-5 d-none">Editar Pedido</h3>
+        <section class="form">
+          <form id="form-edit-order" class="d-none">
+            <input type="hidden" name="idPedido" id="edit-id">
+
+            <section class="row">
+              <section class="flex-1">
+                <label>ID Proveedor *</label>
+                <input type="number" name="id_proveedor" id="edit-proveedor" required>
+              </section>
+              <section class="flex-1">
+                <label>Fecha</label>
+                <input type="date" name="fecha" id="edit-fecha">
+              </section>
+              <section class="flex-1">
+                <label>Estado</label>
+                <select name="estado" id="edit-estado">
+                  <option value="Pendiente">Pendiente</option>
+                  <option value="Recibido">Recibido</option>
+                  <option value="Cancelado">Cancelado</option>
+                </select>
+              </section>
+            </section>
+
+            <section class="row mt-4">
+              <button type="submit" class="btn pill orange">Guardar cambios</button>
+              <button type="button" class="btn secondary" data-close-edit>Cancelar</button>
+            </section>
+          </form>
+        </section>
+
+        <footer class="footer">© 2026 Flores Nuria · Administración de pedidos</footer>
+      </section>
+    </main>
+  </section>
+</body>
+</html>

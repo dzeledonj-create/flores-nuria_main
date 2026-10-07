@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Floristería - Panel</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="icon" href="../../assets/img/logo_fondo_blanco.jpg">
+  <script src="../../assets/js/core/api.js" defer></script>
+  <script src="../../assets/js/core/utils.js" defer></script>
+  <script src="../../assets/js/core/layout.js" defer></script>
+  <script src="../../assets/js/pages/suppliers.js" defer></script>
+</head>
+<body>
+  <section class="app">
+    <div data-include="sidebar"></div>
+    <main class="main">
+      <div data-include="header"></div>
+      <section class="container">
+        <div id="msg"></div>
+        <section class="toolbar d-flex gap-2 mb-3">
+          <form id="search-form" class="d-flex gap-2 m-0">
+            <input type="text" name="search" placeholder="Buscar proveedor..." class="px-3-py-1 border-base rounded-sm outline-none">
+            <button type="submit" class="btn">Buscar</button>
+          </form>
+          <button type="button" id="show-all" class="btn pill green d-flex align-center px-3">Mostrar Todo</button>
+          <a href="create_supplier.html" class="btn secondary text-decoration-none d-flex align-center px-3">Nuevo proveedor</a>
+        </section>
+
+        <section class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Nombre</th><th>Dirección</th><th>Teléfono</th><th>Correo</th><th></th></tr>
+            </thead>
+            <tbody id="suppliers-body">
+              <tr><td colspan="5" class="text-center">Cargando...</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <h3 id="edit-title" class="mt-5 d-none">Editar proveedor</h3>
+        <section class="form">
+          <form id="form-edit-supplier" class="d-none">
+            <input type="hidden" name="idProveedor" id="edit-id">
+
+            <section class="row">
+              <section class="flex-2">
+                <label>Nombre del Proveedor *</label>
+                <input type="text" name="nombre" id="edit-nombre" required>
+              </section>
+              <section class="flex-2">
+                <label>Dirección</label>
+                <input type="text" name="direccion" id="edit-direccion">
+              </section>
+            </section>
+
+            <section class="row mt-4">
+              <section class="flex-1">
+                <label>Teléfono</label>
+                <input type="tel" name="telefono" id="edit-telefono">
+              </section>
+              <section class="flex-1">
+                <label>Correo Electrónico</label>
+                <input type="email" name="correo" id="edit-correo">
+              </section>
+            </section>
+
+            <section class="row mt-4">
+              <button type="submit" class="btn pill orange">Guardar cambios</button>
+              <button type="button" class="btn secondary" data-close-edit>Cancelar</button>
+            </section>
+          </form>
+        </section>
+
+        <footer class="footer">© 2026 Flores Nuria · Administración de proveedores</footer>
+      </section>
+    </main>
+  </section>
+</body>
+</html>

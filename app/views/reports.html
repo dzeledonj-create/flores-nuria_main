@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Floristería - Panel</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="icon" href="../../assets/img/logo_fondo_blanco.jpg">
+  <script src="https://d3js.org/d3.v7.min.js" defer></script>
+  <script src="../../assets/js/core/api.js" defer></script>
+  <script src="../../assets/js/core/utils.js" defer></script>
+  <script src="../../assets/js/core/layout.js" defer></script>
+  <script src="../../assets/js/pages/reports.js" defer></script>
+</head>
+<body>
+  <section class="app">
+    <div data-include="sidebar"></div>
+    <main class="main">
+      <div data-include="header"></div>
+      <section class="container">
+        <div id="msg"></div>
+        <section class="panel">
+          <h2>Reportes Analíticos</h2>
+          <p>Gráficos generados con D3.js usando los datos de tickets, pedidos y bolsas de compra.</p>
+        </section>
+
+        <section class="charts-grid">
+          <!-- <article class="panel chart-panel">
+            <h3>Ventas por mes</h3>
+            <div id="sales-line-chart" class="chart-canvas"></div>
+          </article> -->
+          <article class="panel chart-panel">
+            <h3>Pedidos por estado</h3>
+            <div id="orders-bar-chart" class="chart-canvas"></div>
+          </article>
+          <article class="panel chart-panel chart-wide">
+            <h3>Productos vendidos vs pedidos</h3>
+            <div id="product-grouped-chart" class="chart-canvas"></div>
+          </article>
+        </section>
+
+        <footer class="footer">© 2026 Flores Nuria · Reportes</footer>
+      </section>
+    </main>
+  </section>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Floristería - Panel</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="icon" href="../../assets/img/logo_fondo_blanco.jpg">
+  <script src="../../assets/js/core/api.js" defer></script>
+  <script src="../../assets/js/core/utils.js" defer></script>
+  <script src="../../assets/js/core/layout.js" defer></script>
+  <script src="../../assets/js/pages/offers.js" defer></script>
+</head>
+<body>
+  <section class="app">
+    <div data-include="sidebar"></div>
+    <main class="main">
+      <div data-include="header"></div>
+      <section class="container">
+        <div id="msg"></div>
+        <section class="toolbar d-flex gap-2 mb-3">
+          <form id="search-form" class="d-flex gap-2 m-0">
+            <input type="text" name="search" placeholder="Buscar oferta..." class="px-3-py-1 border-base rounded-sm outline-none">
+            <button type="submit" class="btn">Buscar</button>
+          </form>
+          <button type="button" id="show-all" class="btn pill green d-flex align-center px-3">Mostrar Todo</button>
+          <button type="button" id="new-offer" class="btn secondary d-flex align-center px-3">Nueva oferta</button>
+        </section>
+
+        <!-- FORMULARIO CREAR OFERTA -->
+        <form id="form-create-offer" class="form mb-3 d-none" data-type="create">
+          <div class="row">
+            <section class="flex-1">
+              <label>Nombre de la Oferta *</label>
+              <input type="text" name="nombre" placeholder="Ej: Black Friday" required>
+            </section>
+            <section class="flex-1">
+              <label>Descuento (%) *</label>
+              <input type="number" step="0.01" name="descuento" placeholder="Ej: 15" min="0" max="100" required>
+            </section>
+            <section class="flex-1">
+              <label>Fecha Fin (Opcional)</label>
+              <input type="date" name="fechaFin">
+            </section>
+            <section class="flex-1">
+              <label>Estado *</label>
+              <select name="activa" required>
+                <option value="1" selected>Activa</option>
+                <option value="0">Inactiva</option>
+              </select>
+            </section>
+          </div>
+          <div class="row mt-3">
+            <section class="flex-1">
+              <label>Productos *</label>
+              <div class="d-flex gap-2 mb-2 align-center">
+                <input type="text" id="search-create-prod" placeholder="Buscar producto..." class="flex-1 px-3-py-1 border-base rounded-sm" style="max-width: 300px;">
+                <select id="select-create-prod" class="flex-2 px-3-py-1 border-base rounded-sm"></select>
+                <button type="button" class="btn primary px-3-py-1 fw-bold rounded-sm m-0" data-add-product>+</button>
+                <button type="button" class="btn secondary px-3-py-1 rounded-sm m-0" data-add-all title="Añadir todos los productos">Añadir todos</button>
+              </div>
+              <div id="container-create-prod" class="border-light rounded-sm p-2 bg-light min-h-80 max-h-150 overflow-y-auto">
+                <!-- Elementos añadidos aparecerán aquí -->
+                <p class="empty-prod text-muted text-md m-0">Añade productos usando el botón +</p>
+              </div>
+            </section>
+          </div>
+          <div class="row mt-4">
+            <button type="submit" class="btn pill green">Crear Oferta</button>
+            <button type="button" class="btn btn-gray" data-cancel>Cancelar</button>
+          </div>
+        </form>
+
+        <!-- FORMULARIO EDITAR OFERTA -->
+        <h3 id="edit-title" class="mt-5 d-none">Editar oferta</h3>
+        <form id="form-edit-offer" class="form mb-3 d-none" data-type="edit">
+          <input type="hidden" name="idOferta" id="edit-id-oferta">
+
+          <div class="row">
+            <section class="flex-1">
+              <label>Nombre Oferta *</label>
+              <input type="text" name="nombre" id="edit-nombre-oferta" required>
+            </section>
+            <section class="flex-1">
+              <label>Descuento (%) *</label>
+              <input type="number" step="0.01" name="descuento" id="edit-descuento-oferta" min="0" max="100" required>
+            </section>
+            <section class="flex-1">
+              <label>Fecha Fin (Opcional)</label>
+              <input type="date" name="fechaFin" id="edit-fechafin-oferta">
+            </section>
+            <section class="flex-1">
+              <label>Estado *</label>
+              <select name="activa" id="edit-activa-oferta" required>
+                <option value="1">Activa</option>
+                <option value="0">Inactiva</option>
+              </select>
+            </section>
+          </div>
+          <div class="row mt-3">
+            <section class="flex-1">
+              <label>Productos *</label>
+              <div class="d-flex gap-2 mb-2 align-center">
+                <input type="text" id="search-edit-prod" placeholder="Buscar producto..." class="flex-1 px-3-py-1 border-base rounded-sm" style="max-width: 300px;">
+                <select id="select-edit-prod" class="flex-2 px-3-py-1 border-base rounded-sm"></select>
+                <button type="button" class="btn primary px-3-py-1 fw-bold rounded-sm m-0" data-add-product>+</button>
+                <button type="button" class="btn secondary px-3-py-1 rounded-sm m-0" data-add-all title="Añadir todos los productos">Añadir todos</button>
+              </div>
+              <div id="container-edit-prod" class="border-light rounded-sm p-2 bg-light min-h-80 max-h-150 overflow-y-auto">
+                <!-- Elementos añadidos aparecerán aquí -->
+                <p class="empty-prod text-muted text-md m-0">Añade productos usando el botón +</p>
+              </div>
+            </section>
+          </div>
+          <div class="row mt-4">
+            <button type="submit" class="btn pill orange">Guardar cambios</button>
+            <button type="button" class="btn btn-gray" data-cancel>Cancelar</button>
+          </div>
+        </form>
+
+        <!-- LISTA DE OFERTAS -->
+        <section class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Descuento</th>
+                <th>Producto</th>
+                <th>Fecha Fin</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="offers-body">
+              <tr><td colspan="6" class="text-center">Cargando...</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <footer class="footer">© 2026 Flores Nuria · Administración de Ofertas</footer>
+      </section>
+    </main>
+  </section>
+</body>
+</html>

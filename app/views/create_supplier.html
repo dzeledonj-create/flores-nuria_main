@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Floristería - Panel</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="icon" href="../../assets/img/logo_fondo_blanco.jpg">
+  <script src="../../assets/js/core/api.js" defer></script>
+  <script src="../../assets/js/core/utils.js" defer></script>
+  <script src="../../assets/js/core/layout.js" defer></script>
+  <script src="../../assets/js/pages/create_supplier.js" defer></script>
+</head>
+<body>
+  <section class="app">
+    <div data-include="sidebar"></div>
+    <main class="main">
+      <div data-include="header"></div>
+      <section class="container">
+        <section class="toolbar d-flex gap-2 mb-3">
+          <a href="suppliers.html" class="btn secondary text-decoration-none d-flex align-center px-3">&laquo; Volver a Proveedores</a>
+        </section>
+
+        <h3 class="mt-5 mb-3">Crear Nuevo Proveedor</h3>
+        <div id="msg"></div>
+
+        <section class="form">
+          <form id="form-create-supplier">
+            <section class="row">
+              <section class="flex-2">
+                <label>Nombre del Proveedor *</label>
+                <input type="text" name="nombre" placeholder="Ej: Viveros el Sol" required>
+              </section>
+              <section class="flex-2">
+                <label>Dirección</label>
+                <input type="text" name="direccion" placeholder="Ej: Calle Principal 123">
+              </section>
+            </section>
+
+            <section class="row mt-4">
+              <section class="flex-1">
+                <label>Teléfono</label>
+                <input type="tel" name="telefono" placeholder="Ej: 600123456" pattern="[0-9]{9}" maxlength="9">
+              </section>
+              <section class="flex-1">
+                <label>Correo Electrónico</label>
+                <input type="email" name="correo" placeholder="Ej: proveedor@correo.com">
+              </section>
+            </section>
+
+            <section class="row mt-4">
+              <button type="submit" class="btn">Guardar Proveedor</button>
+            </section>
+          </form>
+        </section>
+
+        <footer class="footer">© 2026 Flores Nuria · Creación de proveedores</footer>
+      </section>
+    </main>
+  </section>
+</body>
+</html>

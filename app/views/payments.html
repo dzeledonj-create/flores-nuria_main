@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Floristería - Panel</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="icon" href="../../assets/img/logo_fondo_blanco.jpg">
+  <script src="../../assets/js/core/api.js" defer></script>
+  <script src="../../assets/js/core/utils.js" defer></script>
+  <script src="../../assets/js/core/layout.js" defer></script>
+  <script src="../../assets/js/pages/payments.js" defer></script>
+</head>
+<body>
+  <section class="app">
+    <div data-include="sidebar"></div>
+    <main class="main">
+      <div data-include="header"></div>
+      <section class="container">
+        <div id="msg"></div>
+        <section class="panel">
+          <h2>Cobros/pagos</h2>
+          <p>Esta es una página de ejemplo para la sección de cobros/pagos.
+            <a href="create_payment.html"><button type="button">Registrar venta</button></a><a href="create_tiket.html"><button type="button">Exportar Tickets</button></a>
+          </p>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nº venta</th>
+                <th>Fecha de venta</th>
+                <th>Total</th>
+                <th>Empleado</th>
+                <th>Cliente</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="sales-body">
+              <tr><td colspan="6" class="text-center">Cargando...</td></tr>
+            </tbody>
+          </table>
+        </section>
+        <footer class="footer">© 2026 Flores Nuria · Empleados</footer>
+      </section>
+    </main>
+  </section>
+</body>
+</html>
