@@ -1,0 +1,25 @@
+@use "sass:map";
+@use "../abstracts" as *;
+@use "../base/root" as root;
+
+// Comprobación en compilación: el tema oscuro debe tener las MISMAS claves que el claro.
+@each $key, $value in $theme-light {
+  @if not map.has-key($theme-dark, $key) {
+    @error "Falta el token \"#{$key}\" en $theme-dark";
+  }
+}
+
+// Variante oscura: misma estructura HTML, solo se redefinen los tokens.
+@mixin dark-tokens {
+  @include root.emit-colors($theme-dark);
+  @include root.emit-shadows($shadows-dark);
+  color-scheme: dark;
+}
+
+// 1) Elección explícita del usuario (botón de la topbar, guardado en localStorage)
+[data-theme="dark"] { @include dark-tokens; }
+
+// 2) Preferencia del sistema si el usuario no ha elegido
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { @include dark-tokens; }
+}

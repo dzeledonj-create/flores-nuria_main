@@ -1,0 +1,60 @@
+@use "../abstracts" as *;
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: space(2);
+  height: var(--control-regular);
+  padding: 0 space(4);
+  border: $border-width solid transparent;
+  border-radius: radius(md);
+  font-family: inherit;
+  @include type(b4);
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none; // también cuando es un <a class="btn">
+  cursor: pointer;
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition);
+  @include focus-ring;
+  svg { @include icon(16px); }
+
+  // Variantes: un solo mixin y solo tokens (también en tema oscuro, sin reglas extra)
+  &--primary     { @include button-variant(color(primary-strong), color(on-primary), color(primary-hover), color(primary-active)); }
+  &--secondary   { @include button-variant(color(surface), color(primary-strong), color(primary-subtle), color(primary-muted), color(border-control)); }
+  &--ghost       { @include button-variant(transparent, color(primary-strong), color(primary-subtle), color(primary-muted)); }
+  &--destructive { @include button-variant(color(error-strong), color(on-error), color(error-hover), color(error-active)); }
+  &--ghost-danger { @include button-variant(transparent, color(error-strong), color(error-subtle), color(error-subtle)); }
+
+  // Tamaños
+  &--sm { height: var(--control-small); padding: 0 space(3); @include type(c2); font-weight: 600; }
+  &--lg { @include type(s2); }
+  &--block { width: 100%; }
+
+  // Solo icono: cuadrado y con nombre accesible (aria-label) en el HTML
+  &--icon { width: var(--control-regular); padding: 0; }
+  &--icon.btn--sm { width: var(--control-small); }
+
+  &:disabled, &[aria-disabled="true"] {
+    background: color(surface-disabled); color: color(text-disabled);
+    border-color: transparent; cursor: not-allowed;
+  }
+  // Estado de carga: se mantiene el ancho y se anuncia con aria-busy
+  &[aria-busy="true"] { cursor: progress; opacity: .85; }
+}
+
+// Grupo de botones (estado del pedido, periodo de Informes)
+.btn-group {
+  display: inline-flex;
+  border: $border-width solid color(border-control);
+  border-radius: radius(md);
+  overflow: hidden;
+  &__item {
+    height: var(--control-small); padding: 0 space(3);
+    border: 0; border-right: $border-width solid color(border-control);
+    background: color(surface); color: color(text-secondary);
+    @include type(c2); cursor: pointer;
+    &:last-child { border-right: 0; }
+    &:hover { background: color(primary-subtle); }
+    @include focus-ring;
+    &:focus-visible { outline-offset: -2px; }
+    &[aria-pressed="true"] { background: color(primary-strong); color: color(on-primary); font-weight: 600; }
+  }
+}

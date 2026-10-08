@@ -1,0 +1,23 @@
+[
+  {
+    "ticket": 1,
+    "empleado": "Nuria",
+    "cliente": "Maria Menendez",
+    "fecha": "2026-05-21",
+    "total": 10.0
+  },
+  {
+    "ticket": 2,
+    "empleado": "Nuria",
+    "cliente": "Jose Maria Garcia",
+    "fecha": "2026-06-03",
+    "total": 24.5
+  },
+  {
+    "ticket": 3,
+    "empleado": "Nuria",
+    "cliente": "Maria Menendez",
+    "fecha": "2026-06-10",
+    "total": 7.26
+  }
+]

@@ -2,115 +2,139 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Floristería - Panel</title>
-  <link rel="stylesheet" href="../../public/css/styles.css">
-  <link rel="icon" href="../../public/img/logo_fondo_blanco.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proveedores · Flores Nuria</title>
+  <meta name="description" content="Proveedores de Flores Nuria: datos de contacto y gestión.">
+  <link rel="icon" href="../../public/img/favicon.png" type="image/png">
+  <link rel="preload" href="../../public/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../public/css/main.css">
 </head>
 <body>
-  <section class="app">
-    <aside class="sidebar">
-      <section class="logo">
-        <span class="brand"><img src="../../public/img/logo.png" alt="Flores Nuria"></span>
-      </section>
-      <nav class="nav" aria-label="navegación principal">
-        <h4>Navegación</h4>
-        <ul>
-          <li><a href="dashboard.html">Dashboard</a></li>
-          <li><a href="reports.html">Informes</a></li>
-          <li><a href="payments.html">Cobros/Pagos</a></li>
-          <!-- <li><a href="schedule.html">Agenda</a></li> -->
-          <li><a href="products.html">Productos</a></li>
-          <li><a href="offers.html">Ofertas</a></li>
-          <li><a href="orders.html">Pedidos</a></li>
-          <!-- <li><a href="customers.html">Clientes</a></li> -->
-          <li class="active"><a href="suppliers.html">Proveedores</a></li>
-          <!-- <li><a href="employees.html">Empleados</a></li> -->
-        </ul>
-      </nav>
-    </aside>
-    <main class="main">
-      <header class="header">
-        <section class="left">
-          <section class="logo">
-            <button class="menu-toggle" type="button">☰</button>
-          </section>
-          <nav class="breadcrumbs" aria-label="breadcrumb">
-            <ol><li>Dashboard</li><li>Proveedores</li></ol>
-          </nav>
-        </section>
-        <section class="right user-menu-container">
-          <button class="user-circle" type="button" aria-haspopup="true" aria-expanded="false">U</button>
-          <div class="user-dropdown" role="menu">
-            <div class="user-dropdown-info">
-              <strong>Usuario</strong>
-              <span class="user-dropdown-role">Personal</span>
-            </div>
-            <div class="dropdown-divider"></div>
-            <a href="login.html" role="menuitem"><span class="icon">🚪</span> Cerrar Sesión</a>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="app">
+    <nav class="sidebar" id="sidebar" aria-label="Principal" tabindex="-1">
+      <a class="sidebar__close" href="#main"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></svg>Cerrar menú</a>
+      <a class="sidebar__brand" href="dashboard.html">
+        <img class="sidebar__logo" src="../../public/img/logo.webp" alt="" width="40" height="40">
+        <span class="sidebar__text">Flores Nuria</span>
+      </a>
+      <p class="sidebar__label" id="nav-title">Navegación</p>
+      <ul class="sidebar__list" aria-labelledby="nav-title">
+        <li><a class="sidebar__link" href="dashboard.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="7" height="9" x="3" y="3" rx="1" /> <rect width="7" height="5" x="14" y="3" rx="1" /> <rect width="7" height="9" x="14" y="12" rx="1" /> <rect width="7" height="5" x="3" y="16" rx="1" /></svg><span class="sidebar__text">Dashboard</span></a></li>
+        <li><a class="sidebar__link" href="reports.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v16a2 2 0 0 0 2 2h16" /> <path d="M18 17V9" /> <path d="M13 17V5" /> <path d="M8 17v-3" /></svg><span class="sidebar__text">Informes</span></a></li>
+        <li><a class="sidebar__link" href="payments.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="14" x="2" y="5" rx="2" /> <line x1="2" x2="22" y1="10" y2="10" /> <path d="M6 14h2" /></svg><span class="sidebar__text">Cobros/Pagos</span></a></li>
+        <li><a class="sidebar__link" href="products.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /></svg><span class="sidebar__text">Productos</span></a></li>
+        <li><a class="sidebar__link" href="offers.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" /> <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" /></svg><span class="sidebar__text">Ofertas</span></a></li>
+        <li><a class="sidebar__link" href="orders.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /> <path d="M15 18H9" /> <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /> <circle cx="17" cy="18" r="2" /> <circle cx="7" cy="18" r="2" /></svg><span class="sidebar__text">Pedidos</span></a></li>
+        <li><a class="sidebar__link" href="suppliers.html" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 21V10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v11" /> <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 1.132-1.803l7.95-3.974a2 2 0 0 1 1.837 0l7.948 3.974A2 2 0 0 1 22 8z" /> <path d="M6 13h12" /> <path d="M6 17h12" /></svg><span class="sidebar__text">Proveedores</span></a></li>
+      </ul>
+    </nav>
+    <a class="nav-backdrop" href="#main" tabindex="-1" aria-hidden="true"></a>
+    <div class="app__main">
+      <header class="topbar">
+        <a class="btn btn--ghost btn--icon topbar__menu" href="#sidebar" aria-label="Abrir menú de navegación"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h16" /> <path d="M4 12h16" /> <path d="M4 19h16" /></svg></a>
+        <span class="topbar__brand">Flores Nuria</span>
+        <nav class="topbar__crumbs" aria-label="Migas de pan">
+          <ol class="breadcrumbs"><li><a href="dashboard.html">Dashboard</a></li><li><span aria-current="page">Proveedores</span></li></ol>
+        </nav>
+        <span class="topbar__spacer"></span>
+        <details class="user-menu">
+          <summary class="user-menu__trigger"><span class="avatar" aria-hidden="true">NU</span><span class="visually-hidden">Menú de usuario</span></summary>
+          <div class="menu user-menu__panel">
+            <p class="menu__info"><strong>Usuario</strong><span>Personal</span></p>
+            <hr class="menu__divider">
+            <a class="menu__item" href="login.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m16 17 5-5-5-5" /> <path d="M21 12H9" /> <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /></svg>Cerrar sesión</a>
           </div>
-        </section>
+        </details>
       </header>
-      <section class="container">
-        <section class="toolbar d-flex gap-2 mb-3">
-          <form id="search-form" class="d-flex gap-2 m-0">
-            <input type="text" name="search" placeholder="Buscar proveedor..." class="px-3-py-1 border-base rounded-sm outline-none">
-            <button type="submit" class="btn">Buscar</button>
+      <main class="app__content" id="main" tabindex="-1">
+        <header class="page-header">
+          <h1 class="page-header__title">Proveedores</h1>
+          <p class="page-header__desc">Datos de contacto de los proveedores de flores, plantas y accesorios.</p>
+        </header>
+        <div class="toolbar">
+          <form class="toolbar__form" role="search" action="suppliers.html" method="get">
+            <div class="field toolbar__search">
+              <label class="field__label" for="search-suppliers-table">Buscar</label>
+              <div class="input-wrap input-wrap--lead">
+                <svg class="input-wrap__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /></svg>
+                <input class="input" type="search" id="search-suppliers-table" name="q" placeholder="Nombre o correo…">
+              </div>
+            </div>
+            <button class="btn btn--secondary" type="submit">Buscar</button>
           </form>
-          <a href="suppliers.html" class="btn pill green text-decoration-none d-flex align-center px-3">Mostrar Todo</a>
-          <a href="create_supplier.html" class="btn secondary text-decoration-none d-flex align-center px-3">Nuevo proveedor</a>
-        </section>
-
-        <section class="table-wrap">
-          <table class="table">
+          <div class="toolbar__actions">
+            <a class="btn btn--secondary" href="suppliers.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></svg>Mostrar todo</a>
+            <a class="btn btn--primary" href="create_supplier.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14" /> <path d="M12 5v14" /></svg>Nuevo proveedor</a>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="table" id="suppliers-table">
+            <caption class="visually-hidden">Listado de proveedores</caption>
             <thead>
-              <tr><th>Nombre</th><th>Dirección</th><th>Teléfono</th><th>Correo</th><th></th></tr>
+              <tr><th scope="col">Nombre</th><th scope="col">Dirección</th><th scope="col">Teléfono</th><th scope="col">Correo</th><th scope="col" class="actions-col"><span class="visually-hidden">Acciones</span></th></tr>
             </thead>
-            <tbody id="suppliers-body">
-              <tr><td>Viveros el Sol</td><td>Calle Principal 123</td><td>600123456</td><td>ventas@viveroselsol.com</td><td class="actions"><button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
-              <tr><td>Flores del Valle</td><td>Avenida de la Huerta 45</td><td>611234567</td><td>pedidos@floresdelvalle.com</td><td class="actions"><button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
-              <tr><td>Cerámicas Ruiz</td><td>Polígono Industrial 8</td><td>622345678</td><td>info@ceramicasruiz.com</td><td class="actions"><button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
+            <tbody>
+              <tr><td data-label="Nombre" class="strong">Viveros el Sol</td><td data-label="Dirección">Calle Principal 123</td><td data-label="Teléfono"><a class="link" href="tel:+34600123456">600 123 456</a></td><td data-label="Correo"><a class="link" href="mailto:ventas@viveroselsol.com">ventas@viveroselsol.com</a></td><td data-label="Acciones"><div class="actions"><a class="btn btn--ghost btn--icon btn--sm" href="#edit-panel" aria-label="Editar Viveros el Sol"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /> <path d="m15 5 4 4" /></svg></a><a class="btn btn--ghost-danger btn--icon btn--sm" href="#confirm-delete" aria-label="Eliminar Viveros el Sol"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 11v6" /> <path d="M14 11v6" /> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /> <path d="M3 6h18" /> <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></a></div></td></tr>
+              <tr><td data-label="Nombre" class="strong">Flores del Valle</td><td data-label="Dirección">Avenida de la Huerta 45</td><td data-label="Teléfono"><a class="link" href="tel:+34611234567">611 234 567</a></td><td data-label="Correo"><a class="link" href="mailto:pedidos@floresdelvalle.com">pedidos@floresdelvalle.com</a></td><td data-label="Acciones"><div class="actions"><a class="btn btn--ghost btn--icon btn--sm" href="#edit-panel" aria-label="Editar Flores del Valle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /> <path d="m15 5 4 4" /></svg></a><a class="btn btn--ghost-danger btn--icon btn--sm" href="#confirm-delete" aria-label="Eliminar Flores del Valle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 11v6" /> <path d="M14 11v6" /> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /> <path d="M3 6h18" /> <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></a></div></td></tr>
+              <tr><td data-label="Nombre" class="strong">Cerámicas Ruiz</td><td data-label="Dirección">Polígono Industrial 8</td><td data-label="Teléfono"><a class="link" href="tel:+34622345678">622 345 678</a></td><td data-label="Correo"><a class="link" href="mailto:info@ceramicasruiz.com">info@ceramicasruiz.com</a></td><td data-label="Acciones"><div class="actions"><a class="btn btn--ghost btn--icon btn--sm" href="#edit-panel" aria-label="Editar Cerámicas Ruiz"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /> <path d="m15 5 4 4" /></svg></a><a class="btn btn--ghost-danger btn--icon btn--sm" href="#confirm-delete" aria-label="Eliminar Cerámicas Ruiz"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 11v6" /> <path d="M14 11v6" /> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /> <path d="M3 6h18" /> <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></a></div></td></tr>
             </tbody>
           </table>
-        </section>
-
-        <h3 id="edit-title" class="mt-5 d-none">Editar proveedor</h3>
-        <section class="form">
-          <form id="form-edit-supplier" class="d-none">
-            <input type="hidden" name="idProveedor" id="edit-id">
-
-            <section class="row">
-              <section class="flex-2">
-                <label>Nombre del Proveedor *</label>
-                <input type="text" name="nombre" id="edit-nombre" required>
-              </section>
-              <section class="flex-2">
-                <label>Dirección</label>
-                <input type="text" name="direccion" id="edit-direccion">
-              </section>
-            </section>
-
-            <section class="row mt-4">
-              <section class="flex-1">
-                <label>Teléfono</label>
-                <input type="tel" name="telefono" id="edit-telefono">
-              </section>
-              <section class="flex-1">
-                <label>Correo Electrónico</label>
-                <input type="email" name="correo" id="edit-correo">
-              </section>
-            </section>
-
-            <section class="row mt-4">
-              <button type="submit" class="btn pill orange">Guardar cambios</button>
-              <button type="button" class="btn secondary" data-close-edit>Cancelar</button>
-            </section>
+        </div>
+        <nav class="pagination" aria-label="Paginación de proveedores">
+          <p class="pagination__info">Mostrando 3 de 3 proveedores</p>
+          <div class="pagination__list">
+            <span class="pagination__item" aria-disabled="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6" /></svg><span>Anterior</span></span>
+            <a class="pagination__item" href="#main" aria-current="page"><span class="visually-hidden">Página </span>1</a>
+            <span class="pagination__item" aria-disabled="true"><span>Siguiente</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6" /></svg></span>
+          </div>
+        </nav>
+        <section class="card target-panel" id="edit-panel" aria-labelledby="edit-panel-title">
+          <header class="card__header"><h2 class="card__title" id="edit-panel-title">Editar proveedor</h2></header>
+          <form action="suppliers.html" method="get">
+            <p class="form-note">Los campos marcados con <span aria-hidden="true">*</span><span class="visually-hidden">asterisco</span> son obligatorios.</p>
+            <div class="form-grid">
+            <div class="field field--span-2">
+              <label class="field__label" for="edit-nombre">Nombre del proveedor<span class="field__req" aria-hidden="true">*</span></label>
+              <input id="edit-nombre" class="input" type="text" name="nombre" value="Viveros el Sol" required autocomplete="organization">
+              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Este campo es obligatorio.</p>
+            </div>
+            <div class="field field--span-2">
+              <label class="field__label" for="edit-direccion">Dirección</label>
+              <input id="edit-direccion" class="input" type="text" name="direccion" value="Calle Principal 123" autocomplete="address-line1">
+            </div>
+            <div class="field">
+              <label class="field__label" for="edit-telefono">Teléfono</label>
+              <input id="edit-telefono" aria-describedby="edit-telefono-help" class="input" type="tel" name="telefono" value="600123456" pattern="[0-9]{9}" maxlength="9" autocomplete="tel">
+              <p class="field__help" id="edit-telefono-help">9 cifras, sin espacios.</p>
+              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Deben ser 9 cifras, sin espacios.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="edit-correo">Correo electrónico</label>
+              <input id="edit-correo" class="input" type="email" name="correo" value="ventas@viveroselsol.com" autocomplete="email">
+              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Escribe un correo válido, por ejemplo nombre@dominio.es.</p>
+            </div>
+            </div>
+            <div class="form-actions">
+              <a class="btn btn--secondary" href="#main">Cancelar</a>
+              <button class="btn btn--primary" type="submit">Guardar cambios</button>
+            </div>
           </form>
         </section>
-
-        <footer class="footer">© 2026 Flores Nuria · Administración de proveedores</footer>
-      </section>
-    </main>
-  </section>
+      </main>
+      <footer class="app__footer">© 2026 Flores Nuria · Panel de administración</footer>
+    </div>
+  </div>
+  <div class="modal-target" id="confirm-delete">
+    <section class="modal modal--danger" role="dialog" aria-labelledby="confirm-title" aria-describedby="confirm-text">
+      <span class="modal__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 11v6" /> <path d="M14 11v6" /> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /> <path d="M3 6h18" /> <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></span>
+      <h2 class="modal__title" id="confirm-title">¿Eliminar proveedor?</h2>
+      <p class="modal__text" id="confirm-text">Se eliminará el registro seleccionado. Esta acción no se puede deshacer.</p>
+      <div class="modal__actions">
+        <a class="btn btn--secondary" href="#main">Cancelar</a>
+        <form action="suppliers.html" method="get"><button class="btn btn--destructive" type="submit">Eliminar</button></form>
+      </div>
+    </section>
+  </div>
 </body>
 </html>

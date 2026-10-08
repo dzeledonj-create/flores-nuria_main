@@ -1,26 +1,21 @@
-<aside class="sidebar">
-  <section class="logo">
-    <span class="brand"><img src="../../assets/img/logo.png" alt="Flores Nuria"></span>
-  </section>
-  <nav class="nav" aria-label="navegación principal">
-    <h4>Navegación</h4>
-    <ul>
-      <li data-page="dashboard"><a href="dashboard.html">Dashboard</a></li>
-      <li data-page="reports"><a href="reports.html">Informes</a></li>
-      <li data-page="payments"><a href="payments.html">Cobros/Pagos</a></li>
-      <!-- <li data-page="schedule"><a href="schedule.html">Agenda</a></li> -->
-      <li data-page="products"><a href="products.html">Productos</a></li>
-      <li data-page="offers"><a href="offers.html">Ofertas</a></li>
-      <li data-page="orders"><a href="orders.html">Pedidos</a></li>
-      <!-- <li data-page="customers"><a href="customers.html">Clientes</a></li> -->
-      <li data-page="suppliers"><a href="suppliers.html">Proveedores</a></li>
-      <!-- <li data-page="employees"><a href="employees.html">Empleados</a></li> -->
-    </ul>
-    <!-- <h4>Ventas</h4>
-    <ul>
-      <li data-page="invoices"><a href="invoices.html">Facturas emitidas</a></li>
-      <li data-page="deliveries"><a href="deliveries.html">Albaranes emitidos</a></li>
-      <li data-page="budgets"><a href="budgets.html">Presupuestos emitidos</a></li>
-    </ul> -->
-  </nav>
-</aside>
+<!-- PLANTILLA: barra lateral común. Se copia en cada vista y se marca la opción activa con aria-current="page"
+     (o aria-current="true" en las subpantallas, p. ej. "Nuevo producto" marca Productos).
+     En móvil se abre con el enlace a #sidebar (pseudoclase :target). -->
+<nav class="sidebar" id="sidebar" aria-label="Principal" tabindex="-1">
+      <a class="sidebar__close" href="#main"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></svg>Cerrar menú</a>
+      <a class="sidebar__brand" href="dashboard.html">
+        <img class="sidebar__logo" src="../../public/img/logo.webp" alt="" width="40" height="40">
+        <span class="sidebar__text">Flores Nuria</span>
+      </a>
+      <p class="sidebar__label" id="nav-title">Navegación</p>
+      <ul class="sidebar__list" aria-labelledby="nav-title">
+        <li><a class="sidebar__link" href="dashboard.html" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="7" height="9" x="3" y="3" rx="1" /> <rect width="7" height="5" x="14" y="3" rx="1" /> <rect width="7" height="9" x="14" y="12" rx="1" /> <rect width="7" height="5" x="3" y="16" rx="1" /></svg><span class="sidebar__text">Dashboard</span></a></li>
+        <li><a class="sidebar__link" href="reports.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v16a2 2 0 0 0 2 2h16" /> <path d="M18 17V9" /> <path d="M13 17V5" /> <path d="M8 17v-3" /></svg><span class="sidebar__text">Informes</span></a></li>
+        <li><a class="sidebar__link" href="payments.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="14" x="2" y="5" rx="2" /> <line x1="2" x2="22" y1="10" y2="10" /> <path d="M6 14h2" /></svg><span class="sidebar__text">Cobros/Pagos</span></a></li>
+        <li><a class="sidebar__link" href="products.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /></svg><span class="sidebar__text">Productos</span></a></li>
+        <li><a class="sidebar__link" href="offers.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" /> <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" /></svg><span class="sidebar__text">Ofertas</span></a></li>
+        <li><a class="sidebar__link" href="orders.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /> <path d="M15 18H9" /> <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /> <circle cx="17" cy="18" r="2" /> <circle cx="7" cy="18" r="2" /></svg><span class="sidebar__text">Pedidos</span></a></li>
+        <li><a class="sidebar__link" href="suppliers.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 21V10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v11" /> <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 1.132-1.803l7.95-3.974a2 2 0 0 1 1.837 0l7.948 3.974A2 2 0 0 1 22 8z" /> <path d="M6 13h12" /> <path d="M6 17h12" /></svg><span class="sidebar__text">Proveedores</span></a></li>
+      </ul>
+    </nav>
+    <a class="nav-backdrop" href="#main" tabindex="-1" aria-hidden="true"></a>

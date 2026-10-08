@@ -1,0 +1,27 @@
+@use "sass:map";
+@use "../abstracts" as *;
+
+// Emite los tokens como custom properties: :root { --color-primary: ...; }
+@mixin emit-colors($theme) {
+  @each $name, $value in $theme { --color-#{$name}: #{$value}; }
+}
+@mixin emit-shadows($map) {
+  @each $name, $value in $map { --shadow-#{$name}: #{$value}; }
+}
+
+:root {
+  @include emit-colors($theme-light);
+  color-scheme: light;
+
+  --font-family: #{$font-family};
+  @each $step in $space-steps { --space-#{$step}: #{space($step)}; }
+  @each $name, $value in $radius { --radius-#{$name}: #{$value}; }
+  @include emit-shadows($shadows);
+  @each $name, $value in $control-height { --control-#{$name}: #{$value}; }
+  --transition: #{$transition};
+}
+
+// Inter autoalojada (RGPD + sin dependencias externas). Solo el subconjunto latino.
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/inter-latin-600-normal.woff2") format("woff2"); }

@@ -2,30 +2,37 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Iniciar Sesión - Flores Nuria</title>
-  <link rel="stylesheet" href="../../public/css/styles.css">
-  <link rel="icon" href="../../public/img/logo_fondo_blanco.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iniciar sesión · Flores Nuria</title>
+  <meta name="description" content="Acceso al panel de gestión interna de la floristería Flores Nuria.">
+  <link rel="icon" href="../../public/img/favicon.png" type="image/png">
+  <link rel="preload" href="../../public/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../public/css/main.css">
 </head>
 <body>
-  <section class="login-wrapper">
-    <article class="login-card">
-      <img src="../../public/img/logo.png" alt="Flores Nuria Logo" class="login-logo">
-      <h1 class="login-title">Flores Nuria</h1>
-      <p class="login-subtitle">Gestión de Administración</p>
-
-      <form action="dashboard.html" method="get" class="login-form">
-        <div class="form-group">
-          <label for="correo">Correo Electrónico</label>
-          <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required autocomplete="email">
-        </div>
-        <div class="form-group">
-          <label for="password">Contraseña</label>
-          <input type="password" id="password" name="password" placeholder="••••••••" required autocomplete="current-password">
-        </div>
-        <button type="submit" class="login-btn">Iniciar Sesión</button>
+  <main class="login" id="main">
+    <section class="login__card" aria-labelledby="login-title">
+      <header class="login__head">
+        <img class="login__logo" src="../../public/img/logo.webp" alt="" width="72" height="72">
+        <h1 class="login__title" id="login-title">Flores Nuria</h1>
+        <p class="login__subtitle">Gestión de administración</p>
+      </header>
+      <form class="login__form" action="dashboard.html" method="get">
+            <div class="field">
+              <label class="field__label" for="correo">Correo electrónico</label>
+              <input id="correo" class="input" type="email" name="correo" placeholder="correo@ejemplo.com" required autocomplete="email">
+              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Escribe un correo válido, por ejemplo nombre@dominio.es.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="password">Contraseña</label>
+              <input id="password" aria-describedby="password-help" class="input" type="password" name="password" required autocomplete="current-password">
+              <p class="field__help" id="password-help">¿La has olvidado? Pide a la administración que la restablezca.</p>
+              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Este campo es obligatorio.</p>
+            </div>
+        <button class="btn btn--primary btn--lg btn--block" type="submit">Iniciar sesión</button>
       </form>
-    </article>
-  </section>
+    </section>
+    <footer class="login__footer">© 2026 Flores Nuria</footer>
+  </main>
 </body>
 </html>

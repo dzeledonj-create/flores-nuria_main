@@ -1,0 +1,21 @@
+@use "sass:map";
+@use "sass:list";
+@use "../abstracts" as *;
+
+// Una clase por estilo del Design System: .t-h3, .t-b3, .t-label...
+// El nivel semántico (h1, h2…) lo decide el HTML; el aspecto, la clase.
+@each $style, $v in $type-scale {
+  .t-#{$style} { @include type($style); }
+}
+@include below(tablet) {
+  @each $style, $v in $type-scale-mobile {
+    .t-#{$style} { font-size: rem(list.nth($v, 1)); line-height: list.nth($v, 2); }
+  }
+}
+.text-secondary { color: color(text-secondary); }
+.text-muted { color: color(text-muted); }
+.text-label { color: color(label); }
+
+// Herencia: los títulos heredan el color del contenedor y solo fijan peso
+h1, h2, h3, h4, h5 { font-weight: 600; color: inherit; }
+strong, b { font-weight: 600; }

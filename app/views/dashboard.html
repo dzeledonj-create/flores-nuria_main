@@ -2,89 +2,114 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Floristería - Panel</title>
-  <link rel="stylesheet" href="../../public/css/styles.css">
-  <link rel="icon" href="../../public/img/logo_fondo_blanco.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · Flores Nuria</title>
+  <meta name="description" content="Resumen del mes: ingresos, gastos, beneficios y facturas pendientes de Flores Nuria.">
+  <link rel="icon" href="../../public/img/favicon.png" type="image/png">
+  <link rel="preload" href="../../public/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../public/css/main.css">
 </head>
 <body>
-  <section class="app">
-    <aside class="sidebar">
-      <section class="logo">
-        <span class="brand"><img src="../../public/img/logo.png" alt="Flores Nuria"></span>
-      </section>
-      <nav class="nav" aria-label="navegación principal">
-        <h4>Navegación</h4>
-        <ul>
-          <li class="active"><a href="dashboard.html">Dashboard</a></li>
-          <li><a href="reports.html">Informes</a></li>
-          <li><a href="payments.html">Cobros/Pagos</a></li>
-          <!-- <li><a href="schedule.html">Agenda</a></li> -->
-          <li><a href="products.html">Productos</a></li>
-          <li><a href="offers.html">Ofertas</a></li>
-          <li><a href="orders.html">Pedidos</a></li>
-          <!-- <li><a href="customers.html">Clientes</a></li> -->
-          <li><a href="suppliers.html">Proveedores</a></li>
-          <!-- <li><a href="employees.html">Empleados</a></li> -->
-        </ul>
-      </nav>
-    </aside>
-    <main class="main">
-      <header class="header">
-        <section class="left">
-          <section class="logo">
-            <button class="menu-toggle" type="button">☰</button>
-          </section>
-          <nav class="breadcrumbs" aria-label="breadcrumb">
-            <ol><li>Dashboard</li></ol>
-          </nav>
-        </section>
-        <section class="right user-menu-container">
-          <button class="user-circle" type="button" aria-haspopup="true" aria-expanded="false">U</button>
-          <div class="user-dropdown" role="menu">
-            <div class="user-dropdown-info">
-              <strong>Usuario</strong>
-              <span class="user-dropdown-role">Personal</span>
-            </div>
-            <div class="dropdown-divider"></div>
-            <a href="login.html" role="menuitem"><span class="icon">🚪</span> Cerrar Sesión</a>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="app">
+    <nav class="sidebar" id="sidebar" aria-label="Principal" tabindex="-1">
+      <a class="sidebar__close" href="#main"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></svg>Cerrar menú</a>
+      <a class="sidebar__brand" href="dashboard.html">
+        <img class="sidebar__logo" src="../../public/img/logo.webp" alt="" width="40" height="40">
+        <span class="sidebar__text">Flores Nuria</span>
+      </a>
+      <p class="sidebar__label" id="nav-title">Navegación</p>
+      <ul class="sidebar__list" aria-labelledby="nav-title">
+        <li><a class="sidebar__link" href="dashboard.html" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="7" height="9" x="3" y="3" rx="1" /> <rect width="7" height="5" x="14" y="3" rx="1" /> <rect width="7" height="9" x="14" y="12" rx="1" /> <rect width="7" height="5" x="3" y="16" rx="1" /></svg><span class="sidebar__text">Dashboard</span></a></li>
+        <li><a class="sidebar__link" href="reports.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v16a2 2 0 0 0 2 2h16" /> <path d="M18 17V9" /> <path d="M13 17V5" /> <path d="M8 17v-3" /></svg><span class="sidebar__text">Informes</span></a></li>
+        <li><a class="sidebar__link" href="payments.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="14" x="2" y="5" rx="2" /> <line x1="2" x2="22" y1="10" y2="10" /> <path d="M6 14h2" /></svg><span class="sidebar__text">Cobros/Pagos</span></a></li>
+        <li><a class="sidebar__link" href="products.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /></svg><span class="sidebar__text">Productos</span></a></li>
+        <li><a class="sidebar__link" href="offers.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" /> <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" /></svg><span class="sidebar__text">Ofertas</span></a></li>
+        <li><a class="sidebar__link" href="orders.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /> <path d="M15 18H9" /> <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /> <circle cx="17" cy="18" r="2" /> <circle cx="7" cy="18" r="2" /></svg><span class="sidebar__text">Pedidos</span></a></li>
+        <li><a class="sidebar__link" href="suppliers.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 21V10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v11" /> <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 1.132-1.803l7.95-3.974a2 2 0 0 1 1.837 0l7.948 3.974A2 2 0 0 1 22 8z" /> <path d="M6 13h12" /> <path d="M6 17h12" /></svg><span class="sidebar__text">Proveedores</span></a></li>
+      </ul>
+    </nav>
+    <a class="nav-backdrop" href="#main" tabindex="-1" aria-hidden="true"></a>
+    <div class="app__main">
+      <header class="topbar">
+        <a class="btn btn--ghost btn--icon topbar__menu" href="#sidebar" aria-label="Abrir menú de navegación"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h16" /> <path d="M4 12h16" /> <path d="M4 19h16" /></svg></a>
+        <span class="topbar__brand">Flores Nuria</span>
+        <nav class="topbar__crumbs" aria-label="Migas de pan">
+          <ol class="breadcrumbs"><li><span aria-current="page">Dashboard</span></li></ol>
+        </nav>
+        <span class="topbar__spacer"></span>
+        <details class="user-menu">
+          <summary class="user-menu__trigger"><span class="avatar" aria-hidden="true">NU</span><span class="visually-hidden">Menú de usuario</span></summary>
+          <div class="menu user-menu__panel">
+            <p class="menu__info"><strong>Usuario</strong><span>Personal</span></p>
+            <hr class="menu__divider">
+            <a class="menu__item" href="login.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m16 17 5-5-5-5" /> <path d="M21 12H9" /> <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /></svg>Cerrar sesión</a>
           </div>
-        </section>
+        </details>
       </header>
-      <section class="container">
-        <section class="cards">
-          <article class="card">
-            <p class="title">Ingresos</p>
-            <p class="value">18.677,30 €</p>
+      <main class="app__content" id="main" tabindex="-1">
+        <header class="page-header">
+          <h1 class="page-header__title">Dashboard</h1>
+          <p class="page-header__desc">Cómo va el mes de un vistazo: indicadores clave y facturas pendientes.</p>
+        </header>
+        <section class="kpi-grid" aria-label="Indicadores del mes">
+          <article class="kpi kpi--positive">
+            <h2 class="kpi__label">Ingresos</h2>
+            <p class="kpi__value">18.677,30 €</p>
+            <p class="kpi__trend"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 7h6v6" /> <path d="m22 7-8.5 8.5-5-5L2 17" /></svg>Facturado este mes</p>
           </article>
-          <article class="card">
-            <p class="title">Gastos</p>
-            <p class="value">16.571,30 €</p>
+          <article class="kpi kpi--negative">
+            <h2 class="kpi__label">Gastos</h2>
+            <p class="kpi__value">16.571,30 €</p>
+            <p class="kpi__trend"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 17h6v-6" /> <path d="m22 17-8.5-8.5-5 5L2 7" /></svg>Compras y gastos del mes</p>
           </article>
-          <article class="card">
-            <p class="title">Beneficios</p>
-            <p class="value">2.106,00 €</p>
+          <article class="kpi kpi--positive">
+            <h2 class="kpi__label">Beneficios</h2>
+            <p class="kpi__value">2.106,00 €</p>
+            <p class="kpi__trend"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 7h6v6" /> <path d="m22 7-8.5 8.5-5-5L2 17" /></svg>Ingresos − gastos</p>
           </article>
-          <article class="card">
-            <p class="title">Pte. Cobros - Pagos</p>
-            <p class="value">-3.770,81 €</p>
-          </article>
-        </section>
-
-        <section class="panels">
-          <article class="panel">
-            <h3>Facturas emitidas - Pendientes de cobro</h3>
-            <article class="list-item"><span class="muted">3/2020</span><span>Maria Menendez</span><span class="ml-auto">1.990,69 €</span></article>
-            <article class="list-item"><span class="muted">2/2020</span><span>Jose Maria Garcia</span><span class="ml-auto">1.197,90 €</span></article>
-          </article>
-          <article class="panel">
-            <h3>Facturas recibidas - Pendientes de pago</h3>
-            <article class="list-item"><span class="muted">34/398</span><span>Novelier</span><span class="ml-auto">2.406,40 €</span></article>
+          <article class="kpi kpi--negative">
+            <h2 class="kpi__label">Pte. cobros − pagos</h2>
+            <p class="kpi__value">-3.770,81 €</p>
+            <p class="kpi__trend"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /> <path d="M12 9v4" /> <path d="M12 17h.01" /></svg>Saldo pendiente</p>
           </article>
         </section>
-        <footer class="footer">© 2026 Flores Nuria · Panel administrativo</footer>
-      </section>
-    </main>
-  </section>
+        <div class="split">
+          <section class="card" aria-labelledby="emit-title">
+            <header class="card__header">
+              <h2 class="card__title" id="emit-title">Facturas emitidas · pendientes de cobro</h2>
+              <span class="badge badge--warning">2 pendientes</span>
+            </header>
+            <div class="table-wrap">
+              <table class="table table--compact" id="emitidas">
+                <caption class="visually-hidden">Facturas emitidas pendientes de cobro</caption>
+                <thead><tr><th scope="col">Nº factura</th><th scope="col">Cliente</th><th scope="col" class="num">Importe</th></tr></thead>
+                <tbody>
+                <tr><td data-label="Nº factura" class="strong">3/2020</td><td data-label="Cliente">Maria Menendez</td><td data-label="Importe" class="num">1.990,69 €</td></tr>
+                <tr><td data-label="Nº factura" class="strong">2/2020</td><td data-label="Cliente">Jose Maria Garcia</td><td data-label="Importe" class="num">1.197,90 €</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section class="card" aria-labelledby="recv-title">
+            <header class="card__header">
+              <h2 class="card__title" id="recv-title">Facturas recibidas · pendientes de pago</h2>
+              <span class="badge badge--error">1 pendiente</span>
+            </header>
+            <div class="table-wrap">
+              <table class="table table--compact" id="recibidas">
+                <caption class="visually-hidden">Facturas recibidas pendientes de pago</caption>
+                <thead><tr><th scope="col">Nº factura</th><th scope="col">Proveedor</th><th scope="col" class="num">Importe</th></tr></thead>
+                <tbody>
+                <tr><td data-label="Nº factura" class="strong">34/398</td><td data-label="Proveedor">Novelier</td><td data-label="Importe" class="num">2.406,40 €</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer class="app__footer">© 2026 Flores Nuria · Panel de administración</footer>
+    </div>
+  </div>
 </body>
 </html>

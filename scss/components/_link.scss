@@ -1,0 +1,24 @@
+@use "../abstracts" as *;
+.link {
+  display: inline-flex; align-items: center; gap: space(1);
+  color: color(primary-strong);
+  text-decoration: underline; text-underline-offset: 2px;
+  border-radius: radius(sm);
+  svg { @include icon(16px); }
+  // Orden LVHA (link, visited, hover, active): con la misma especificidad gana la última,
+  // así que :visited va ANTES que :hover para que un enlace visitado también reaccione al ratón.
+  &:visited { color: color(link-visited); }
+  &:hover { color: color(primary-hover); text-decoration-thickness: 2px; }
+  &:active { color: color(primary-active); }
+  @include focus-ring;
+  &[aria-disabled="true"] { color: color(text-disabled); pointer-events: none; text-decoration: none; }
+}
+
+// Enlace para saltar al contenido (WCAG 2.4.1): invisible hasta que recibe el foco
+.skip-link {
+  position: absolute; left: space(4); top: -100px; z-index: 100;
+  padding: space(2) space(4); border-radius: radius(md);
+  background: color(primary-strong); color: color(on-primary); font-weight: 600;
+  &:focus { top: space(4); }
+  @include focus-ring;
+}

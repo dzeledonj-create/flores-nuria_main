@@ -2,118 +2,99 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Floristería - Panel</title>
-  <link rel="stylesheet" href="../../public/css/styles.css">
-  <link rel="icon" href="../../public/img/logo_fondo_blanco.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Informes · Flores Nuria</title>
+  <meta name="description" content="Informes de Flores Nuria: pedidos por estado y productos vendidos frente a pedidos.">
+  <link rel="icon" href="../../public/img/favicon.png" type="image/png">
+  <link rel="preload" href="../../public/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../public/css/main.css">
 </head>
 <body>
-  <section class="app">
-    <aside class="sidebar">
-      <section class="logo">
-        <span class="brand"><img src="../../public/img/logo.png" alt="Flores Nuria"></span>
-      </section>
-      <nav class="nav" aria-label="navegación principal">
-        <h4>Navegación</h4>
-        <ul>
-          <li><a href="dashboard.html">Dashboard</a></li>
-          <li class="active"><a href="reports.html">Informes</a></li>
-          <li><a href="payments.html">Cobros/Pagos</a></li>
-          <!-- <li><a href="schedule.html">Agenda</a></li> -->
-          <li><a href="products.html">Productos</a></li>
-          <li><a href="offers.html">Ofertas</a></li>
-          <li><a href="orders.html">Pedidos</a></li>
-          <!-- <li><a href="customers.html">Clientes</a></li> -->
-          <li><a href="suppliers.html">Proveedores</a></li>
-          <!-- <li><a href="employees.html">Empleados</a></li> -->
-        </ul>
-      </nav>
-    </aside>
-    <main class="main">
-      <header class="header">
-        <section class="left">
-          <section class="logo">
-            <button class="menu-toggle" type="button">☰</button>
-          </section>
-          <nav class="breadcrumbs" aria-label="breadcrumb">
-            <ol><li>Dashboard</li><li>Informes</li></ol>
-          </nav>
-        </section>
-        <section class="right user-menu-container">
-          <button class="user-circle" type="button" aria-haspopup="true" aria-expanded="false">U</button>
-          <div class="user-dropdown" role="menu">
-            <div class="user-dropdown-info">
-              <strong>Usuario</strong>
-              <span class="user-dropdown-role">Personal</span>
-            </div>
-            <div class="dropdown-divider"></div>
-            <a href="login.html" role="menuitem"><span class="icon">🚪</span> Cerrar Sesión</a>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="app">
+    <nav class="sidebar" id="sidebar" aria-label="Principal" tabindex="-1">
+      <a class="sidebar__close" href="#main"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></svg>Cerrar menú</a>
+      <a class="sidebar__brand" href="dashboard.html">
+        <img class="sidebar__logo" src="../../public/img/logo.webp" alt="" width="40" height="40">
+        <span class="sidebar__text">Flores Nuria</span>
+      </a>
+      <p class="sidebar__label" id="nav-title">Navegación</p>
+      <ul class="sidebar__list" aria-labelledby="nav-title">
+        <li><a class="sidebar__link" href="dashboard.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="7" height="9" x="3" y="3" rx="1" /> <rect width="7" height="5" x="14" y="3" rx="1" /> <rect width="7" height="9" x="14" y="12" rx="1" /> <rect width="7" height="5" x="3" y="16" rx="1" /></svg><span class="sidebar__text">Dashboard</span></a></li>
+        <li><a class="sidebar__link" href="reports.html" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v16a2 2 0 0 0 2 2h16" /> <path d="M18 17V9" /> <path d="M13 17V5" /> <path d="M8 17v-3" /></svg><span class="sidebar__text">Informes</span></a></li>
+        <li><a class="sidebar__link" href="payments.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="14" x="2" y="5" rx="2" /> <line x1="2" x2="22" y1="10" y2="10" /> <path d="M6 14h2" /></svg><span class="sidebar__text">Cobros/Pagos</span></a></li>
+        <li><a class="sidebar__link" href="products.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /></svg><span class="sidebar__text">Productos</span></a></li>
+        <li><a class="sidebar__link" href="offers.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" /> <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" /></svg><span class="sidebar__text">Ofertas</span></a></li>
+        <li><a class="sidebar__link" href="orders.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /> <path d="M15 18H9" /> <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /> <circle cx="17" cy="18" r="2" /> <circle cx="7" cy="18" r="2" /></svg><span class="sidebar__text">Pedidos</span></a></li>
+        <li><a class="sidebar__link" href="suppliers.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 21V10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v11" /> <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 1.132-1.803l7.95-3.974a2 2 0 0 1 1.837 0l7.948 3.974A2 2 0 0 1 22 8z" /> <path d="M6 13h12" /> <path d="M6 17h12" /></svg><span class="sidebar__text">Proveedores</span></a></li>
+      </ul>
+    </nav>
+    <a class="nav-backdrop" href="#main" tabindex="-1" aria-hidden="true"></a>
+    <div class="app__main">
+      <header class="topbar">
+        <a class="btn btn--ghost btn--icon topbar__menu" href="#sidebar" aria-label="Abrir menú de navegación"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h16" /> <path d="M4 12h16" /> <path d="M4 19h16" /></svg></a>
+        <span class="topbar__brand">Flores Nuria</span>
+        <nav class="topbar__crumbs" aria-label="Migas de pan">
+          <ol class="breadcrumbs"><li><a href="dashboard.html">Dashboard</a></li><li><span aria-current="page">Informes</span></li></ol>
+        </nav>
+        <span class="topbar__spacer"></span>
+        <details class="user-menu">
+          <summary class="user-menu__trigger"><span class="avatar" aria-hidden="true">NU</span><span class="visually-hidden">Menú de usuario</span></summary>
+          <div class="menu user-menu__panel">
+            <p class="menu__info"><strong>Usuario</strong><span>Personal</span></p>
+            <hr class="menu__divider">
+            <a class="menu__item" href="login.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m16 17 5-5-5-5" /> <path d="M21 12H9" /> <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /></svg>Cerrar sesión</a>
           </div>
-        </section>
+        </details>
       </header>
-      <section class="container">
-        <section class="panel">
-          <h2>Reportes Analíticos</h2>
-          <p>Gráficos de ejemplo con los datos de tickets, pedidos y bolsas de compra.</p>
+      <main class="app__content" id="main" tabindex="-1">
+        <header class="page-header">
+          <h1 class="page-header__title">Informes</h1>
+          <p class="page-header__desc">Gráficos con los datos de tickets y pedidos. Cada gráfico tiene su tabla de datos.</p>
+        </header>
+        <section class="kpi-grid" aria-label="Resumen de pedidos">
+          <article class="kpi kpi--neutral"><h2 class="kpi__label">Pedidos totales</h2><p class="kpi__value">12</p></article>
+          <article class="kpi kpi--positive"><h2 class="kpi__label">Recibidos</h2><p class="kpi__value">7</p></article>
+          <article class="kpi kpi--neutral"><h2 class="kpi__label">Pendientes</h2><p class="kpi__value">4</p></article>
+          <article class="kpi kpi--negative"><h2 class="kpi__label">Cancelados</h2><p class="kpi__value">1</p></article>
         </section>
-
-        <section class="charts-grid">
-          <!-- <article class="panel chart-panel">
-            <h3>Ventas por mes</h3>
-            <div id="sales-line-chart" class="chart-canvas"></div>
-          </article> -->
-          <article class="panel chart-panel">
-            <h3>Pedidos por estado</h3>
-            <div id="orders-bar-chart" class="chart-canvas">
-            <svg viewBox="0 0 420 320" width="100%" height="320" role="img" aria-label="Pedidos por estado">
-              <g font-size="11" fill="#555" text-anchor="end">
-                <text x="42" y="264">0</text><text x="42" y="204">2</text><text x="42" y="144">4</text><text x="42" y="84">6</text><text x="42" y="24">8</text>
-              </g>
-              <line x1="50" y1="20" x2="50" y2="260" stroke="#999"/>
-              <line x1="50" y1="260" x2="400" y2="260" stroke="#999"/>
-              <rect x="80" y="140" width="70" height="120" fill="#ff9800"/>
-              <rect x="190" y="50" width="70" height="210" fill="#ff9800"/>
-              <rect x="300" y="230" width="70" height="30" fill="#ff9800"/>
-              <g font-size="12" fill="#333" text-anchor="middle">
-                <text x="115" y="280">Pendiente</text><text x="225" y="280">Recibido</text><text x="335" y="280">Cancelado</text>
-              </g>
-            </svg>
-            </div>
-          </article>
-          <article class="panel chart-panel chart-wide">
-            <h3>Productos vendidos vs pedidos</h3>
-            <div id="product-grouped-chart" class="chart-canvas">
-            <svg viewBox="0 0 800 320" width="100%" height="320" role="img" aria-label="Productos vendidos vs pedidos">
-              <g font-size="11" fill="#555" text-anchor="end">
-                <text x="52" y="274">0</text><text x="52" y="214">20</text><text x="52" y="154">40</text><text x="52" y="94">60</text><text x="52" y="34">80</text>
-              </g>
-              <line x1="60" y1="30" x2="60" y2="270" stroke="#999"/>
-              <line x1="60" y1="270" x2="780" y2="270" stroke="#999"/>
-              <rect x="82" y="150" width="50" height="120" fill="#1976d2"/>
-              <rect x="134" y="90" width="50" height="180" fill="#d32f2f"/>
-              <text x="133" y="290" font-size="12" fill="#333" text-anchor="middle">Rosa roja</text>
-              <rect x="226" y="195" width="50" height="75" fill="#1976d2"/>
-              <rect x="278" y="120" width="50" height="150" fill="#d32f2f"/>
-              <text x="277" y="290" font-size="12" fill="#333" text-anchor="middle">Tulipán amarillo</text>
-              <rect x="370" y="246" width="50" height="24" fill="#1976d2"/>
-              <rect x="422" y="240" width="50" height="30" fill="#d32f2f"/>
-              <text x="421" y="290" font-size="12" fill="#333" text-anchor="middle">Orquídea blanca</text>
-              <rect x="514" y="255" width="50" height="15" fill="#1976d2"/>
-              <rect x="566" y="234" width="50" height="36" fill="#d32f2f"/>
-              <text x="565" y="290" font-size="12" fill="#333" text-anchor="middle">Maceta de cerámica</text>
-              <rect x="658" y="225" width="50" height="45" fill="#1976d2"/>
-              <rect x="710" y="210" width="50" height="60" fill="#d32f2f"/>
-              <text x="709" y="290" font-size="12" fill="#333" text-anchor="middle">Girasol</text>
-              <rect x="60" y="4" width="14" height="14" fill="#1976d2"/><text x="80" y="16" font-size="13" fill="#333">Ventas</text>
-              <rect x="200" y="4" width="14" height="14" fill="#d32f2f"/><text x="220" y="16" font-size="13" fill="#333">Pedidos</text>
-            </svg>
-            </div>
-          </article>
-        </section>
-
-        <footer class="footer">© 2026 Flores Nuria · Reportes</footer>
-      </section>
-    </main>
-  </section>
+        <div class="split">
+          <section class="card chart" aria-labelledby="chart-orders-title">
+            <h2 class="card__title" id="chart-orders-title">Pedidos por estado</h2>
+            <figure class="stack">
+              <svg class="chart__svg" viewBox="0 0 480 300" role="img" aria-labelledby="chart-orders-title chart-orders-desc"><desc id="chart-orders-desc">Pendiente: pedidos 4, Recibido: pedidos 7, Cancelado: pedidos 1.</desc><line class="chart__axis" x1="44" y1="260" x2="472" y2="260"/><text class="chart__tick" x="36" y="264" text-anchor="end">0</text><line class="chart__axis" x1="44" y1="199" x2="472" y2="199" stroke-dasharray="2 4"/><text class="chart__tick" x="36" y="203" text-anchor="end">2</text><line class="chart__axis" x1="44" y1="138" x2="472" y2="138" stroke-dasharray="2 4"/><text class="chart__tick" x="36" y="142" text-anchor="end">4</text><line class="chart__axis" x1="44" y1="77" x2="472" y2="77" stroke-dasharray="2 4"/><text class="chart__tick" x="36" y="81" text-anchor="end">6</text><line class="chart__axis" x1="44" y1="16" x2="472" y2="16" stroke-dasharray="2 4"/><text class="chart__tick" x="36" y="20" text-anchor="end">8</text><rect class="chart__bar--1" x="90" y="138" width="44" height="122" rx="3"/><text class="chart__label" x="114" y="286" text-anchor="middle">Pendiente</text><rect class="chart__bar--1" x="230" y="46" width="44" height="214" rx="3"/><text class="chart__label" x="254" y="286" text-anchor="middle">Recibido</text><rect class="chart__bar--1" x="370" y="230" width="44" height="30" rx="3"/><text class="chart__label" x="394" y="286" text-anchor="middle">Cancelado</text></svg>
+              <figcaption><ul class="chart__legend"><li class="chart__key chart__key--1">Pedidos</li></ul></figcaption>
+            </figure>
+            <details class="chart__data">
+              <summary>Ver los datos en una tabla</summary>
+              <div class="table-wrap"><table class="table table--compact"><caption class="visually-hidden">Pedidos por estado</caption><thead><tr><th scope="col">Estado</th><th scope="col" class="num">Pedidos</th></tr></thead><tbody><tr><th scope="row">Pendiente</th><td data-label="Pedidos" class="num">4</td></tr><tr><th scope="row">Recibido</th><td data-label="Pedidos" class="num">7</td></tr><tr><th scope="row">Cancelado</th><td data-label="Pedidos" class="num">1</td></tr></tbody></table></div>
+            </details>
+          </section>
+          <section class="card" aria-labelledby="top-title">
+            <h2 class="card__title" id="top-title">Más vendidos</h2>
+            <ol class="ranking">
+              <li><span>Rosa roja</span><span class="badge badge--brand">40 uds.</span></li>
+              <li><span>Tulipán amarillo</span><span class="badge badge--brand">25 uds.</span></li>
+              <li><span>Girasol</span><span class="badge badge--brand">15 uds.</span></li>
+              <li><span>Orquídea blanca</span><span class="badge">8 uds.</span></li>
+              <li><span>Maceta de cerámica</span><span class="badge">5 uds.</span></li>
+            </ol>
+          </section>
+        </div>
+          <section class="card chart" aria-labelledby="chart-products-title">
+            <h2 class="card__title" id="chart-products-title">Productos vendidos frente a pedidos</h2>
+            <figure class="stack">
+              <svg class="chart__svg" viewBox="0 0 800 300" role="img" aria-labelledby="chart-products-title chart-products-desc"><desc id="chart-products-desc">Rosa roja: vendidos 40, pedidos 60, Tulipán amarillo: vendidos 25, pedidos 50, Orquídea blanca: vendidos 8, pedidos 10, Maceta de cerámica: vendidos 5, pedidos 12, Girasol: vendidos 15, pedidos 20.</desc><line class="chart__axis" x1="44" y1="260" x2="792" y2="260"/><text class="chart__tick" x="36" y="264" text-anchor="end">0</text><line class="chart__axis" x1="44" y1="199" x2="792" y2="199" stroke-dasharray="2 4"/><text class="chart__tick" x="36" y="203" text-anchor="end">20</text><line class="chart__axis" x1="44" y1="138" x2="792" y2="138" stroke-dasharray="2 4"/><text class="chart__tick" x="36" y="142" text-anchor="end">40</text><line class="chart__axis" x1="44" y1="77" x2="792" y2="77" stroke-dasharray="2 4"/><text class="chart__tick" x="36" y="81" text-anchor="end">60</text><line class="chart__axis" x1="44" y1="16" x2="792" y2="16" stroke-dasharray="2 4"/><text class="chart__tick" x="36" y="20" text-anchor="end">80</text><rect class="chart__bar--1" x="70" y="138" width="44" height="122" rx="3"/><rect class="chart__bar--2" x="118" y="77" width="44" height="183" rx="3"/><text class="chart__label" x="118" y="286" text-anchor="middle">Rosa roja</text><rect class="chart__bar--1" x="218" y="184" width="44" height="76" rx="3"/><rect class="chart__bar--2" x="266" y="108" width="44" height="152" rx="3"/><text class="chart__label" x="266" y="286" text-anchor="middle">Tulipán amarillo</text><rect class="chart__bar--1" x="366" y="236" width="44" height="24" rx="3"/><rect class="chart__bar--2" x="414" y="230" width="44" height="30" rx="3"/><text class="chart__label" x="414" y="286" text-anchor="middle">Orquídea blanca</text><rect class="chart__bar--1" x="514" y="245" width="44" height="15" rx="3"/><rect class="chart__bar--2" x="562" y="223" width="44" height="37" rx="3"/><text class="chart__label" x="562" y="286" text-anchor="middle">Maceta de cerámica</text><rect class="chart__bar--1" x="662" y="214" width="44" height="46" rx="3"/><rect class="chart__bar--2" x="710" y="199" width="44" height="61" rx="3"/><text class="chart__label" x="710" y="286" text-anchor="middle">Girasol</text></svg>
+              <figcaption><ul class="chart__legend"><li class="chart__key chart__key--1">Vendidos</li><li class="chart__key chart__key--2">Pedidos</li></ul></figcaption>
+            </figure>
+            <details class="chart__data">
+              <summary>Ver los datos en una tabla</summary>
+              <div class="table-wrap"><table class="table table--compact"><caption class="visually-hidden">Productos vendidos frente a pedidos</caption><thead><tr><th scope="col">Producto</th><th scope="col" class="num">Vendidos</th><th scope="col" class="num">Pedidos</th></tr></thead><tbody><tr><th scope="row">Rosa roja</th><td data-label="Vendidos" class="num">40</td><td data-label="Pedidos" class="num">60</td></tr><tr><th scope="row">Tulipán amarillo</th><td data-label="Vendidos" class="num">25</td><td data-label="Pedidos" class="num">50</td></tr><tr><th scope="row">Orquídea blanca</th><td data-label="Vendidos" class="num">8</td><td data-label="Pedidos" class="num">10</td></tr><tr><th scope="row">Maceta de cerámica</th><td data-label="Vendidos" class="num">5</td><td data-label="Pedidos" class="num">12</td></tr><tr><th scope="row">Girasol</th><td data-label="Vendidos" class="num">15</td><td data-label="Pedidos" class="num">20</td></tr></tbody></table></div>
+            </details>
+          </section>
+      </main>
+      <footer class="app__footer">© 2026 Flores Nuria · Panel de administración</footer>
+    </div>
+  </div>
 </body>
 </html>

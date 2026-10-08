@@ -1,0 +1,82 @@
+@use "../abstracts" as *;
+
+.sidebar {
+  background: color(sidebar); color: color(sidebar-text);
+  width: $sidebar-width; padding: space(4) space(3);
+  display: flex; flex-direction: column; gap: space(1);
+  &__brand {
+    display: flex; align-items: center; gap: space(3);
+    padding: space(2) space(2) space(6); color: color(sidebar-text-strong); text-decoration: none;
+    @include type(s2); border-radius: radius(md);
+    &:focus-visible { outline: $focus-width solid color(sidebar-focus); outline-offset: 2px; }
+  }
+  &__logo { width: 40px; height: 40px; border-radius: radius(md); background: color(logo-bg); padding: 2px; flex: none; }
+  &__label { @include type(c2); text-transform: uppercase; letter-spacing: .06em; color: color(sidebar-label); padding: 0 space(3) space(2); }
+  &__list { display: flex; flex-direction: column; gap: space(1); }
+  &__link {
+    display: flex; align-items: center; gap: space(3);
+    height: 40px; padding: 0 space(3); border-radius: radius(md);
+    color: color(sidebar-text); text-decoration: none; @include type(b3);
+    svg { @include icon(20px); }
+    &:hover { background: color(sidebar-hover); color: color(sidebar-text-strong); }
+    &:focus-visible { outline: $focus-width solid color(sidebar-focus); outline-offset: 2px; }
+    &[aria-current] { background: color(sidebar-active); color: color(sidebar-text-strong); font-weight: 600; }
+  }
+  // Colapsado: solo iconos; el texto sigue existiendo para lectores de pantalla
+  &--collapsed { width: $sidebar-collapsed; align-items: center; .sidebar__text { @include visually-hidden; } .sidebar__label { font-size: 0; height: 8px; padding: 0; } .sidebar__brand { padding: space(2) 0 space(6); } }
+}
+// --- Responsive (mobile-first) -------------------------------------------
+// Móvil: el sidebar es un panel lateral que se abre SOLO CON CSS.
+// El botón ☰ es un enlace a #sidebar; cuando la URL termina en #sidebar, :target lo muestra.
+.sidebar {
+  scroll-margin-top: 0;
+  &__close { display: none; }
+  @include below(tablet) {
+    position: fixed; inset: 0 auto 0 0; z-index: 50; width: min(280px, 85vw);
+    overflow-y: auto; box-shadow: shadow(600);
+    transform: translateX(-100%); visibility: hidden;
+    // al cerrar, visibility espera a que acabe el desplazamiento; al abrir cambia al instante
+    transition: transform var(--transition), visibility 0s linear 150ms;
+    &:target { transform: none; visibility: visible; transition-delay: 0s; }
+    &:focus { outline: none; }
+    &__close {
+      display: flex; align-items: center; gap: space(2); align-self: flex-end;
+      margin-bottom: space(2); padding: space(2) space(3); border-radius: radius(md);
+      color: color(sidebar-text); text-decoration: none; @include type(b4);
+      svg { @include icon(18px); }
+      &:hover { background: color(sidebar-hover); color: color(sidebar-text-strong); }
+      &:focus-visible { outline: $focus-width solid color(sidebar-focus); outline-offset: 2px; }
+    }
+  }
+}
+// Fondo oscurecido detrás del menú abierto (también es un enlace que lo cierra)
+.nav-backdrop {
+  display: none; position: fixed; inset: 0; z-index: 40; background: color(overlay);
+  @include below(tablet) { .sidebar:target + & { display: block; } }
+}
+
+@include respond(tablet) {
+  .sidebar { position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+}
+// Tablet: sidebar colapsado automáticamente (mismo HTML, solo cambia el CSS)
+@include respond(tablet) { @include below(desktop) {
+  .sidebar { width: $sidebar-collapsed; align-items: center;
+    .sidebar__text { @include visually-hidden; }
+    .sidebar__label { @include visually-hidden; }
+    .sidebar__brand { padding: space(2) 0 space(6); }
+    .sidebar__link { width: 44px; justify-content: center; padding: 0; }
+  }
+} }
+
+.topbar {
+  position: sticky; top: 0; z-index: 20;
+  height: 64px; display: flex; align-items: center; gap: space(3);
+  padding: 0 space(6); background: color(surface); border-bottom: $border-width solid color(border);
+  @include below(tablet) { padding: 0 space(4); }
+  &__spacer { flex: 1; }
+  &__menu { @include respond(tablet) { display: none; } } // botón ☰ solo en móvil
+  &__crumbs { min-width: 0; @include below(tablet) { display: none; } }
+  &__brand { display: none; @include below(tablet) { display: block; @include type(s2); } }
+}
+.avatar { width: 32px; height: 32px; border-radius: radius(full); background: color(primary-muted); color: color(primary-on-subtle); display: inline-grid; place-items: center; @include type(c2); font-weight: 600; }
+

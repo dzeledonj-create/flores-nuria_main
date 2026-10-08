@@ -1,0 +1,24 @@
+@use "../abstracts" as *;
+.alert {
+  display: flex; gap: space(3); align-items: flex-start;
+  padding: space(3) space(4);
+  border-radius: radius(md);
+  border: $border-width solid var(--tone);
+  border-left-width: 4px;
+  background: var(--tone-subtle); color: var(--tone-on-subtle);
+  @include type(b3);
+  @include tone(info); // tono por defecto
+  &--success { @include tone(success); }
+  &--info    { @include tone(info); }
+  &--warning { @include tone(warning); }
+  &--error   { @include tone(error); }
+  &__body { flex: 1; min-width: 0; }
+  &__title { font-weight: 600; }
+  &__icon { @include icon(18px); margin-top: 1px; color: var(--tone-strong); }
+  &__close {
+    margin-left: auto; background: none; border: 0; color: inherit; cursor: pointer;
+    border-radius: radius(sm); padding: 2px; display: grid; place-items: center;
+    svg { @include icon(16px); }
+    @include focus-ring;
+  }
+}

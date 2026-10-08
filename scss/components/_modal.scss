@@ -1,0 +1,44 @@
+@use "../abstracts" as *;
+
+// Pop-up que se abre con :target (enlace a #id) — solo HTML y CSS.
+// Oculto por defecto; cuando la URL apunta a su id se muestra con el fondo oscurecido.
+.modal-target {
+  display: none; position: fixed; inset: 0; z-index: 70;
+  place-items: center; padding: space(4); background: color(overlay);
+  &:target { display: grid; }
+}
+
+.modal-backdrop { position: fixed; inset: 0; background: color(overlay); display: grid; place-items: center; padding: space(4); }
+.modal {
+  width: min(440px, calc(100% - #{space(8)}));
+  background: color(surface);
+  border-radius: radius(xl);
+  box-shadow: shadow(700);
+  padding: space(8) space(6) space(6);
+  display: flex; flex-direction: column; gap: space(4);
+  border-top: 4px solid var(--tone, var(--color-primary));
+  &__icon { width: 40px; height: 40px; border-radius: radius(full); display: grid; place-items: center; background: var(--tone-subtle, var(--color-primary-subtle)); color: var(--tone-strong, var(--color-primary-strong)); svg { @include icon(20px); } }
+  &__title { @include type(s1); color: color(text); }
+  &__text { @include type(b3); color: color(text-secondary); }
+  &__actions { display: flex; gap: space(3); justify-content: flex-end; margin-top: space(2); flex-wrap: wrap; form { display: contents; } }
+  &--danger { @include tone(error); }
+  &--success { @include tone(success); }
+}
+// Lista de datos (detalle de una venta)
+.detail-list {
+  display: grid; grid-template-columns: max-content 1fr; gap: space(2) space(4); margin: 0;
+  dt { @include type(c2); color: color(label); text-transform: uppercase; letter-spacing: .04em; align-self: center; }
+  dd { margin: 0; @include type(b3); color: color(text); }
+}
+
+// Detalle desplegable dentro de una fila (<details> nativo)
+.row-details {
+  summary {
+    list-style: none; display: inline-flex; align-items: center; gap: space(1); cursor: pointer;
+    color: color(primary-strong); @include type(b4); border-radius: radius(sm);
+    &::-webkit-details-marker { display: none; }
+    svg { @include icon(16px); }
+    @include focus-ring;
+  }
+  .detail-list { margin-top: space(2); text-align: left; }
+}

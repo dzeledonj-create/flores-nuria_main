@@ -1,0 +1,227 @@
+// =====================================================================
+// TOKENS DEL DESIGN SYSTEM · Flores Nuria
+// Fuente única de verdad. Los valores salen de Figma (estilos y variables)
+// y se exponen al navegador como custom properties en base/_root.scss.
+// =====================================================================
+
+// --- Color · tema claro (tema por defecto) ---------------------------
+$theme-light: (
+  // Primario
+  "primary":            #0D9488, // marca: iconos, bordes, anillo de foco
+  "primary-strong":     #0F766E, // fondo de botón primario, enlaces (5,47:1)
+  "primary-hover":      #115E59,
+  "primary-active":     #134E4A,
+  "primary-subtle":     #F0FDFA,
+  "primary-muted":      #CCFBF1,
+  "on-primary":         #FFFFFF,
+
+  // Superficies
+  "bg":                 #F3F4F6, // fondo general
+  "surface":            #FFFFFF, // tarjetas, tablas, pop-ups
+  "surface-alt":        #F9FAFB, // filas alternas, cabecera de tabla
+  "surface-disabled":   #E5E7EB,
+  "sidebar":            #1F2937,
+  "sidebar-text":       #D1D5DB,
+  "sidebar-label":      #9CA3AF,
+  "sidebar-active":     #0F766E,
+
+  // Texto
+  "text":               #111827,
+  "text-secondary":     #374151,
+  "text-muted":         #4B5563, // texto secundario sobre fondo gris
+  "label":              #6B7280, // solo sobre blanco o surface-alt
+  "text-disabled":      #9CA3AF, // exento de contraste (WCAG 1.4.3)
+
+  // Bordes
+  "border-control":     #7B8494, // inputs, botón secundario (3,77:1)
+  "border":             #E5E7EB, // tarjetas
+  "divider":            #D1D5DB,
+
+  // Semánticos: base (borde/icono) · strong (relleno/texto) · subtle (fondo) · on-subtle (texto sobre subtle)
+  "success":            #16A34A,
+  "success-strong":     #15803D,
+  "success-subtle":     #DCFCE7,
+  "success-on-subtle":  #166534,
+  "error":              #DC2626,
+  "error-strong":       #B91C1C,
+  "error-subtle":       #FEE2E2,
+  "error-on-subtle":    #991B1B,
+  "warning":            #D97706,
+  "warning-strong":     #B45309,
+  "warning-subtle":     #FEF3C7,
+  "warning-on-subtle":  #92400E,
+  "info":               #3B82F6,
+  "info-strong":        #1D4ED8,
+  "info-subtle":        #DBEAFE,
+  "info-on-subtle":     #1E40AF,
+
+  "focus":              #0D9488,
+  "overlay":            rgba(17, 24, 39, 0.55),
+
+  // Añadidos en el H3: sustituyen colores que estaban escritos a mano en los componentes
+  "primary-on-subtle":  #134E4A, // texto sobre primary-subtle (badge neutro de marca)
+  "link-visited":       #134E4A, // enlace visitado
+  "on-solid":           #FFFFFF, // texto sobre rellenos semánticos (badge sólido)
+  "on-error":           #FFFFFF, // texto del botón destructivo (6,47:1)
+  "error-hover":        #991B1B, // botón destructivo · hover
+  "error-active":       #7F1D1D, // botón destructivo · pulsado
+  "sidebar-text-strong": #FFFFFF, // marca y opción activa del sidebar
+  "sidebar-hover":      rgba(255, 255, 255, 0.06),
+  "sidebar-focus":      #5EEAD4, // anillo de foco sobre el sidebar oscuro
+  "logo-bg":            #FFFFFF, // el logo es oscuro: siempre sobre blanco
+  "chart-1":            #0F766E, // serie principal de los gráficos
+  "chart-2":            #B45309, // serie secundaria
+  "chart-axis":         #6B7280,
+  "chart-grid":         #D1D5DB,
+);
+
+// --- Color · tema oscuro (variante alternativa) ----------------------
+// Mismas claves: solo cambian los valores. El HTML no se toca.
+$theme-dark: (
+  "primary":            #2DD4BF,
+  "primary-strong":     #2DD4BF,
+  "primary-hover":      #5EEAD4,
+  "primary-active":     #14B8A6,
+  "primary-subtle":     #042F2E,
+  "primary-muted":      #134E4A,
+  "on-primary":         #042F2E,
+
+  "bg":                 #111827,
+  "surface":            #1F2937,
+  "surface-alt":        #243041,
+  "surface-disabled":   #374151,
+  "sidebar":            #0B1220,
+  "sidebar-text":       #D1D5DB,
+  "sidebar-label":      #9CA3AF,
+  "sidebar-active":     #115E59,
+
+  "text":               #F9FAFB,
+  "text-secondary":     #E5E7EB,
+  "text-muted":         #D1D5DB,
+  "label":              #9CA3AF,
+  "text-disabled":      #6B7280,
+
+  "border-control":     #7C8595,
+  "border":             #374151,
+  "divider":            #374151,
+
+  "success":            #4ADE80,
+  "success-strong":     #4ADE80,
+  "success-subtle":     #14532D,
+  "success-on-subtle":  #86EFAC,
+  "error":              #F87171,
+  "error-strong":       #F87171,
+  "error-subtle":       #7F1D1D,
+  "error-on-subtle":    #FCA5A5,
+  "warning":            #FBBF24,
+  "warning-strong":     #FBBF24,
+  "warning-subtle":     #78350F,
+  "warning-on-subtle":  #FDE68A,
+  "info":               #60A5FA,
+  "info-strong":        #60A5FA,
+  "info-subtle":        #1E3A8A,
+  "info-on-subtle":     #BFDBFE,
+
+  "focus":              #2DD4BF,
+  "overlay":            rgba(0, 0, 0, 0.7),
+
+  "primary-on-subtle":  #99F6E4,
+  "link-visited":       #99F6E4,
+  "on-solid":           #FFFFFF,
+  "on-error":           #450A0A, // texto oscuro sobre rojo claro (5,84:1)
+  "error-hover":        #FCA5A5, // en oscuro el hover aclara
+  "error-active":       #EF4444,
+  "sidebar-text-strong": #FFFFFF,
+  "sidebar-hover":      rgba(255, 255, 255, 0.06),
+  "sidebar-focus":      #5EEAD4,
+  "logo-bg":            #FFFFFF,
+  "chart-1":            #2DD4BF,
+  "chart-2":            #FBBF24,
+  "chart-axis":         #9CA3AF,
+  "chart-grid":         #374151,
+);
+
+// --- Tipografía -----------------------------------------------------
+$font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+// estilo: (tamaño, interlineado, peso)
+$type-scale: (
+  "h1": (48px, 58px, 600),
+  "h2": (40px, 48px, 600),
+  "h3": (32px, 38px, 600),
+  "h4": (28px, 34px, 600),
+  "h5": (24px, 28px, 600),
+  "s1": (18px, 28px, 600),
+  "s2": (16px, 24px, 600),
+  "b1": (16px, 24px, 400),
+  "b2": (16px, 24px, 500),
+  "b3": (14px, 20px, 400),
+  "b4": (14px, 20px, 500),
+  "c1": (12px, 16px, 400),
+  "c2": (12px, 16px, 500),
+  "c3": (10px, 14px, 500),
+  "label": (12px, 16px, 500),
+);
+
+// Escala reducida para móvil (< 768 px)
+$type-scale-mobile: (
+  "h3": (24px, 30px, 600),
+  "h4": (20px, 28px, 600),
+  "h5": (20px, 26px, 600),
+);
+
+// --- Espaciado (múltiplos de 4 px) ---------------------------------
+$space-unit: 4px;
+$space-steps: (1, 2, 3, 4, 6, 8, 12);
+
+// --- Radios, bordes, alturas -----------------------------------------
+$radius: (
+  "sm": 4px,    // checkbox, badge tiny
+  "md": 8px,    // botones, inputs, dropdown
+  "lg": 12px,   // tarjetas, tablas
+  "xl": 16px,   // pop-ups, tarjeta de login
+  "full": 9999px, // avatar, chips
+);
+
+$border-width: 1px;
+$focus-width: 2px;
+$focus-offset: 2px;
+
+$control-height: (
+  "regular": 40px,
+  "small": 32px,
+);
+
+// --- Sombras (8 niveles, valores exportados de Figma) -----------------
+$shadows: (
+  "100": (0 1px 2px rgba(17, 24, 39, 0.06)),
+  "200": (0 1px 3px rgba(17, 24, 39, 0.10), 0 1px 2px rgba(17, 24, 39, 0.06)),
+  "300": (0 4px 6px -1px rgba(17, 24, 39, 0.10), 0 2px 4px -2px rgba(17, 24, 39, 0.06)),
+  "400": (0 6px 12px -2px rgba(17, 24, 39, 0.12)),
+  "500": (0 10px 15px -3px rgba(17, 24, 39, 0.12), 0 4px 6px -4px rgba(17, 24, 39, 0.08)),
+  "600": (0 16px 24px -4px rgba(17, 24, 39, 0.14)),
+  "700": (0 20px 25px -5px rgba(17, 24, 39, 0.16), 0 8px 10px -6px rgba(17, 24, 39, 0.08)),
+  "800": (0 25px 50px -12px rgba(17, 24, 39, 0.25)),
+);
+
+// Sombras del tema oscuro: la elevación se marca con la superficie y la sombra se oscurece
+$shadows-dark: (
+  "100": (0 1px 2px rgba(0, 0, 0, 0.5)),
+  "200": (0 1px 3px rgba(0, 0, 0, 0.6)),
+  "500": (0 10px 15px -3px rgba(0, 0, 0, 0.6)),
+  "800": (0 25px 50px -12px rgba(0, 0, 0, 0.8)),
+);
+
+// --- Breakpoints -----------------------------------------------------
+$breakpoints: (
+  "tablet": 768px,
+  "desktop": 1024px,
+);
+
+// Anchos del layout
+$sidebar-width: 240px;
+$sidebar-collapsed: 72px;
+$content-max: 1440px;
+
+// --- Movimiento ------------------------------------------------------
+$transition: 150ms ease-in-out;

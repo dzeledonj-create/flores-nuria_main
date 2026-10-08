@@ -1,0 +1,36 @@
+@use "../abstracts" as *;
+.pagination {
+  display: flex; align-items: center; justify-content: space-between; gap: space(3); flex-wrap: wrap;
+  &__info { @include type(b3); color: color(text-muted); }
+  &__list { display: flex; align-items: center; gap: space(1); }
+  &__item {
+    min-width: 32px; height: 32px; padding: 0 space(2);
+    display: inline-flex; align-items: center; justify-content: center; gap: 2px; white-space: nowrap;
+    border-radius: radius(md); border: $border-width solid transparent;
+    background: transparent; color: color(text-secondary);
+    @include type(b4); cursor: pointer; text-decoration: none;
+    svg { @include icon(16px); }
+    @include focus-ring;
+    &:hover { background: color(primary-subtle); }
+    &[aria-current="page"] { background: color(primary-strong); color: color(on-primary); }
+    &:disabled, &[aria-disabled="true"] { color: color(text-disabled); cursor: not-allowed; background: transparent; }
+  }
+}
+.breadcrumbs {
+  display: flex; flex-wrap: wrap; gap: space(2); @include type(b3); color: color(text-muted); list-style: none; padding: 0; margin: 0;
+  li { display: flex; gap: space(2); }
+  li + li::before { content: "›"; color: color(label); }
+  a { color: color(text-muted); text-decoration: none; border-radius: radius(sm); @include focus-ring; &:hover { color: color(primary-strong); text-decoration: underline; } }
+  [aria-current="page"] { color: color(primary-strong); font-weight: 500; }
+}
+.tabs {
+  display: flex; gap: space(1); border-bottom: $border-width solid color(divider);
+  &__tab {
+    padding: space(2) space(4); border: 0; background: none; cursor: pointer;
+    @include type(b4); color: color(text-muted); border-bottom: 2px solid transparent; margin-bottom: -1px;
+    @include focus-ring;
+    &:hover { color: color(text); }
+    &[aria-selected="true"] { color: color(primary-strong); border-bottom-color: color(primary-strong); }
+    &:disabled { color: color(text-disabled); cursor: not-allowed; }
+  }
+}

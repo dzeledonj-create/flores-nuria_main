@@ -1,0 +1,9 @@
+@use "../abstracts" as *;
+// Solo las utilidades imprescindibles (el resto del aspecto vive en los componentes)
+.visually-hidden { @include visually-hidden; }
+
+// Alto contraste del sistema (forced-colors): los estados no dependen solo del color
+@media (forced-colors: active) {
+  .btn, .badge, .input, .pagination__item, .sidebar__link[aria-current], .btn-group__item[aria-pressed="true"] { border: 1px solid CanvasText; }
+  .switch:checked { background: Highlight; }
+}

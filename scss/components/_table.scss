@@ -1,0 +1,47 @@
+@use "../abstracts" as *;
+.table-wrap { position: relative; overflow-x: auto; // relative: contiene los .visually-hidden absolutos
+  border: $border-width solid color(border); border-radius: radius(lg); background: color(surface); box-shadow: shadow(200); }
+.card .table-wrap { box-shadow: none; }
+.table {
+  width: 100%; border-collapse: collapse;
+  @include type(b3); color: color(text-secondary);
+  caption { text-align: left; }
+  th {
+    @include type(c2); text-transform: uppercase; letter-spacing: .04em;
+    color: color(label); background: color(surface-alt);
+    text-align: left; padding: space(3) space(4); border-bottom: $border-width solid color(divider);
+    white-space: nowrap;
+  }
+  td { padding: space(3) space(4); border-bottom: $border-width solid color(border); height: 52px; vertical-align: middle; }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr:nth-child(even) td { background: color(surface-alt); }
+  tbody tr:hover td { background: color(primary-subtle); }
+  tbody tr[aria-selected="true"] td { background: color(primary-muted); color: color(text); }
+  .num { text-align: right; white-space: nowrap; }
+  .strong { font-weight: 500; color: color(text); }
+  .actions { display: flex; gap: space(1); justify-content: flex-end; }
+  th.actions-col { text-align: right; }
+
+  // Estados de la tabla
+  // .table td.table__empty (0,2,1) gana a .table td (0,1,1) por especificidad: no hace falta !important
+  td.table__empty, td.table__loading { text-align: center; padding: space(12) space(4); color: color(text-muted); }
+  &__skeleton { display: block; height: 12px; border-radius: radius(sm); background: color(surface-disabled); }
+
+  // Móvil: cada fila se convierte en tarjeta apilada (data-label en cada td)
+  @include below(tablet) {
+    thead { @include visually-hidden; }
+    tr { display: block; border-bottom: $border-width solid color(divider); padding: space(2) 0; }
+    tbody tr:nth-child(even) td { background: transparent; }
+    tbody tr:nth-child(even) { background: color(surface-alt); }
+    td { display: flex; justify-content: space-between; align-items: center; gap: space(4); border: 0; height: auto; min-height: 40px; padding: space(1) space(4); text-align: right; }
+    td::before { content: attr(data-label); @include type(c2); color: color(label); text-align: left; }
+    td.num { text-align: right; }
+    .actions { justify-content: flex-end; }
+    td.table__empty { display: block; }
+    td.table__empty::before { content: none; }
+  }
+}
+// Tabla compacta (Dashboard, detalles)
+.table--compact td { height: 44px; padding-top: space(2); padding-bottom: space(2); }
+// Celda con avatar + nombre (empleado)
+.person { display: inline-flex; align-items: center; gap: space(2); }

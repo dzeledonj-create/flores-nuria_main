@@ -1,0 +1,150 @@
+@use "../abstracts" as *;
+
+.field {
+  display: flex; flex-direction: column; gap: space(2);
+  min-width: 0;
+  &__label { @include type(label); color: color(text-secondary); }
+  &__req { color: color(error-strong); margin-left: 2px; }
+  &__help { @include type(c1); color: color(label); display: flex; gap: space(1); align-items: center; svg { @include icon(14px); } }
+
+  &--success { @include tone(success); }
+  &--info    { @include tone(info); }
+  &--warning { @include tone(warning); }
+  &--error   { @include tone(error); }
+  &--success, &--info, &--warning, &--error {
+    // background-color (no el atajo background) para no borrar la flecha del select
+    .input { border-color: var(--tone); background-color: var(--tone-subtle); }
+    .field__help { color: var(--tone-on-subtle); }
+    // En oscuro el fondo tintado deslumbra: se vuelve a la superficie y el texto usa el tono base
+    @include dark {
+      .input { background-color: color(surface); }
+      .field__help { color: var(--tone); }
+    }
+  }
+}
+
+// Error solo con CSS: :user-invalid se activa cuando el usuario ya ha interactuado
+// con el campo (o ha intentado enviar) y el valor no cumple required, type, min, pattern…
+.field:has(.input:user-invalid) {
+  @include tone(error);
+  .input { border-color: var(--tone); background-color: var(--tone-subtle); }
+  .field__error { display: flex; }
+  @include dark { .input { background-color: color(surface); } }
+}
+.field__error {
+  display: none; gap: space(1); align-items: center;
+  @include type(c1); color: color(error-strong);
+  svg { @include icon(14px); }
+}
+
+.input {
+  height: var(--control-regular);
+  width: 100%;
+  padding: 0 space(3);
+  border: $border-width solid color(border-control);
+  border-radius: radius(md);
+  background-color: color(surface);
+  color: color(text);
+  font: inherit; @include type(b3);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  &::placeholder { color: color(label); opacity: 1; }
+  &:hover:not(:disabled) { border-color: color(text-muted); }
+  &:focus-visible, &.is-focus {
+    outline: none; border-color: color(focus);
+    box-shadow: 0 0 0 $focus-width color(focus);
+  }
+  &:disabled { background-color: color(surface-disabled); color: color(text-disabled); border-color: color(surface-disabled); cursor: not-allowed; }
+  &--sm { height: var(--control-small); }
+  &[type="date"] { min-height: var(--control-regular); }
+}
+
+// Select: la flecha se dibuja con dos degradados que usan tokens (cambia sola con el tema)
+select.input {
+  appearance: none;
+  padding-right: space(8);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--color-label) 50%),
+    linear-gradient(135deg, var(--color-label) 50%, transparent 50%);
+  background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+textarea.input { height: auto; min-height: 96px; padding: space(2) space(3); resize: vertical; }
+
+// Contenedor para inputs con icono (buscador, contraseña con ojo)
+.input-wrap {
+  position: relative; display: flex; align-items: center;
+  .input { padding-right: 40px; }
+  &--lead .input { padding-left: 36px; padding-right: space(3); }
+  &__icon { position: absolute; left: space(3); color: color(label); @include icon(16px); pointer-events: none; }
+  &__action {
+    position: absolute; right: space(1); width: 32px; height: 32px; display: grid; place-items: center;
+    border: 0; background: transparent; color: color(label); border-radius: radius(md); cursor: pointer;
+    svg { @include icon(16px); }
+    &:hover { color: color(text); }
+    @include focus-ring;
+  }
+}
+
+// Casilla y radio nativos con el color de marca (accent-color) y el foco común
+.check {
+  display: inline-flex; align-items: center; gap: space(2);
+  @include type(b3); color: color(text-secondary); cursor: pointer;
+  input { width: 16px; height: 16px; margin: 0; accent-color: var(--color-primary-strong); cursor: pointer; @include focus-ring; }
+}
+
+// Interruptor (toggle): checkbox con role="switch"
+.switch {
+  appearance: none; flex: none;
+  position: relative; width: 36px; height: 20px; margin: 0;
+  border-radius: radius(full); border: $border-width solid color(border-control);
+  background: color(surface-disabled); cursor: pointer;
+  transition: background-color var(--transition);
+  &::after {
+    content: ""; position: absolute; top: 2px; left: 2px; width: 14px; height: 14px;
+    border-radius: radius(full); background: color(surface); box-shadow: shadow(100);
+    transition: transform var(--transition);
+  }
+  &:checked { background: color(primary-strong); border-color: color(primary-strong); }
+  &:checked::after { transform: translateX(16px); }
+  @include focus-ring;
+}
+
+// Rejilla de formulario: 1 columna en móvil, 2 en tablet, 4 en escritorio
+.form-grid {
+  display: grid; gap: space(4); grid-template-columns: 1fr;
+  @include respond(tablet) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @include respond(desktop) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .field--span-2 { @include respond(tablet) { grid-column: span 2; } }
+  .field--full { grid-column: 1 / -1; }
+}
+// Se usa sobre <fieldset>: se anulan el borde y el relleno que el navegador le pone por defecto
+.form-section {
+  display: flex; flex-direction: column; gap: space(4);
+  min-width: 0; margin: space(6) 0 0; padding: space(6) 0 0;
+  border: 0; border-top: $border-width solid color(divider);
+  > .btn { align-self: flex-start; }
+  &__title { float: left; width: 100%; padding: 0; @include type(s2); color: color(text); } // float: la legend se comporta como un bloque normal
+}
+.form-note { @include type(c1); color: color(label); margin-bottom: space(4); }
+.form-actions {
+  display: flex; flex-wrap: wrap; gap: space(3); justify-content: flex-end;
+  margin-top: space(6);
+  @include below(tablet) { flex-direction: column-reverse; .btn { width: 100%; } }
+}
+
+// Fila de producto + cantidad (pedidos)
+.repeat-row {
+  display: grid; gap: space(3); align-items: end;
+  grid-template-columns: 1fr;
+  @include respond(tablet) { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+}
+
+// Lista de casillas (productos de una oferta)
+.check-list {
+  display: grid; gap: space(2) space(4); grid-template-columns: 1fr;
+  padding: space(3); border: $border-width solid color(border); border-radius: radius(md); background: color(surface-alt);
+  @include respond(tablet) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @include respond(desktop) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}

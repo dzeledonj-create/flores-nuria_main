@@ -1,0 +1,37 @@
+@use "sass:map";
+@use "sass:math";
+@use "sass:list";
+@use "tokens" as t;
+
+// space(4) -> 16px  ·  space(6) -> 24px
+@function space($step) {
+  @if not list.index(t.$space-steps, $step) {
+    @error "space(#{$step}) no existe en la escala: #{t.$space-steps}";
+  }
+  @return $step * t.$space-unit;
+}
+
+// px -> rem (base 16px) para respetar el tamaño de letra del usuario
+@function rem($px) {
+  @return math.div($px, 16px) * 1rem;
+}
+
+// Acceso a tokens con error si la clave no existe
+@function radius($key) {
+  @if not map.has-key(t.$radius, $key) {
+    @error "radius(#{$key}) no existe. Claves válidas: #{map.keys(t.$radius)}";
+  }
+  @return map.get(t.$radius, $key);
+}
+@function shadow($key) {
+  @if not map.has-key(t.$shadows, "#{$key}") {
+    @error "shadow(#{$key}) no existe. Niveles válidos: #{map.keys(t.$shadows)}";
+  }
+  @return var(--shadow-#{$key});
+}
+@function color($key) {
+  @if not map.has-key(t.$theme-light, "#{$key}") {
+    @error "color(#{$key}) no existe en $theme-light";
+  }
+  @return var(--color-#{$key});
+}

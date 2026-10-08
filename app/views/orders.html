@@ -2,127 +2,132 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Floristería - Panel</title>
-  <link rel="stylesheet" href="../../public/css/styles.css">
-  <link rel="icon" href="../../public/img/logo_fondo_blanco.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pedidos · Flores Nuria</title>
+  <meta name="description" content="Pedidos a proveedores de Flores Nuria: consulta, cambia su estado y crea pedidos nuevos.">
+  <link rel="icon" href="../../public/img/favicon.png" type="image/png">
+  <link rel="preload" href="../../public/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../public/css/main.css">
 </head>
 <body>
-  <section class="app">
-    <aside class="sidebar">
-      <section class="logo">
-        <span class="brand"><img src="../../public/img/logo.png" alt="Flores Nuria"></span>
-      </section>
-      <nav class="nav" aria-label="navegación principal">
-        <h4>Navegación</h4>
-        <ul>
-          <li><a href="dashboard.html">Dashboard</a></li>
-          <li><a href="reports.html">Informes</a></li>
-          <li><a href="payments.html">Cobros/Pagos</a></li>
-          <!-- <li><a href="schedule.html">Agenda</a></li> -->
-          <li><a href="products.html">Productos</a></li>
-          <li><a href="offers.html">Ofertas</a></li>
-          <li class="active"><a href="orders.html">Pedidos</a></li>
-          <!-- <li><a href="customers.html">Clientes</a></li> -->
-          <li><a href="suppliers.html">Proveedores</a></li>
-          <!-- <li><a href="employees.html">Empleados</a></li> -->
-        </ul>
-      </nav>
-    </aside>
-    <main class="main">
-      <header class="header">
-        <section class="left">
-          <section class="logo">
-            <button class="menu-toggle" type="button">☰</button>
-          </section>
-          <nav class="breadcrumbs" aria-label="breadcrumb">
-            <ol><li>Dashboard</li><li>Pedidos emitidos</li></ol>
-          </nav>
-        </section>
-        <section class="right user-menu-container">
-          <button class="user-circle" type="button" aria-haspopup="true" aria-expanded="false">U</button>
-          <div class="user-dropdown" role="menu">
-            <div class="user-dropdown-info">
-              <strong>Usuario</strong>
-              <span class="user-dropdown-role">Personal</span>
-            </div>
-            <div class="dropdown-divider"></div>
-            <a href="login.html" role="menuitem"><span class="icon">🚪</span> Cerrar Sesión</a>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="app">
+    <nav class="sidebar" id="sidebar" aria-label="Principal" tabindex="-1">
+      <a class="sidebar__close" href="#main"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></svg>Cerrar menú</a>
+      <a class="sidebar__brand" href="dashboard.html">
+        <img class="sidebar__logo" src="../../public/img/logo.webp" alt="" width="40" height="40">
+        <span class="sidebar__text">Flores Nuria</span>
+      </a>
+      <p class="sidebar__label" id="nav-title">Navegación</p>
+      <ul class="sidebar__list" aria-labelledby="nav-title">
+        <li><a class="sidebar__link" href="dashboard.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="7" height="9" x="3" y="3" rx="1" /> <rect width="7" height="5" x="14" y="3" rx="1" /> <rect width="7" height="9" x="14" y="12" rx="1" /> <rect width="7" height="5" x="3" y="16" rx="1" /></svg><span class="sidebar__text">Dashboard</span></a></li>
+        <li><a class="sidebar__link" href="reports.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v16a2 2 0 0 0 2 2h16" /> <path d="M18 17V9" /> <path d="M13 17V5" /> <path d="M8 17v-3" /></svg><span class="sidebar__text">Informes</span></a></li>
+        <li><a class="sidebar__link" href="payments.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="14" x="2" y="5" rx="2" /> <line x1="2" x2="22" y1="10" y2="10" /> <path d="M6 14h2" /></svg><span class="sidebar__text">Cobros/Pagos</span></a></li>
+        <li><a class="sidebar__link" href="products.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /></svg><span class="sidebar__text">Productos</span></a></li>
+        <li><a class="sidebar__link" href="offers.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" /> <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" /></svg><span class="sidebar__text">Ofertas</span></a></li>
+        <li><a class="sidebar__link" href="orders.html" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /> <path d="M15 18H9" /> <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /> <circle cx="17" cy="18" r="2" /> <circle cx="7" cy="18" r="2" /></svg><span class="sidebar__text">Pedidos</span></a></li>
+        <li><a class="sidebar__link" href="suppliers.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 21V10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v11" /> <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 1.132-1.803l7.95-3.974a2 2 0 0 1 1.837 0l7.948 3.974A2 2 0 0 1 22 8z" /> <path d="M6 13h12" /> <path d="M6 17h12" /></svg><span class="sidebar__text">Proveedores</span></a></li>
+      </ul>
+    </nav>
+    <a class="nav-backdrop" href="#main" tabindex="-1" aria-hidden="true"></a>
+    <div class="app__main">
+      <header class="topbar">
+        <a class="btn btn--ghost btn--icon topbar__menu" href="#sidebar" aria-label="Abrir menú de navegación"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h16" /> <path d="M4 12h16" /> <path d="M4 19h16" /></svg></a>
+        <span class="topbar__brand">Flores Nuria</span>
+        <nav class="topbar__crumbs" aria-label="Migas de pan">
+          <ol class="breadcrumbs"><li><a href="dashboard.html">Dashboard</a></li><li><span aria-current="page">Pedidos</span></li></ol>
+        </nav>
+        <span class="topbar__spacer"></span>
+        <details class="user-menu">
+          <summary class="user-menu__trigger"><span class="avatar" aria-hidden="true">NU</span><span class="visually-hidden">Menú de usuario</span></summary>
+          <div class="menu user-menu__panel">
+            <p class="menu__info"><strong>Usuario</strong><span>Personal</span></p>
+            <hr class="menu__divider">
+            <a class="menu__item" href="login.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m16 17 5-5-5-5" /> <path d="M21 12H9" /> <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /></svg>Cerrar sesión</a>
           </div>
-        </section>
+        </details>
       </header>
-      <section class="container">
-        <section class="toolbar d-flex gap-2 mb-3">
-          <form id="search-form" class="d-flex gap-2 m-0">
-            <input type="text" name="search" placeholder="Buscar por estado o proveedor..." class="px-3-py-1 border-base rounded-sm outline-none">
-            <button type="submit" class="btn">Buscar</button>
+      <main class="app__content" id="main" tabindex="-1">
+        <header class="page-header">
+          <h1 class="page-header__title">Pedidos</h1>
+          <p class="page-header__desc">Pedidos a proveedores: consulta su estado y márcalos como recibidos o cancelados.</p>
+        </header>
+        <div class="toolbar">
+          <form class="toolbar__form" role="search" action="orders.html" method="get">
+            <div class="field toolbar__search">
+              <label class="field__label" for="search-orders-table">Buscar</label>
+              <div class="input-wrap input-wrap--lead">
+                <svg class="input-wrap__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /></svg>
+                <input class="input" type="search" id="search-orders-table" name="q" placeholder="Estado o proveedor…">
+              </div>
+            </div>
+            <button class="btn btn--secondary" type="submit">Buscar</button>
           </form>
-          <a href="orders.html" class="btn pill green text-decoration-none d-flex align-center px-3">Mostrar Todo</a>
-          <a href="create_order.html" class="btn secondary text-decoration-none d-flex align-center px-3">Realizar pedido</a>
-        </section>
-
-        <section class="table-wrap">
-          <table class="table">
+          <div class="toolbar__actions">
+            <a class="btn btn--secondary" href="orders.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></svg>Mostrar todo</a>
+            <a class="btn btn--primary" href="create_order.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14" /> <path d="M12 5v14" /></svg>Realizar pedido</a>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="table" id="orders-table">
+            <caption class="visually-hidden">Listado de pedidos</caption>
             <thead>
-              <tr>
-                <th>ID</th>
-                <th>Proveedor (ID)</th>
-                <th>Fecha</th>
-                <th>Estado</th>
-                <th>Productos</th>
-                <th>Acciones Rápidas</th>
-                <th></th>
-              </tr>
+              <tr><th scope="col">Nº pedido</th><th scope="col">Proveedor</th><th scope="col">Fecha</th><th scope="col">Estado</th><th scope="col" class="num">Productos</th><th scope="col">Cambiar estado</th><th scope="col" class="actions-col"><span class="visually-hidden">Acciones</span></th></tr>
             </thead>
-            <tbody id="orders-body">
-              <tr><td>1</td><td>2</td><td>2026-09-28</td><td><span class="text-success fw-bold">Recibido</span></td><td>3 tipos</td><td class="d-flex gap-1"><button type="button" class="btn secondary btn-sm">Pendiente</button> <button type="button" class="btn btn-sm btn-success">Recibido</button> <button type="button" class="btn btn-sm btn-danger">Cancelado</button></td><td class="actions"><button type="button" class="btn-view">👁</button> <button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
-              <tr><td>2</td><td>1</td><td>2026-10-02</td><td><span class="text-warning fw-bold">Pendiente</span></td><td>2 tipos</td><td class="d-flex gap-1"><button type="button" class="btn secondary btn-sm">Pendiente</button> <button type="button" class="btn btn-sm btn-success">Recibido</button> <button type="button" class="btn btn-sm btn-danger">Cancelado</button></td><td class="actions"><button type="button" class="btn-view">👁</button> <button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
-              <tr><td>3</td><td>3</td><td>2026-10-05</td><td><span class="text-danger fw-bold">Cancelado</span></td><td>1 tipos</td><td class="d-flex gap-1"><button type="button" class="btn secondary btn-sm">Pendiente</button> <button type="button" class="btn btn-sm btn-success">Recibido</button> <button type="button" class="btn btn-sm btn-danger">Cancelado</button></td><td class="actions"><button type="button" class="btn-view">👁</button> <button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
+            <tbody>
+              <tr><td data-label="Nº pedido" class="strong">Nº 1</td><td data-label="Proveedor">Flores del Valle</td><td data-label="Fecha"><time datetime="2026-09-28">28/09/2026</time></td><td data-label="Estado"><span class="badge badge--success">Recibido</span></td><td data-label="Productos" class="num">3 tipos</td><td data-label="Cambiar estado"><form action="orders.html" method="get"><input type="hidden" name="pedido" value="1"><div class="btn-group" role="group" aria-label="Estado del pedido nº 1"><button class="btn-group__item" type="submit" name="estado" value="Pendiente" aria-pressed="false">Pendiente</button><button class="btn-group__item" type="submit" name="estado" value="Recibido" aria-pressed="true">Recibido</button><button class="btn-group__item" type="submit" name="estado" value="Cancelado" aria-pressed="false">Cancelado</button></div></form></td><td data-label="Acciones"><div class="actions"><a class="btn btn--ghost btn--icon btn--sm" href="#edit-panel" aria-label="Editar el pedido nº 1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /> <path d="m15 5 4 4" /></svg></a><a class="btn btn--ghost-danger btn--icon btn--sm" href="#confirm-delete" aria-label="Eliminar el pedido nº 1"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 11v6" /> <path d="M14 11v6" /> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /> <path d="M3 6h18" /> <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></a></div></td></tr>
+              <tr><td data-label="Nº pedido" class="strong">Nº 2</td><td data-label="Proveedor">Viveros el Sol</td><td data-label="Fecha"><time datetime="2026-10-02">02/10/2026</time></td><td data-label="Estado"><span class="badge badge--warning">Pendiente</span></td><td data-label="Productos" class="num">2 tipos</td><td data-label="Cambiar estado"><form action="orders.html" method="get"><input type="hidden" name="pedido" value="2"><div class="btn-group" role="group" aria-label="Estado del pedido nº 2"><button class="btn-group__item" type="submit" name="estado" value="Pendiente" aria-pressed="true">Pendiente</button><button class="btn-group__item" type="submit" name="estado" value="Recibido" aria-pressed="false">Recibido</button><button class="btn-group__item" type="submit" name="estado" value="Cancelado" aria-pressed="false">Cancelado</button></div></form></td><td data-label="Acciones"><div class="actions"><a class="btn btn--ghost btn--icon btn--sm" href="#edit-panel" aria-label="Editar el pedido nº 2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /> <path d="m15 5 4 4" /></svg></a><a class="btn btn--ghost-danger btn--icon btn--sm" href="#confirm-delete" aria-label="Eliminar el pedido nº 2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 11v6" /> <path d="M14 11v6" /> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /> <path d="M3 6h18" /> <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></a></div></td></tr>
+              <tr><td data-label="Nº pedido" class="strong">Nº 3</td><td data-label="Proveedor">Cerámicas Ruiz</td><td data-label="Fecha"><time datetime="2026-10-05">05/10/2026</time></td><td data-label="Estado"><span class="badge badge--error">Cancelado</span></td><td data-label="Productos" class="num">1 tipos</td><td data-label="Cambiar estado"><form action="orders.html" method="get"><input type="hidden" name="pedido" value="3"><div class="btn-group" role="group" aria-label="Estado del pedido nº 3"><button class="btn-group__item" type="submit" name="estado" value="Pendiente" aria-pressed="false">Pendiente</button><button class="btn-group__item" type="submit" name="estado" value="Recibido" aria-pressed="false">Recibido</button><button class="btn-group__item" type="submit" name="estado" value="Cancelado" aria-pressed="true">Cancelado</button></div></form></td><td data-label="Acciones"><div class="actions"><a class="btn btn--ghost btn--icon btn--sm" href="#edit-panel" aria-label="Editar el pedido nº 3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /> <path d="m15 5 4 4" /></svg></a><a class="btn btn--ghost-danger btn--icon btn--sm" href="#confirm-delete" aria-label="Eliminar el pedido nº 3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 11v6" /> <path d="M14 11v6" /> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /> <path d="M3 6h18" /> <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></a></div></td></tr>
             </tbody>
           </table>
-        </section>
-
-        <h3 id="view-title" class="mt-5 d-none">Detalles del Pedido #<span id="view-id"></span></h3>
-        <section id="view-panel" class="form d-none bg-f9 p-4 rounded-md">
-          <h4 class="m-0 border-bottom-gray pb-2">Productos incluidos</h4>
-          <ul id="view-items-list" class="list-style-none p-0 m-0"></ul>
-          <button type="button" class="btn secondary mt-3" id="close-view">Cerrar detalles</button>
-        </section>
-
-        <h3 id="edit-title" class="mt-5 d-none">Editar Pedido</h3>
-        <section class="form">
-          <form id="form-edit-order" class="d-none">
-            <input type="hidden" name="idPedido" id="edit-id">
-
-            <section class="row">
-              <section class="flex-1">
-                <label>ID Proveedor *</label>
-                <input type="number" name="id_proveedor" id="edit-proveedor" required>
-              </section>
-              <section class="flex-1">
-                <label>Fecha</label>
-                <input type="date" name="fecha" id="edit-fecha">
-              </section>
-              <section class="flex-1">
-                <label>Estado</label>
-                <select name="estado" id="edit-estado">
-                  <option value="Pendiente">Pendiente</option>
-                  <option value="Recibido">Recibido</option>
-                  <option value="Cancelado">Cancelado</option>
-                </select>
-              </section>
-            </section>
-
-            <section class="row mt-4">
-              <button type="submit" class="btn pill orange">Guardar cambios</button>
-              <button type="button" class="btn secondary" data-close-edit>Cancelar</button>
-            </section>
+        </div>
+        <nav class="pagination" aria-label="Paginación de pedidos">
+          <p class="pagination__info">Mostrando 3 de 3 pedidos</p>
+          <div class="pagination__list">
+            <span class="pagination__item" aria-disabled="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6" /></svg><span>Anterior</span></span>
+            <a class="pagination__item" href="#main" aria-current="page"><span class="visually-hidden">Página </span>1</a>
+            <span class="pagination__item" aria-disabled="true"><span>Siguiente</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6" /></svg></span>
+          </div>
+        </nav>
+        <section class="card target-panel" id="edit-panel" aria-labelledby="edit-panel-title">
+          <header class="card__header"><h2 class="card__title" id="edit-panel-title">Editar pedido</h2></header>
+          <form action="orders.html" method="get">
+            <p class="form-note">Los campos marcados con <span aria-hidden="true">*</span><span class="visually-hidden">asterisco</span> son obligatorios.</p>
+            <div class="form-grid">
+            <div class="field field--span-2">
+              <label class="field__label" for="edit-proveedor">Proveedor<span class="field__req" aria-hidden="true">*</span></label>
+              <select id="edit-proveedor" class="input" name="id_proveedor" required><option value="">Selecciona un proveedor</option><option value="1">Viveros el Sol</option><option value="2" selected>Flores del Valle</option><option value="3">Cerámicas Ruiz</option></select>
+              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Selecciona una opción.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="edit-fecha">Fecha</label>
+              <input id="edit-fecha" class="input" type="date" name="fecha" value="2026-09-28">
+            </div>
+            <div class="field">
+              <label class="field__label" for="edit-estado">Estado</label>
+              <select id="edit-estado" class="input" name="estado"><option value="Pendiente">Pendiente</option><option value="Recibido" selected>Recibido</option><option value="Cancelado">Cancelado</option></select>
+            </div>
+            </div>
+            <div class="form-actions">
+              <a class="btn btn--secondary" href="#main">Cancelar</a>
+              <button class="btn btn--primary" type="submit">Guardar cambios</button>
+            </div>
           </form>
         </section>
-
-        <footer class="footer">© 2026 Flores Nuria · Administración de pedidos</footer>
-      </section>
-    </main>
-  </section>
+      </main>
+      <footer class="app__footer">© 2026 Flores Nuria · Panel de administración</footer>
+    </div>
+  </div>
+  <div class="modal-target" id="confirm-delete">
+    <section class="modal modal--danger" role="dialog" aria-labelledby="confirm-title" aria-describedby="confirm-text">
+      <span class="modal__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 11v6" /> <path d="M14 11v6" /> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /> <path d="M3 6h18" /> <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></span>
+      <h2 class="modal__title" id="confirm-title">¿Eliminar pedido?</h2>
+      <p class="modal__text" id="confirm-text">Se eliminará el registro seleccionado. Esta acción no se puede deshacer.</p>
+      <div class="modal__actions">
+        <a class="btn btn--secondary" href="#main">Cancelar</a>
+        <form action="orders.html" method="get"><button class="btn btn--destructive" type="submit">Eliminar</button></form>
+      </div>
+    </section>
+  </div>
 </body>
 </html>

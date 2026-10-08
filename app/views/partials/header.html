@@ -1,21 +1,17 @@
-<header class="header">
-  <section class="left">
-    <section class="logo">
-      <button class="menu-toggle" type="button">☰</button>
-    </section>
-    <nav class="breadcrumbs" aria-label="breadcrumb">
-      <ol></ol>
-    </nav>
-  </section>
-  <section class="right user-menu-container">
-    <button class="user-circle" id="userMenuBtn" type="button" aria-haspopup="true" aria-expanded="false">U</button>
-    <div class="user-dropdown" id="userDropdown" role="menu">
-      <div class="user-dropdown-info">
-        <strong id="userName">Usuario</strong>
-        <span class="user-dropdown-role" id="userRole">Personal</span>
-      </div>
-      <div class="dropdown-divider"></div>
-      <a href="#" id="logoutLink" role="menuitem"><span class="icon">🚪</span> Cerrar Sesión</a>
-    </div>
-  </section>
-</header>
+<!-- PLANTILLA: barra superior común (botón de menú móvil, migas de pan y menú de usuario con <details>). -->
+<header class="topbar">
+        <a class="btn btn--ghost btn--icon topbar__menu" href="#sidebar" aria-label="Abrir menú de navegación"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h16" /> <path d="M4 12h16" /> <path d="M4 19h16" /></svg></a>
+        <span class="topbar__brand">Flores Nuria</span>
+        <nav class="topbar__crumbs" aria-label="Migas de pan">
+          <ol class="breadcrumbs"><li><a href="dashboard.html">Dashboard</a></li><li><span aria-current="page">Sección actual</span></li></ol>
+        </nav>
+        <span class="topbar__spacer"></span>
+        <details class="user-menu">
+          <summary class="user-menu__trigger"><span class="avatar" aria-hidden="true">NU</span><span class="visually-hidden">Menú de usuario</span></summary>
+          <div class="menu user-menu__panel">
+            <p class="menu__info"><strong>Usuario</strong><span>Personal</span></p>
+            <hr class="menu__divider">
+            <a class="menu__item" href="login.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m16 17 5-5-5-5" /> <path d="M21 12H9" /> <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /></svg>Cerrar sesión</a>
+          </div>
+        </details>
+      </header>

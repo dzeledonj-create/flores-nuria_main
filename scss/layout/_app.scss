@@ -1,0 +1,64 @@
+@use "../abstracts" as *;
+
+// ---------------------------------------------------------------------
+// Esqueleto de todas las pantallas internas (mobile-first)
+//   móvil  (<768)     : sidebar oculto, se abre como panel con el botón ☰
+//   tablet (768-1023) : sidebar colapsado, solo iconos
+//   escritorio (≥1024): sidebar expandido
+// ---------------------------------------------------------------------
+.app { min-height: 100vh; }
+.app__main { display: flex; flex-direction: column; min-width: 0; min-height: 100vh; }
+.app__content {
+  flex: 1;
+  width: 100%; max-width: $content-max; margin: 0 auto;
+  padding: space(6) space(4);
+  display: flex; flex-direction: column; gap: space(6);
+  &:focus { outline: none; } // recibe el foco del "saltar al contenido", sin anillo
+  @include respond(tablet) { padding: space(8); }
+}
+.app__footer { padding: space(4) space(8); @include type(c1); color: color(text-muted); text-align: center; border-top: $border-width solid color(border); }
+
+// El comportamiento responsive del sidebar vive en components/_sidebar.scss,
+// DESPUÉS de sus estilos base: si estuviera aquí, la regla base .sidebar { width: 240px }
+// (misma especificidad y declarada más tarde en main.scss) lo anularía.
+@include respond(tablet) {
+  .app { display: grid; grid-template-columns: auto minmax(0, 1fr); }
+}
+
+// Cabecera de página: título + descripción (+ acción opcional)
+.page-header {
+  display: flex; flex-direction: column; gap: space(2);
+  &__title { @include type-responsive(h3); color: color(text); }
+  &__desc { @include type(b3); color: color(text-muted); }
+  &__back { align-self: flex-start; margin-bottom: space(1); }
+}
+
+// Barra de acciones de los listados: formulario de búsqueda + botones
+.toolbar {
+  display: flex; flex-wrap: wrap; gap: space(3); align-items: flex-end;
+  &__form { display: flex; flex-wrap: wrap; gap: space(3); align-items: flex-end; flex: 1 1 520px; }
+  &__search { flex: 1 1 260px; max-width: 360px; }
+  &__filter { flex: 0 1 220px; }
+  &__spacer { flex: 1; }
+  &__actions { display: flex; gap: space(3); flex-wrap: wrap; }
+  @include below(tablet) {
+    &__search, &__filter { max-width: none; flex-basis: 100%; }
+    &__form .btn { width: 100%; }
+    &__spacer { display: none; }
+    &__actions { width: 100%; .btn { flex: 1; } }
+  }
+}
+
+.kpi-grid {
+  display: grid; gap: space(4); grid-template-columns: 1fr;
+  @include respond(tablet) { grid-template-columns: repeat(2, 1fr); }
+  @include respond(desktop) { grid-template-columns: repeat(4, 1fr); }
+}
+.split { display: grid; gap: space(6); grid-template-columns: minmax(0, 1fr); @include respond(desktop) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.stack { display: flex; flex-direction: column; gap: space(4); }
+
+// Paneles de edición que se abren con :target (enlace a #edit-panel / #create-panel)
+.target-panel {
+  scroll-margin-top: space(12) + 32px; // que la topbar fija no tape el título
+  &:not(:target) { display: none; }
+}

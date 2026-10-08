@@ -1,0 +1,31 @@
+@use "../abstracts" as *;
+
+.badge {
+  display: inline-flex; align-items: center; gap: space(1);
+  height: 24px; padding: 0 space(2);
+  border-radius: radius(full);
+  border: $border-width solid color(divider);
+  @include type(c2);
+  white-space: nowrap;
+  @include tone(primary);
+  // Neutro por defecto
+  background: color(surface-alt); color: color(text-secondary);
+
+  &--success { @include tone(success); }
+  &--info    { @include tone(info); }
+  &--warning { @include tone(warning); }
+  &--error   { @include tone(error); }
+  &--brand   { @include tone(primary); }
+  // Redefinición: las variantes de tono sobrescriben el fondo neutro de .badge
+  &--success, &--info, &--warning, &--error, &--brand {
+    background: var(--tone-subtle); color: var(--tone-on-subtle); border-color: transparent;
+    &.badge--solid {
+      background: var(--tone-strong); color: color(on-solid);
+      // En oscuro el sólido deslumbra: se muestra como suave (más especificidad, sin !important)
+      @include dark { background: var(--tone-subtle); color: var(--tone-on-subtle); }
+    }
+  }
+  &--sm { height: 20px; padding: 0 6px; }
+  &--tiny { height: 16px; padding: 0 space(1); @include type(c3); border-radius: radius(sm); }
+  &__dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+}

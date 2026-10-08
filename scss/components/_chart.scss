@@ -1,0 +1,17 @@
+@use "../abstracts" as *;
+// Gráficos SVG: los colores salen de tokens (cambian con el tema), no de atributos fill en el HTML
+.chart {
+  display: flex; flex-direction: column; gap: space(4);
+  &__svg { width: 100%; height: auto; overflow: visible; }
+  &__bar--1 { fill: color(chart-1); }
+  &__bar--2 { fill: color(chart-2); }
+  &__axis { stroke: color(chart-grid); stroke-width: 1; }
+  &__tick, &__label { fill: color(chart-axis); font-family: var(--font-family); font-size: 12px; }
+  &__label { fill: color(text-secondary); }
+  &__legend { display: flex; gap: space(4); flex-wrap: wrap; @include type(c1); color: color(text-secondary); }
+  &__key { display: inline-flex; align-items: center; gap: space(2); &::before { content: ""; width: 12px; height: 12px; border-radius: radius(sm); background: var(--key); } }
+  &__key--1 { --key: var(--color-chart-1); }
+  &__key--2 { --key: var(--color-chart-2); }
+  &__data summary { cursor: pointer; color: color(primary-strong); @include type(b4); border-radius: radius(sm); width: fit-content; @include focus-ring; }
+  &__data[open] summary { margin-bottom: space(3); }
+}

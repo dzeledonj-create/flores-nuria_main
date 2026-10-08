@@ -2,192 +2,189 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Floristería - Panel</title>
-  <link rel="stylesheet" href="../../public/css/styles.css">
-  <link rel="icon" href="../../public/img/logo_fondo_blanco.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ofertas · Flores Nuria</title>
+  <meta name="description" content="Ofertas y descuentos de Flores Nuria: crea, activa o edita promociones.">
+  <link rel="icon" href="../../public/img/favicon.png" type="image/png">
+  <link rel="preload" href="../../public/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../public/css/main.css">
 </head>
 <body>
-  <section class="app">
-    <aside class="sidebar">
-      <section class="logo">
-        <span class="brand"><img src="../../public/img/logo.png" alt="Flores Nuria"></span>
-      </section>
-      <nav class="nav" aria-label="navegación principal">
-        <h4>Navegación</h4>
-        <ul>
-          <li><a href="dashboard.html">Dashboard</a></li>
-          <li><a href="reports.html">Informes</a></li>
-          <li><a href="payments.html">Cobros/Pagos</a></li>
-          <!-- <li><a href="schedule.html">Agenda</a></li> -->
-          <li><a href="products.html">Productos</a></li>
-          <li class="active"><a href="offers.html">Ofertas</a></li>
-          <li><a href="orders.html">Pedidos</a></li>
-          <!-- <li><a href="customers.html">Clientes</a></li> -->
-          <li><a href="suppliers.html">Proveedores</a></li>
-          <!-- <li><a href="employees.html">Empleados</a></li> -->
-        </ul>
-      </nav>
-    </aside>
-    <main class="main">
-      <header class="header">
-        <section class="left">
-          <section class="logo">
-            <button class="menu-toggle" type="button">☰</button>
-          </section>
-          <nav class="breadcrumbs" aria-label="breadcrumb">
-            <ol><li>Dashboard</li><li>Ofertas</li></ol>
-          </nav>
-        </section>
-        <section class="right user-menu-container">
-          <button class="user-circle" type="button" aria-haspopup="true" aria-expanded="false">U</button>
-          <div class="user-dropdown" role="menu">
-            <div class="user-dropdown-info">
-              <strong>Usuario</strong>
-              <span class="user-dropdown-role">Personal</span>
-            </div>
-            <div class="dropdown-divider"></div>
-            <a href="login.html" role="menuitem"><span class="icon">🚪</span> Cerrar Sesión</a>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="app">
+    <nav class="sidebar" id="sidebar" aria-label="Principal" tabindex="-1">
+      <a class="sidebar__close" href="#main"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></svg>Cerrar menú</a>
+      <a class="sidebar__brand" href="dashboard.html">
+        <img class="sidebar__logo" src="../../public/img/logo.webp" alt="" width="40" height="40">
+        <span class="sidebar__text">Flores Nuria</span>
+      </a>
+      <p class="sidebar__label" id="nav-title">Navegación</p>
+      <ul class="sidebar__list" aria-labelledby="nav-title">
+        <li><a class="sidebar__link" href="dashboard.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="7" height="9" x="3" y="3" rx="1" /> <rect width="7" height="5" x="14" y="3" rx="1" /> <rect width="7" height="9" x="14" y="12" rx="1" /> <rect width="7" height="5" x="3" y="16" rx="1" /></svg><span class="sidebar__text">Dashboard</span></a></li>
+        <li><a class="sidebar__link" href="reports.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v16a2 2 0 0 0 2 2h16" /> <path d="M18 17V9" /> <path d="M13 17V5" /> <path d="M8 17v-3" /></svg><span class="sidebar__text">Informes</span></a></li>
+        <li><a class="sidebar__link" href="payments.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="14" x="2" y="5" rx="2" /> <line x1="2" x2="22" y1="10" y2="10" /> <path d="M6 14h2" /></svg><span class="sidebar__text">Cobros/Pagos</span></a></li>
+        <li><a class="sidebar__link" href="products.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /></svg><span class="sidebar__text">Productos</span></a></li>
+        <li><a class="sidebar__link" href="offers.html" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" /> <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" /></svg><span class="sidebar__text">Ofertas</span></a></li>
+        <li><a class="sidebar__link" href="orders.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /> <path d="M15 18H9" /> <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /> <circle cx="17" cy="18" r="2" /> <circle cx="7" cy="18" r="2" /></svg><span class="sidebar__text">Pedidos</span></a></li>
+        <li><a class="sidebar__link" href="suppliers.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 21V10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v11" /> <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 1.132-1.803l7.95-3.974a2 2 0 0 1 1.837 0l7.948 3.974A2 2 0 0 1 22 8z" /> <path d="M6 13h12" /> <path d="M6 17h12" /></svg><span class="sidebar__text">Proveedores</span></a></li>
+      </ul>
+    </nav>
+    <a class="nav-backdrop" href="#main" tabindex="-1" aria-hidden="true"></a>
+    <div class="app__main">
+      <header class="topbar">
+        <a class="btn btn--ghost btn--icon topbar__menu" href="#sidebar" aria-label="Abrir menú de navegación"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h16" /> <path d="M4 12h16" /> <path d="M4 19h16" /></svg></a>
+        <span class="topbar__brand">Flores Nuria</span>
+        <nav class="topbar__crumbs" aria-label="Migas de pan">
+          <ol class="breadcrumbs"><li><a href="dashboard.html">Dashboard</a></li><li><span aria-current="page">Ofertas</span></li></ol>
+        </nav>
+        <span class="topbar__spacer"></span>
+        <details class="user-menu">
+          <summary class="user-menu__trigger"><span class="avatar" aria-hidden="true">NU</span><span class="visually-hidden">Menú de usuario</span></summary>
+          <div class="menu user-menu__panel">
+            <p class="menu__info"><strong>Usuario</strong><span>Personal</span></p>
+            <hr class="menu__divider">
+            <a class="menu__item" href="login.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m16 17 5-5-5-5" /> <path d="M21 12H9" /> <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /></svg>Cerrar sesión</a>
           </div>
-        </section>
+        </details>
       </header>
-      <section class="container">
-        <section class="toolbar d-flex gap-2 mb-3">
-          <form id="search-form" class="d-flex gap-2 m-0">
-            <input type="text" name="search" placeholder="Buscar oferta..." class="px-3-py-1 border-base rounded-sm outline-none">
-            <button type="submit" class="btn">Buscar</button>
+      <main class="app__content" id="main" tabindex="-1">
+        <header class="page-header">
+          <h1 class="page-header__title">Ofertas</h1>
+          <p class="page-header__desc">Crea promociones, actívalas o desactívalas y revisa cuándo caducan.</p>
+        </header>
+        <div class="toolbar">
+          <form class="toolbar__form" role="search" action="offers.html" method="get">
+            <div class="field toolbar__search">
+              <label class="field__label" for="search-offers-table">Buscar</label>
+              <div class="input-wrap input-wrap--lead">
+                <svg class="input-wrap__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /></svg>
+                <input class="input" type="search" id="search-offers-table" name="q" placeholder="Nombre de la oferta…">
+              </div>
+            </div>
+            <button class="btn btn--secondary" type="submit">Buscar</button>
           </form>
-          <a href="offers.html" class="btn pill green text-decoration-none d-flex align-center px-3">Mostrar Todo</a>
-          <button type="button" id="new-offer" class="btn secondary d-flex align-center px-3">Nueva oferta</button>
+          <div class="toolbar__actions">
+            <a class="btn btn--secondary" href="offers.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></svg>Mostrar todo</a>
+            <a class="btn btn--primary" href="#create-panel"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14" /> <path d="M12 5v14" /></svg>Nueva oferta</a>
+          </div>
+        </div>
+        <section class="card target-panel" id="create-panel" aria-labelledby="create-panel-title">
+          <header class="card__header"><h2 class="card__title" id="create-panel-title">Nueva oferta</h2></header>
+          <form action="offers.html" method="get">
+            <p class="form-note">Los campos marcados con <span aria-hidden="true">*</span><span class="visually-hidden">asterisco</span> son obligatorios.</p>
+            <div class="form-grid">
+            <div class="field">
+              <label class="field__label" for="create-nombre">Nombre de la oferta<span class="field__req" aria-hidden="true">*</span></label>
+              <input id="create-nombre" class="input" type="text" name="nombre" placeholder="Ej.: Black Friday" required>
+              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Este campo es obligatorio.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="create-descuento">Descuento (%)<span class="field__req" aria-hidden="true">*</span></label>
+              <input id="create-descuento" class="input" type="number" name="descuento" step="0.01" min="0" max="100" placeholder="Ej.: 15" required inputmode="decimal">
+              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Introduce un número entre 0 y 100.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="create-fin">Fecha de fin</label>
+              <input id="create-fin" aria-describedby="create-fin-help" class="input" type="date" name="fechaFin">
+              <p class="field__help" id="create-fin-help">Opcional. Sin fecha, la oferta no caduca.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="create-activa">Estado</label>
+              <select id="create-activa" class="input" name="activa"><option value="1" selected>Activa</option><option value="0">Inactiva</option></select>
+            </div>
+            </div>
+            <fieldset class="form-section">
+              <legend class="form-section__title">Productos de la oferta</legend>
+              <div class="check-list">
+                <label class="check"><input type="checkbox" name="productos[]" value="1">Rosa roja (2,42 €)</label>
+                <label class="check"><input type="checkbox" name="productos[]" value="2">Tulipán amarillo (1,74 €)</label>
+                <label class="check"><input type="checkbox" name="productos[]" value="3">Orquídea blanca (21,78 €)</label>
+                <label class="check"><input type="checkbox" name="productos[]" value="4">Maceta de cerámica (9,08 €)</label>
+                <label class="check"><input type="checkbox" name="productos[]" value="5">Girasol (1,45 €)</label>
+              </div>
+            </fieldset>
+            <div class="form-actions">
+              <a class="btn btn--secondary" href="#main">Cancelar</a>
+              <button class="btn btn--primary" type="submit">Crear oferta</button>
+            </div>
+          </form>
         </section>
-
-        <!-- FORMULARIO CREAR OFERTA -->
-        <form id="form-create-offer" class="form mb-3 d-none" data-type="create">
-          <div class="row">
-            <section class="flex-1">
-              <label>Nombre de la Oferta *</label>
-              <input type="text" name="nombre" placeholder="Ej: Black Friday" required>
-            </section>
-            <section class="flex-1">
-              <label>Descuento (%) *</label>
-              <input type="number" step="0.01" name="descuento" placeholder="Ej: 15" min="0" max="100" required>
-            </section>
-            <section class="flex-1">
-              <label>Fecha Fin (Opcional)</label>
-              <input type="date" name="fechaFin">
-            </section>
-            <section class="flex-1">
-              <label>Estado *</label>
-              <select name="activa" required>
-                <option value="1" selected>Activa</option>
-                <option value="0">Inactiva</option>
-              </select>
-            </section>
-          </div>
-          <div class="row mt-3">
-            <section class="flex-1">
-              <label>Productos *</label>
-              <div class="d-flex gap-2 mb-2 align-center">
-                <input type="text" id="search-create-prod" placeholder="Buscar producto..." class="flex-1 px-3-py-1 border-base rounded-sm" style="max-width: 300px;">
-                <select id="select-create-prod" class="flex-2 px-3-py-1 border-base rounded-sm">
-                  <option value="1">Rosa roja (2.42 €)</option>
-                  <option value="2">Tulipán amarillo (1.74 €)</option>
-                  <option value="3">Orquídea blanca (21.78 €)</option>
-                  <option value="4">Maceta de cerámica (9.08 €)</option>
-                  <option value="5">Girasol (1.45 €)</option>
-                </select>
-                <button type="button" class="btn primary px-3-py-1 fw-bold rounded-sm m-0" data-add-product>+</button>
-                <button type="button" class="btn secondary px-3-py-1 rounded-sm m-0" data-add-all title="Añadir todos los productos">Añadir todos</button>
+        <section class="card target-panel" id="edit-panel" aria-labelledby="edit-panel-title">
+          <header class="card__header"><h2 class="card__title" id="edit-panel-title">Editar oferta</h2></header>
+          <form action="offers.html" method="get">
+            <p class="form-note">Los campos marcados con <span aria-hidden="true">*</span><span class="visually-hidden">asterisco</span> son obligatorios.</p>
+            <div class="form-grid">
+            <div class="field">
+              <label class="field__label" for="edit-nombre">Nombre de la oferta<span class="field__req" aria-hidden="true">*</span></label>
+              <input id="edit-nombre" class="input" type="text" name="nombre" placeholder="Ej.: Black Friday" value="Black Friday" required>
+              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Este campo es obligatorio.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="edit-descuento">Descuento (%)<span class="field__req" aria-hidden="true">*</span></label>
+              <input id="edit-descuento" class="input" type="number" name="descuento" step="0.01" min="0" max="100" placeholder="Ej.: 15" value="20" required inputmode="decimal">
+              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Introduce un número entre 0 y 100.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="edit-fin">Fecha de fin</label>
+              <input id="edit-fin" aria-describedby="edit-fin-help" class="input" type="date" name="fechaFin" value="2026-11-30">
+              <p class="field__help" id="edit-fin-help">Opcional. Sin fecha, la oferta no caduca.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="edit-activa">Estado</label>
+              <select id="edit-activa" class="input" name="activa"><option value="1" selected>Activa</option><option value="0">Inactiva</option></select>
+            </div>
+            </div>
+            <fieldset class="form-section">
+              <legend class="form-section__title">Productos de la oferta</legend>
+              <div class="check-list">
+                <label class="check"><input type="checkbox" name="productos[]" value="1" checked>Rosa roja (2,42 €)</label>
+                <label class="check"><input type="checkbox" name="productos[]" value="2" checked>Tulipán amarillo (1,74 €)</label>
+                <label class="check"><input type="checkbox" name="productos[]" value="3">Orquídea blanca (21,78 €)</label>
+                <label class="check"><input type="checkbox" name="productos[]" value="4">Maceta de cerámica (9,08 €)</label>
+                <label class="check"><input type="checkbox" name="productos[]" value="5">Girasol (1,45 €)</label>
               </div>
-              <div id="container-create-prod" class="border-light rounded-sm p-2 bg-light min-h-80 max-h-150 overflow-y-auto">
-                <!-- Elementos añadidos aparecerán aquí -->
-                <p class="empty-prod text-muted text-md m-0">Añade productos usando el botón +</p>
-              </div>
-            </section>
-          </div>
-          <div class="row mt-4">
-            <button type="submit" class="btn pill green">Crear Oferta</button>
-            <button type="button" class="btn btn-gray" data-cancel>Cancelar</button>
-          </div>
-        </form>
-
-        <!-- FORMULARIO EDITAR OFERTA -->
-        <h3 id="edit-title" class="mt-5 d-none">Editar oferta</h3>
-        <form id="form-edit-offer" class="form mb-3 d-none" data-type="edit">
-          <input type="hidden" name="idOferta" id="edit-id-oferta">
-
-          <div class="row">
-            <section class="flex-1">
-              <label>Nombre Oferta *</label>
-              <input type="text" name="nombre" id="edit-nombre-oferta" required>
-            </section>
-            <section class="flex-1">
-              <label>Descuento (%) *</label>
-              <input type="number" step="0.01" name="descuento" id="edit-descuento-oferta" min="0" max="100" required>
-            </section>
-            <section class="flex-1">
-              <label>Fecha Fin (Opcional)</label>
-              <input type="date" name="fechaFin" id="edit-fechafin-oferta">
-            </section>
-            <section class="flex-1">
-              <label>Estado *</label>
-              <select name="activa" id="edit-activa-oferta" required>
-                <option value="1">Activa</option>
-                <option value="0">Inactiva</option>
-              </select>
-            </section>
-          </div>
-          <div class="row mt-3">
-            <section class="flex-1">
-              <label>Productos *</label>
-              <div class="d-flex gap-2 mb-2 align-center">
-                <input type="text" id="search-edit-prod" placeholder="Buscar producto..." class="flex-1 px-3-py-1 border-base rounded-sm" style="max-width: 300px;">
-                <select id="select-edit-prod" class="flex-2 px-3-py-1 border-base rounded-sm">
-                  <option value="1">Rosa roja (2.42 €)</option>
-                  <option value="2">Tulipán amarillo (1.74 €)</option>
-                  <option value="3">Orquídea blanca (21.78 €)</option>
-                  <option value="4">Maceta de cerámica (9.08 €)</option>
-                  <option value="5">Girasol (1.45 €)</option>
-                </select>
-                <button type="button" class="btn primary px-3-py-1 fw-bold rounded-sm m-0" data-add-product>+</button>
-                <button type="button" class="btn secondary px-3-py-1 rounded-sm m-0" data-add-all title="Añadir todos los productos">Añadir todos</button>
-              </div>
-              <div id="container-edit-prod" class="border-light rounded-sm p-2 bg-light min-h-80 max-h-150 overflow-y-auto">
-                <!-- Elementos añadidos aparecerán aquí -->
-                <p class="empty-prod text-muted text-md m-0">Añade productos usando el botón +</p>
-              </div>
-            </section>
-          </div>
-          <div class="row mt-4">
-            <button type="submit" class="btn pill orange">Guardar cambios</button>
-            <button type="button" class="btn btn-gray" data-cancel>Cancelar</button>
-          </div>
-        </form>
-
-        <!-- LISTA DE OFERTAS -->
-        <section class="table-wrap">
-          <table class="table">
+            </fieldset>
+            <div class="form-actions">
+              <a class="btn btn--secondary" href="#main">Cancelar</a>
+              <button class="btn btn--primary" type="submit">Guardar cambios</button>
+            </div>
+          </form>
+        </section>
+        <div class="table-wrap">
+          <table class="table" id="offers-table">
+            <caption class="visually-hidden">Listado de ofertas</caption>
             <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Descuento</th>
-                <th>Producto</th>
-                <th>Fecha Fin</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
+              <tr><th scope="col">Nombre</th><th scope="col" class="num">Descuento</th><th scope="col">Productos</th><th scope="col">Fecha de fin</th><th scope="col">Activa</th><th scope="col">Estado</th><th scope="col" class="actions-col"><span class="visually-hidden">Acciones</span></th></tr>
             </thead>
-            <tbody id="offers-body">
-              <tr><td>Black Friday</td><td>20.00 %</td><td>Rosa roja, Tulipán amarillo</td><td>30/11/2026</td><td><div class="d-flex align-center gap-2"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label><span class="status-badge status-active">Activa</span></div></td><td class="actions"><button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
-              <tr><td>San Valentín</td><td>15.00 %</td><td>Rosa roja</td><td>14/02/2026</td><td><div class="d-flex align-center gap-2"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label><span class="status-badge status-expired">Caducada</span></div></td><td class="actions"><button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
-              <tr><td>Primavera</td><td>10.00 %</td><td>Orquídea blanca</td><td>Sin límite</td><td><div class="d-flex align-center gap-2"><label class="switch"><input type="checkbox"><span class="slider round"></span></label><span class="status-badge status-inactive">Inactiva</span></div></td><td class="actions"><button type="button" class="btn-edit">✎</button> <button type="button" class="btn-delete">🗑</button></td></tr>
+            <tbody>
+              <tr><td data-label="Nombre" class="strong">Black Friday</td><td data-label="Descuento" class="num">20 %</td><td data-label="Productos">Rosa roja, Tulipán amarillo</td><td data-label="Fecha de fin"><time datetime="2026-11-30">30/11/2026</time></td><td data-label="Activa"><input class="switch" type="checkbox" role="switch" aria-label="Oferta Black Friday activa" checked></td><td data-label="Estado"><span class="badge badge--success">Activa</span></td><td data-label="Acciones"><div class="actions"><a class="btn btn--ghost btn--icon btn--sm" href="#edit-panel" aria-label="Editar Black Friday"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /> <path d="m15 5 4 4" /></svg></a><a class="btn btn--ghost-danger btn--icon btn--sm" href="#confirm-delete" aria-label="Eliminar Black Friday"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 11v6" /> <path d="M14 11v6" /> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /> <path d="M3 6h18" /> <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></a></div></td></tr>
+              <tr><td data-label="Nombre" class="strong">San Valentín</td><td data-label="Descuento" class="num">15 %</td><td data-label="Productos">Rosa roja</td><td data-label="Fecha de fin"><time datetime="2026-02-14">14/02/2026</time></td><td data-label="Activa"><input class="switch" type="checkbox" role="switch" aria-label="Oferta San Valentín activa" checked></td><td data-label="Estado"><span class="badge badge--error">Caducada</span></td><td data-label="Acciones"><div class="actions"><a class="btn btn--ghost btn--icon btn--sm" href="#edit-panel" aria-label="Editar San Valentín"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /> <path d="m15 5 4 4" /></svg></a><a class="btn btn--ghost-danger btn--icon btn--sm" href="#confirm-delete" aria-label="Eliminar San Valentín"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 11v6" /> <path d="M14 11v6" /> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /> <path d="M3 6h18" /> <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></a></div></td></tr>
+              <tr><td data-label="Nombre" class="strong">Primavera</td><td data-label="Descuento" class="num">10 %</td><td data-label="Productos">Orquídea blanca</td><td data-label="Fecha de fin"><span class="text-label">Sin límite</span></td><td data-label="Activa"><input class="switch" type="checkbox" role="switch" aria-label="Oferta Primavera activa"></td><td data-label="Estado"><span class="badge">Inactiva</span></td><td data-label="Acciones"><div class="actions"><a class="btn btn--ghost btn--icon btn--sm" href="#edit-panel" aria-label="Editar Primavera"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /> <path d="m15 5 4 4" /></svg></a><a class="btn btn--ghost-danger btn--icon btn--sm" href="#confirm-delete" aria-label="Eliminar Primavera"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 11v6" /> <path d="M14 11v6" /> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /> <path d="M3 6h18" /> <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></a></div></td></tr>
             </tbody>
           </table>
-        </section>
-
-        <footer class="footer">© 2026 Flores Nuria · Administración de Ofertas</footer>
-      </section>
-    </main>
-  </section>
+        </div>
+        <nav class="pagination" aria-label="Paginación de ofertas">
+          <p class="pagination__info">Mostrando 3 de 3 ofertas</p>
+          <div class="pagination__list">
+            <span class="pagination__item" aria-disabled="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6" /></svg><span>Anterior</span></span>
+            <a class="pagination__item" href="#main" aria-current="page"><span class="visually-hidden">Página </span>1</a>
+            <span class="pagination__item" aria-disabled="true"><span>Siguiente</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6" /></svg></span>
+          </div>
+        </nav>
+      </main>
+      <footer class="app__footer">© 2026 Flores Nuria · Panel de administración</footer>
+    </div>
+  </div>
+  <div class="modal-target" id="confirm-delete">
+    <section class="modal modal--danger" role="dialog" aria-labelledby="confirm-title" aria-describedby="confirm-text">
+      <span class="modal__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 11v6" /> <path d="M14 11v6" /> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /> <path d="M3 6h18" /> <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></span>
+      <h2 class="modal__title" id="confirm-title">¿Eliminar oferta?</h2>
+      <p class="modal__text" id="confirm-text">Se eliminará el registro seleccionado. Esta acción no se puede deshacer.</p>
+      <div class="modal__actions">
+        <a class="btn btn--secondary" href="#main">Cancelar</a>
+        <form action="offers.html" method="get"><button class="btn btn--destructive" type="submit">Eliminar</button></form>
+      </div>
+    </section>
+  </div>
 </body>
 </html>

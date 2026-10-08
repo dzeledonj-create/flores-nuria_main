@@ -1,0 +1,21 @@
+// Punto de entrada. Compilar:  npm run build:css  (scss/main.scss -> public/css/main.css)
+// Orden = cascada: tokens y base primero, después layout, componentes y por último utilidades.
+@use "base/root";
+@use "themes/dark";
+@use "base/reset";
+@use "base/typography";
+@use "layout/app";
+@use "layout/login";
+@use "components/button";
+@use "components/link";
+@use "components/field";
+@use "components/badge";
+@use "components/alert";
+@use "components/card";
+@use "components/table";
+@use "components/pagination";
+@use "components/modal";
+@use "components/sidebar";
+@use "components/dropdown";
+@use "components/chart";
+@use "base/utilities";
