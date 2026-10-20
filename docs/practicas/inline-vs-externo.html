@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Práctica inline frente a CSS externo · Flores Nuria</title>
+  <meta name="description" content="Práctica CE2B: el mismo componente con estilos inline y con clases del Design System.">
+  <link rel="icon" href="../../public/img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../../public/css/main.css">
+  <link rel="stylesheet" href="../../docs/css/practica.css">
+  <link rel="alternate stylesheet" href="../../public/css/theme-dark.css" title="Tema oscuro">
+</head>
+<body>
+  <main class="practice" id="main">
+    <header class="page-header">
+      <a class="link page-header__back" href="../../resources/views/dashboard.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 19-7-7 7-7" /> <path d="M19 12H5" /></svg>Volver a la aplicación</a>
+      <h1 class="practice__title">Práctica CE2B · Estilos inline frente a CSS externo</h1>
+      <p class="page-header__desc">Página de pruebas fuera de la aplicación: es el único lugar del proyecto con atributos style. Componente elegido: la tarjeta KPI «Ingresos» del Dashboard.</p>
+    </header>
+
+    <section class="practice__grid" aria-label="Comparación del componente">
+      <div class="practice__case">
+        <h2 class="guide__h3">Versión A · Estilos inline</h2>
+        <article style="background: #FFFFFF; border: 1px solid #E5E7EB; border-left: 4px solid #16A34A; border-radius: 12px; padding: 16px 24px; box-shadow: 0 1px 3px rgba(17,24,39,.10); display: flex; flex-direction: column; gap: 4px;">
+  <h3 style="margin: 0; font-size: 12px; line-height: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: .04em; color: #6B7280;">Ingresos</h3>
+  <p style="margin: 0; font-size: 24px; line-height: 28px; font-weight: 600; color: #111827;">18.677,30 €</p>
+  <p style="margin: 0; font-size: 12px; line-height: 16px; font-weight: 500; color: #15803D;">Facturado este mes</p>
+</article>
+        <pre class="practice__code" tabindex="0"><code>&lt;article style=&quot;background: #FFFFFF; border: 1px solid #E5E7EB; border-left: 4px solid #16A34A; border-radius: 12px; padding: 16px 24px; box-shadow: 0 1px 3px rgba(17,24,39,.10); display: flex; flex-direction: column; gap: 4px;&quot;&gt;
+  &lt;h3 style=&quot;margin: 0; font-size: 12px; line-height: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: .04em; color: #6B7280;&quot;&gt;Ingresos&lt;/h3&gt;
+  &lt;p style=&quot;margin: 0; font-size: 24px; line-height: 28px; font-weight: 600; color: #111827;&quot;&gt;18.677,30 €&lt;/p&gt;
+  &lt;p style=&quot;margin: 0; font-size: 12px; line-height: 16px; font-weight: 500; color: #15803D;&quot;&gt;Facturado este mes&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+      </div>
+      <div class="practice__case">
+        <h2 class="guide__h3">Versión B · Clases del Design System (CSS externo)</h2>
+        <article class="kpi kpi--positive">
+  <h3 class="kpi__label">Ingresos</h3>
+  <p class="kpi__value">18.677,30 €</p>
+  <p class="kpi__trend">Facturado este mes</p>
+</article>
+        <pre class="practice__code" tabindex="0"><code>&lt;article class=&quot;kpi kpi--positive&quot;&gt;
+  &lt;h3 class=&quot;kpi__label&quot;&gt;Ingresos&lt;/h3&gt;
+  &lt;p class=&quot;kpi__value&quot;&gt;18.677,30 €&lt;/p&gt;
+  &lt;p class=&quot;kpi__trend&quot;&gt;Facturado este mes&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="tabla-comparacion">
+      <h2 class="card__title" id="tabla-comparacion">Comparación</h2>
+      <div class="table-wrap">
+        <table class="table">
+          <caption class="visually-hidden">Comparación de la versión inline y la versión con clases</caption>
+          <thead><tr><th scope="col">Aspecto</th><th scope="col">A · Inline</th><th scope="col">B · Clases externas</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Aspecto" class="strong">Declaraciones escritas</td><td data-label="A · Inline">26 en 4 atributos style</td><td data-label="B · Clases externas">0 en el HTML (4 clases)</td></tr>
+            <tr><td data-label="Aspecto" class="strong">Aspecto en tema claro</td><td data-label="A · Inline">Igual que B</td><td data-label="B · Clases externas">Igual que A</td></tr>
+            <tr><td data-label="Aspecto" class="strong">Tema oscuro</td><td data-label="A · Inline">No cambia: colores fijos</td><td data-label="B · Clases externas">Cambia solo: usa tokens</td></tr>
+            <tr><td data-label="Aspecto" class="strong">Móvil</td><td data-label="A · Inline">Mismo tamaño siempre</td><td data-label="B · Clases externas">El importe baja a 20 px (media query)</td></tr>
+            <tr><td data-label="Aspecto" class="strong">Reutilizar en 8 tarjetas</td><td data-label="A · Inline">Copiar 26 declaraciones × 8</td><td data-label="B · Clases externas">Escribir 4 clases × 8</td></tr>
+            <tr><td data-label="Aspecto" class="strong">Cambiar el verde de marca</td><td data-label="A · Inline">Buscar y editar cada vista</td><td data-label="B · Clases externas">Una línea en _tokens.scss</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="practice__grid" aria-label="Pruebas de cascada">
+        <article class="card practice__case" aria-labelledby="caso-1">
+          <h3 class="card__title" id="caso-1">Caso 1 · Inline frente a una clase</h3>
+          <div class="guide__row"><span class="badge badge--success" style="background: #FDE68A; color: #92400E;">Disponible</span></div>
+          <pre class="practice__code" tabindex="0"><code>&lt;span class=&quot;badge badge--success&quot; style=&quot;background: #FDE68A; color: #92400E;&quot;&gt;Disponible&lt;/span&gt;</code></pre>
+          <p class="practice__result"><strong>Resultado:</strong> Gana el estilo inline (amarillo). La declaración del atributo style tiene más prioridad que cualquier selector de la hoja, aunque .badge--success sea más específica que .badge.</p>
+        </article>
+        <article class="card practice__case" aria-labelledby="caso-2">
+          <h3 class="card__title" id="caso-2">Caso 2 · !important en la hoja frente a inline</h3>
+          <div class="guide__row"><span class="badge prueba-importante" style="background: #FDE68A; color: #92400E;">Disponible</span></div>
+          <pre class="practice__code" tabindex="0"><code>&lt;span class=&quot;badge prueba-importante&quot; style=&quot;background: #FDE68A; color: #92400E;&quot;&gt;Disponible&lt;/span&gt;</code></pre>
+          <p class="practice__result"><strong>Resultado:</strong> Gana la hoja (azul). Una declaración con !important en la hoja externa supera a una inline normal: el nivel de importancia se compara antes que el origen y la especificidad.</p>
+        </article>
+        <article class="card practice__case" aria-labelledby="caso-3">
+          <h3 class="card__title" id="caso-3">Caso 3 · Inline con !important</h3>
+          <div class="guide__row"><span class="badge prueba-importante" style="background: #FECACA !important; color: #991B1B !important;">Disponible</span></div>
+          <pre class="practice__code" tabindex="0"><code>&lt;span class=&quot;badge prueba-importante&quot; style=&quot;background: #FECACA !important; color: #991B1B !important;&quot;&gt;Disponible&lt;/span&gt;</code></pre>
+          <p class="practice__result"><strong>Resultado:</strong> Gana el inline (rojo). Si las dos son !important, vuelve a mandar el atributo style. Es la única forma de ganar a un inline !important, por eso es tan difícil de mantener.</p>
+        </article>
+        <article class="card practice__case" aria-labelledby="caso-4">
+          <h3 class="card__title" id="caso-4">Caso 4 · Lo que el inline no puede hacer</h3>
+          <div class="guide__row"><a href="#conclusion" style="color: #0F766E; text-decoration: underline;">Enlace con estilo inline</a>
+<a class="link" href="#conclusion">Enlace con la clase .link</a></div>
+          <pre class="practice__code" tabindex="0"><code>&lt;a href=&quot;#conclusion&quot; style=&quot;color: #0F766E; text-decoration: underline;&quot;&gt;Enlace con estilo inline&lt;/a&gt;
+&lt;a class=&quot;link&quot; href=&quot;#conclusion&quot;&gt;Enlace con la clase .link&lt;/a&gt;</code></pre>
+          <p class="practice__result"><strong>Resultado:</strong> Pasa el ratón y usa Tab: solo el enlace con clase cambia en :hover y muestra el anillo de :focus-visible. En un atributo style no se pueden escribir pseudoclases, media queries ni ::before.</p>
+        </article>
+    </section>
+
+    <section class="card" id="conclusion" aria-labelledby="conclusion-title">
+      <h2 class="card__title" id="conclusion-title">Conclusión técnica</h2>
+      <p class="guide__text">El estilo inline funciona y tiene la prioridad más alta, pero no sigue los temas, no admite estados ni media queries y obliga a repetir cada valor. Por eso en la aplicación no hay ningún atributo style: todo el aspecto sale de clases del Design System en hojas externas. Solo lo usaríamos para un valor que cambie en cada elemento y no pueda ser una clase (por ejemplo, el ancho de una barra de progreso calculado en el servidor) y, aun así, mediante una custom property: style="--progreso: 40%".</p>
+    </section>
+  </main>
+</body>
+</html>

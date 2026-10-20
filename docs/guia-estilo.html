@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guía de estilo · Flores Nuria</title>
+  <meta name="description" content="Guía de estilo v1.1 de Flores Nuria: tokens, tipografía y componentes tal y como están implementados.">
+  <link rel="icon" href="../public/img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../public/css/main.css">
+  <link rel="stylesheet" href="../docs/css/guia.css">
+  <link rel="alternate stylesheet" href="../public/css/theme-dark.css" title="Tema oscuro">
+</head>
+<body>
+  <main class="guide" id="main">
+    <header class="guide__header">
+      <a class="link page-header__back" href="../resources/views/dashboard.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 19-7-7 7-7" /> <path d="M19 12H5" /></svg>Volver a la aplicación</a>
+      <h1 class="guide__title">Guía de estilo · Flores Nuria v1.1</h1>
+      <p class="guide__lead">Design System del Hito 2 actualizado con lo que realmente se ha implementado en el Hito 3. Todo lo que ves aquí está dibujado con el mismo CSS que la aplicación (public/css/main.css): si cambia un token o una clase, esta guía cambia con ella.</p>
+      <nav aria-label="Secciones de la guía"><ul class="guide__toc"><li><a class="btn btn--secondary btn--sm" href="#uso">Cómo usar</a></li><li><a class="btn btn--secondary btn--sm" href="#color">Color</a></li><li><a class="btn btn--secondary btn--sm" href="#tipografia">Tipografía</a></li><li><a class="btn btn--secondary btn--sm" href="#espacios">Espacios, radios y sombras</a></li><li><a class="btn btn--secondary btn--sm" href="#componentes">Componentes</a></li><li><a class="btn btn--secondary btn--sm" href="#clases">Clases</a></li><li><a class="btn btn--secondary btn--sm" href="#cambios">Cambios v1.1</a></li></ul></nav>
+    </header>
+
+    <section class="guide__section" id="uso" aria-labelledby="uso-t">
+      <h2 class="guide__h2" id="uso-t">Cómo usar esta guía para ampliar la interfaz</h2>
+      <ol class="guide__text guide__steps">
+        <li>Busca aquí un componente que ya resuelva lo que necesitas y copia su HTML (cada ejemplo tiene su código debajo).</li>
+        <li>Si falta un color, un tamaño o un espacio, añádelo primero como token en <code>resources/scss/abstracts/_tokens.scss</code> (en los dos temas) y úsalo con <code>color()</code>, <code>space()</code> o <code>radius()</code>.</li>
+        <li>Un componente nuevo va en su propio parcial de <code>resources/scss/components/</code>, con nombre BEM (<code>.bloque__elemento--modificador</code>), y se añade a <code>main.scss</code>.</li>
+        <li>Nunca uses atributos style ni !important; los estados se escriben con pseudoclases o atributos ARIA (<code>[aria-current]</code>, <code>[aria-pressed]</code>).</li>
+        <li>Compila con <code>npm run build:css</code> y comprueba la pantalla en 390, 768 y 1440 px y en tema oscuro.</li>
+      </ol>
+    </section>
+
+    <section class="guide__section" id="color" aria-labelledby="color-t">
+      <h2 class="guide__h2" id="color-t">Color</h2>
+      <p class="guide__text">Cada muestra se pinta con su custom property. Activa el tema oscuro para ver los valores del tema alternativo.</p>
+        <h3 class="guide__h3">Marca</h3>
+        <div class="guide__grid">
+          <div class="swatch swatch--primary"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">primary</span><span class="swatch__value">claro #0D9488 · oscuro #2DD4BF</span><span class="swatch__value">marca: iconos, bordes, anillo de foco</span></span></div>
+          <div class="swatch swatch--primary-strong"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">primary-strong</span><span class="swatch__value">claro #0F766E · oscuro #2DD4BF</span><span class="swatch__value">fondo de botón primario, enlaces (5,47:1)</span></span></div>
+          <div class="swatch swatch--primary-hover"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">primary-hover</span><span class="swatch__value">claro #115E59 · oscuro #5EEAD4</span></span></div>
+          <div class="swatch swatch--primary-active"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">primary-active</span><span class="swatch__value">claro #134E4A · oscuro #14B8A6</span></span></div>
+          <div class="swatch swatch--primary-subtle"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">primary-subtle</span><span class="swatch__value">claro #F0FDFA · oscuro #042F2E</span></span></div>
+          <div class="swatch swatch--primary-muted"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">primary-muted</span><span class="swatch__value">claro #CCFBF1 · oscuro #134E4A</span></span></div>
+          <div class="swatch swatch--on-primary"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">on-primary</span><span class="swatch__value">claro #FFFFFF · oscuro #042F2E</span><span class="swatch__value">Superficies</span></span></div>
+          <div class="swatch swatch--focus"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">focus</span><span class="swatch__value">claro #0D9488 · oscuro #2DD4BF</span></span></div>
+          <div class="swatch swatch--primary-on-subtle"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">primary-on-subtle</span><span class="swatch__value">claro #134E4A · oscuro #99F6E4</span><span class="swatch__value">texto sobre primary-subtle (badge neutro de marca)</span></span></div>
+        </div>
+        <h3 class="guide__h3">Superficies y barra lateral</h3>
+        <div class="guide__grid">
+          <div class="swatch swatch--bg"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">bg</span><span class="swatch__value">claro #F3F4F6 · oscuro #111827</span><span class="swatch__value">fondo general</span></span></div>
+          <div class="swatch swatch--surface"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">surface</span><span class="swatch__value">claro #FFFFFF · oscuro #1F2937</span><span class="swatch__value">tarjetas, tablas, pop-ups</span></span></div>
+          <div class="swatch swatch--surface-alt"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">surface-alt</span><span class="swatch__value">claro #F9FAFB · oscuro #243041</span><span class="swatch__value">filas alternas, cabecera de tabla</span></span></div>
+          <div class="swatch swatch--surface-disabled"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">surface-disabled</span><span class="swatch__value">claro #E5E7EB · oscuro #374151</span></span></div>
+          <div class="swatch swatch--sidebar"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">sidebar</span><span class="swatch__value">claro #1F2937 · oscuro #0B1220</span></span></div>
+          <div class="swatch swatch--sidebar-text"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">sidebar-text</span><span class="swatch__value">claro #D1D5DB · oscuro #D1D5DB</span></span></div>
+          <div class="swatch swatch--sidebar-label"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">sidebar-label</span><span class="swatch__value">claro #9CA3AF · oscuro #9CA3AF</span></span></div>
+          <div class="swatch swatch--sidebar-active"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">sidebar-active</span><span class="swatch__value">claro #0F766E · oscuro #115E59</span><span class="swatch__value">Texto</span></span></div>
+          <div class="swatch swatch--sidebar-text-strong"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">sidebar-text-strong</span><span class="swatch__value">claro #FFFFFF · oscuro #FFFFFF</span><span class="swatch__value">marca y opción activa del sidebar</span></span></div>
+          <div class="swatch swatch--sidebar-focus"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">sidebar-focus</span><span class="swatch__value">claro #5EEAD4 · oscuro #5EEAD4</span><span class="swatch__value">anillo de foco sobre el sidebar oscuro</span></span></div>
+          <div class="swatch swatch--logo-bg"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">logo-bg</span><span class="swatch__value">claro #FFFFFF · oscuro #FFFFFF</span><span class="swatch__value">el logo es oscuro: siempre sobre blanco</span></span></div>
+        </div>
+        <h3 class="guide__h3">Texto y bordes</h3>
+        <div class="guide__grid">
+          <div class="swatch swatch--text"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">text</span><span class="swatch__value">claro #111827 · oscuro #F9FAFB</span></span></div>
+          <div class="swatch swatch--text-secondary"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">text-secondary</span><span class="swatch__value">claro #374151 · oscuro #E5E7EB</span></span></div>
+          <div class="swatch swatch--text-muted"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">text-muted</span><span class="swatch__value">claro #4B5563 · oscuro #D1D5DB</span><span class="swatch__value">texto secundario sobre fondo gris</span></span></div>
+          <div class="swatch swatch--label"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">label</span><span class="swatch__value">claro #6B7280 · oscuro #9CA3AF</span><span class="swatch__value">solo sobre blanco o surface-alt</span></span></div>
+          <div class="swatch swatch--text-disabled"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">text-disabled</span><span class="swatch__value">claro #9CA3AF · oscuro #6B7280</span><span class="swatch__value">exento de contraste (WCAG 1.4.3)</span></span></div>
+          <div class="swatch swatch--border-control"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">border-control</span><span class="swatch__value">claro #7B8494 · oscuro #7C8595</span><span class="swatch__value">inputs, botón secundario (3,77:1)</span></span></div>
+          <div class="swatch swatch--border"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">border</span><span class="swatch__value">claro #E5E7EB · oscuro #374151</span><span class="swatch__value">tarjetas</span></span></div>
+          <div class="swatch swatch--divider"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">divider</span><span class="swatch__value">claro #D1D5DB · oscuro #374151</span><span class="swatch__value">Semánticos: base (borde/icono) · strong (relleno/texto) · subtle (fondo) · on-subtle (texto sobre subtle)</span></span></div>
+          <div class="swatch swatch--link-visited"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">link-visited</span><span class="swatch__value">claro #134E4A · oscuro #99F6E4</span><span class="swatch__value">enlace visitado</span></span></div>
+        </div>
+        <h3 class="guide__h3">Estados (éxito, error, aviso, info)</h3>
+        <div class="guide__grid">
+          <div class="swatch swatch--success"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">success</span><span class="swatch__value">claro #16A34A · oscuro #4ADE80</span></span></div>
+          <div class="swatch swatch--success-strong"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">success-strong</span><span class="swatch__value">claro #15803D · oscuro #4ADE80</span></span></div>
+          <div class="swatch swatch--success-subtle"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">success-subtle</span><span class="swatch__value">claro #DCFCE7 · oscuro #14532D</span></span></div>
+          <div class="swatch swatch--success-on-subtle"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">success-on-subtle</span><span class="swatch__value">claro #166534 · oscuro #86EFAC</span></span></div>
+          <div class="swatch swatch--error"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">error</span><span class="swatch__value">claro #DC2626 · oscuro #F87171</span></span></div>
+          <div class="swatch swatch--error-strong"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">error-strong</span><span class="swatch__value">claro #B91C1C · oscuro #F87171</span></span></div>
+          <div class="swatch swatch--error-subtle"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">error-subtle</span><span class="swatch__value">claro #FEE2E2 · oscuro #7F1D1D</span></span></div>
+          <div class="swatch swatch--error-on-subtle"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">error-on-subtle</span><span class="swatch__value">claro #991B1B · oscuro #FCA5A5</span></span></div>
+          <div class="swatch swatch--warning"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">warning</span><span class="swatch__value">claro #D97706 · oscuro #FBBF24</span></span></div>
+          <div class="swatch swatch--warning-strong"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">warning-strong</span><span class="swatch__value">claro #B45309 · oscuro #FBBF24</span></span></div>
+          <div class="swatch swatch--warning-subtle"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">warning-subtle</span><span class="swatch__value">claro #FEF3C7 · oscuro #78350F</span></span></div>
+          <div class="swatch swatch--warning-on-subtle"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">warning-on-subtle</span><span class="swatch__value">claro #92400E · oscuro #FDE68A</span></span></div>
+          <div class="swatch swatch--info"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">info</span><span class="swatch__value">claro #3B82F6 · oscuro #60A5FA</span></span></div>
+          <div class="swatch swatch--info-strong"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">info-strong</span><span class="swatch__value">claro #1D4ED8 · oscuro #60A5FA</span></span></div>
+          <div class="swatch swatch--info-subtle"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">info-subtle</span><span class="swatch__value">claro #DBEAFE · oscuro #1E3A8A</span></span></div>
+          <div class="swatch swatch--info-on-subtle"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">info-on-subtle</span><span class="swatch__value">claro #1E40AF · oscuro #BFDBFE</span></span></div>
+          <div class="swatch swatch--on-solid"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">on-solid</span><span class="swatch__value">claro #FFFFFF · oscuro #FFFFFF</span><span class="swatch__value">texto sobre rellenos semánticos (badge sólido)</span></span></div>
+          <div class="swatch swatch--on-error"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">on-error</span><span class="swatch__value">claro #FFFFFF · oscuro #450A0A</span><span class="swatch__value">texto del botón destructivo (6,47:1)</span></span></div>
+          <div class="swatch swatch--error-hover"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">error-hover</span><span class="swatch__value">claro #991B1B · oscuro #FCA5A5</span><span class="swatch__value">botón destructivo · hover</span></span></div>
+          <div class="swatch swatch--error-active"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">error-active</span><span class="swatch__value">claro #7F1D1D · oscuro #EF4444</span><span class="swatch__value">botón destructivo · pulsado</span></span></div>
+        </div>
+        <h3 class="guide__h3">Gráficos</h3>
+        <div class="guide__grid">
+          <div class="swatch swatch--chart-1"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">chart-1</span><span class="swatch__value">claro #0F766E · oscuro #2DD4BF</span><span class="swatch__value">serie principal de los gráficos</span></span></div>
+          <div class="swatch swatch--chart-2"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">chart-2</span><span class="swatch__value">claro #B45309 · oscuro #FBBF24</span><span class="swatch__value">serie secundaria</span></span></div>
+          <div class="swatch swatch--chart-axis"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">chart-axis</span><span class="swatch__value">claro #6B7280 · oscuro #9CA3AF</span></span></div>
+          <div class="swatch swatch--chart-grid"><span class="swatch__color"></span><span class="swatch__info"><span class="swatch__name">chart-grid</span><span class="swatch__value">claro #D1D5DB · oscuro #374151</span></span></div>
+        </div>
+    </section>
+
+    <section class="guide__section" id="tipografia" aria-labelledby="tipo-t">
+      <h2 class="guide__h2" id="tipo-t">Tipografía · Inter</h2>
+          <div class="guide__row"><span class="t-h1">Flores Nuria</span><span class="text-muted">.t-h1 · H1 · 48/58 · 600 · Portada</span></div>
+          <div class="guide__row"><span class="t-h2">Flores Nuria</span><span class="text-muted">.t-h2 · H2 · 40/48 · 600 · Cifras destacadas</span></div>
+          <div class="guide__row"><span class="t-h3">Flores Nuria</span><span class="text-muted">.t-h3 · H3 · 32/38 · 600 (24/30 en móvil) · Título de página</span></div>
+          <div class="guide__row"><span class="t-h4">Flores Nuria</span><span class="text-muted">.t-h4 · H4 · 28/34 · 600 · Títulos de sección</span></div>
+          <div class="guide__row"><span class="t-h5">Flores Nuria</span><span class="text-muted">.t-h5 · H5 · 24/28 · 600 · Importes KPI</span></div>
+          <div class="guide__row"><span class="t-s1">Flores Nuria</span><span class="text-muted">.t-s1 · S1 · 18/28 · 600 · Títulos de tarjeta y pop-up</span></div>
+          <div class="guide__row"><span class="t-s2">Flores Nuria</span><span class="text-muted">.t-s2 · S2 · 16/24 · 600 · Subtítulos</span></div>
+          <div class="guide__row"><span class="t-b1">Flores Nuria</span><span class="text-muted">.t-b1 · B1 · 16/24 · 400 · Texto largo</span></div>
+          <div class="guide__row"><span class="t-b3">Flores Nuria</span><span class="text-muted">.t-b3 · B3 · 14/20 · 400 · Datos de tabla</span></div>
+          <div class="guide__row"><span class="t-b4">Flores Nuria</span><span class="text-muted">.t-b4 · B4 · 14/20 · 500 · Texto de botón</span></div>
+          <div class="guide__row"><span class="t-c1">Flores Nuria</span><span class="text-muted">.t-c1 · C1 · 12/16 · 400 · Ayuda de formularios</span></div>
+          <div class="guide__row"><span class="t-c2">Flores Nuria</span><span class="text-muted">.t-c2 · C2 · 12/16 · 500 · Cabeceras de tabla, badges</span></div>
+    </section>
+
+    <section class="guide__section" id="espacios" aria-labelledby="esp-t">
+      <h2 class="guide__h2" id="esp-t">Espacios, radios y sombras</h2>
+      <div class="guide__row"><span class="guide__row"><span class="space-demo space-demo--1"></span><span class="text-muted">space(1) · 4 px</span></span><span class="guide__row"><span class="space-demo space-demo--2"></span><span class="text-muted">space(2) · 8 px</span></span><span class="guide__row"><span class="space-demo space-demo--3"></span><span class="text-muted">space(3) · 12 px</span></span><span class="guide__row"><span class="space-demo space-demo--4"></span><span class="text-muted">space(4) · 16 px</span></span><span class="guide__row"><span class="space-demo space-demo--6"></span><span class="text-muted">space(6) · 24 px</span></span><span class="guide__row"><span class="space-demo space-demo--8"></span><span class="text-muted">space(8) · 32 px</span></span><span class="guide__row"><span class="space-demo space-demo--12"></span><span class="text-muted">space(12) · 48 px</span></span></div>
+      <div class="guide__row"><span class="guide__row"><span class="radius-demo radius-demo--sm"></span><span class="text-muted">radius(sm)</span></span><span class="guide__row"><span class="radius-demo radius-demo--md"></span><span class="text-muted">radius(md)</span></span><span class="guide__row"><span class="radius-demo radius-demo--lg"></span><span class="text-muted">radius(lg)</span></span><span class="guide__row"><span class="radius-demo radius-demo--xl"></span><span class="text-muted">radius(xl)</span></span><span class="guide__row"><span class="radius-demo radius-demo--full"></span><span class="text-muted">radius(full)</span></span></div>
+      <div class="guide__row"><span class="shadow-demo shadow-demo--100">shadow(100)</span><span class="shadow-demo shadow-demo--200">shadow(200)</span><span class="shadow-demo shadow-demo--300">shadow(300)</span><span class="shadow-demo shadow-demo--400">shadow(400)</span><span class="shadow-demo shadow-demo--500">shadow(500)</span><span class="shadow-demo shadow-demo--600">shadow(600)</span><span class="shadow-demo shadow-demo--700">shadow(700)</span><span class="shadow-demo shadow-demo--800">shadow(800)</span></div>
+    </section>
+
+    <section class="guide__section" id="componentes" aria-labelledby="comp-t">
+      <h2 class="guide__h2" id="comp-t">Componentes</h2>
+        <h3 class="guide__h3">Botones</h3>
+          <p class="guide__text">Un solo botón primario por zona. Los botones de solo icono llevan siempre aria-label.</p>
+        <div class="guide__demo">
+          <div class="guide__row">
+            <button class="btn btn--primary" type="button">Primario</button>
+            <button class="btn btn--secondary" type="button">Secundario</button>
+            <button class="btn btn--ghost" type="button">Ghost</button>
+            <button class="btn btn--destructive" type="button">Destructivo</button>
+            <button class="btn btn--primary" type="button" disabled>Deshabilitado</button>
+            <button class="btn btn--primary" type="button" aria-busy="true">Guardando…</button>
+            <button class="btn btn--primary btn--sm" type="button">Pequeño 32 px</button>
+            <button class="btn btn--ghost btn--icon" type="button" aria-label="Editar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /> <path d="m15 5 4 4" /></svg></button>
+            <button class="btn btn--ghost-danger btn--icon" type="button" aria-label="Eliminar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 11v6" /> <path d="M14 11v6" /> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /> <path d="M3 6h18" /> <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></button>
+          </div>
+        </div>
+        <pre class="guide__code" tabindex="0"><code>&lt;div class=&quot;guide__row&quot;&gt;
+            &lt;button class=&quot;btn btn--primary&quot; type=&quot;button&quot;&gt;Primario&lt;/button&gt;
+            &lt;button class=&quot;btn btn--secondary&quot; type=&quot;button&quot;&gt;Secundario&lt;/button&gt;
+            &lt;button class=&quot;btn btn--ghost&quot; type=&quot;button&quot;&gt;Ghost&lt;/button&gt;
+            &lt;button class=&quot;btn btn--destructive&quot; type=&quot;button&quot;&gt;Destructivo&lt;/button&gt;
+            &lt;button class=&quot;btn btn--primary&quot; type=&quot;button&quot; disabled&gt;Deshabilitado&lt;/button&gt;
+            &lt;button class=&quot;btn btn--primary&quot; type=&quot;button&quot; aria-busy=&quot;true&quot;&gt;Guardando…&lt;/button&gt;
+            &lt;button class=&quot;btn btn--primary btn--sm&quot; type=&quot;button&quot;&gt;Pequeño 32 px&lt;/button&gt;
+            &lt;button class=&quot;btn btn--ghost btn--icon&quot; type=&quot;button&quot; aria-label=&quot;Editar&quot;&gt;&lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;&lt;path d=&quot;M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z&quot; /&gt; &lt;path d=&quot;m15 5 4 4&quot; /&gt;&lt;/svg&gt;&lt;/button&gt;
+            &lt;button class=&quot;btn btn--ghost-danger btn--icon&quot; type=&quot;button&quot; aria-label=&quot;Eliminar&quot;&gt;&lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;&lt;path d=&quot;M10 11v6&quot; /&gt; &lt;path d=&quot;M14 11v6&quot; /&gt; &lt;path d=&quot;M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6&quot; /&gt; &lt;path d=&quot;M3 6h18&quot; /&gt; &lt;path d=&quot;M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2&quot; /&gt;&lt;/svg&gt;&lt;/button&gt;
+          &lt;/div&gt;</code></pre>
+        <h3 class="guide__h3">Campos de formulario</h3>
+          <p class="guide__text">La etiqueta va encima y la ayuda debajo. En la aplicación, el estado de error aparece solo (:user-invalid) al intentar enviar.</p>
+        <div class="guide__demo">
+          <div class="form-grid">
+            <div class="field"><label class="field__label" for="g1">Normal</label><input class="input" id="g1" placeholder="Texto de ejemplo"></div>
+            <div class="field"><label class="field__label" for="g2">Deshabilitado</label><input class="input" id="g2" value="No editable" disabled></div>
+            <div class="field field--success"><label class="field__label" for="g3">Éxito</label><input class="input" id="g3" value="Rosa roja" aria-describedby="g3h"><p class="field__help" id="g3h">Nombre disponible.</p></div>
+            <div class="field field--error"><label class="field__label" for="g4">Error</label><input class="input" id="g4" value="0" aria-describedby="g4h"><p class="field__help" id="g4h">El precio debe ser mayor que 0.</p></div>
+            <div class="field field--warning"><label class="field__label" for="g5">Aviso</label><input class="input" id="g5" value="15" aria-describedby="g5h"><p class="field__help" id="g5h">Stock bajo.</p></div>
+            <div class="field field--info"><label class="field__label" for="g6">Info</label><input class="input" id="g6" value="21.00" aria-describedby="g6h"><p class="field__help" id="g6h">IVA general.</p></div>
+            <div class="field"><label class="field__label" for="g7">Select</label><select class="input" id="g7"><option>Flor</option><option>Planta</option></select></div>
+            <div class="field"><span class="field__label">Casilla e interruptor</span><div class="guide__row"><label class="check"><input type="checkbox" checked>Marcada</label><input class="switch" type="checkbox" role="switch" aria-label="Activa" checked></div></div>
+          </div>
+        </div>
+        <pre class="guide__code" tabindex="0"><code>&lt;div class=&quot;form-grid&quot;&gt;
+            &lt;div class=&quot;field&quot;&gt;&lt;label class=&quot;field__label&quot; for=&quot;g1&quot;&gt;Normal&lt;/label&gt;&lt;input class=&quot;input&quot; id=&quot;g1&quot; placeholder=&quot;Texto de ejemplo&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;field&quot;&gt;&lt;label class=&quot;field__label&quot; for=&quot;g2&quot;&gt;Deshabilitado&lt;/label&gt;&lt;input class=&quot;input&quot; id=&quot;g2&quot; value=&quot;No editable&quot; disabled&gt;&lt;/div&gt;
+            &lt;div class=&quot;field field--success&quot;&gt;&lt;label class=&quot;field__label&quot; for=&quot;g3&quot;&gt;Éxito&lt;/label&gt;&lt;input class=&quot;input&quot; id=&quot;g3&quot; value=&quot;Rosa roja&quot; aria-describedby=&quot;g3h&quot;&gt;&lt;p class=&quot;field__help&quot; id=&quot;g3h&quot;&gt;Nombre disponible.&lt;/p&gt;&lt;/div&gt;
+            &lt;div class=&quot;field field--error&quot;&gt;&lt;label class=&quot;field__label&quot; for=&quot;g4&quot;&gt;Error&lt;/label&gt;&lt;input class=&quot;input&quot; id=&quot;g4&quot; value=&quot;0&quot; aria-describedby=&quot;g4h&quot;&gt;&lt;p class=&quot;field__help&quot; id=&quot;g4h&quot;&gt;El precio debe ser mayor que 0.&lt;/p&gt;&lt;/div&gt;
+            &lt;div class=&quot;field field--warning&quot;&gt;&lt;label class=&quot;field__label&quot; for=&quot;g5&quot;&gt;Aviso&lt;/label&gt;&lt;input class=&quot;input&quot; id=&quot;g5&quot; value=&quot;15&quot; aria-describedby=&quot;g5h&quot;&gt;&lt;p class=&quot;field__help&quot; id=&quot;g5h&quot;&gt;Stock bajo.&lt;/p&gt;&lt;/div&gt;
+            &lt;div class=&quot;field field--info&quot;&gt;&lt;label class=&quot;field__label&quot; for=&quot;g6&quot;&gt;Info&lt;/label&gt;&lt;input class=&quot;input&quot; id=&quot;g6&quot; value=&quot;21.00&quot; aria-describedby=&quot;g6h&quot;&gt;&lt;p class=&quot;field__help&quot; id=&quot;g6h&quot;&gt;IVA general.&lt;/p&gt;&lt;/div&gt;
+            &lt;div class=&quot;field&quot;&gt;&lt;label class=&quot;field__label&quot; for=&quot;g7&quot;&gt;Select&lt;/label&gt;&lt;select class=&quot;input&quot; id=&quot;g7&quot;&gt;&lt;option&gt;Flor&lt;/option&gt;&lt;option&gt;Planta&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
+            &lt;div class=&quot;field&quot;&gt;&lt;span class=&quot;field__label&quot;&gt;Casilla e interruptor&lt;/span&gt;&lt;div class=&quot;guide__row&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; checked&gt;Marcada&lt;/label&gt;&lt;input class=&quot;switch&quot; type=&quot;checkbox&quot; role=&quot;switch&quot; aria-label=&quot;Activa&quot; checked&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;/div&gt;</code></pre>
+        <h3 class="guide__h3">Badges</h3>
+          <p class="guide__text">El color nunca va solo: siempre hay texto.</p>
+        <div class="guide__demo">
+          <div class="guide__row">
+            <span class="badge">Neutro</span>
+            <span class="badge badge--brand">Oferta -20 %</span>
+            <span class="badge badge--success">Disponible</span>
+            <span class="badge badge--warning">Stock bajo</span>
+            <span class="badge badge--error">Agotado</span>
+            <span class="badge badge--info">Nuevo</span>
+            <span class="badge badge--success badge--solid">Pagado</span>
+            <span class="badge badge--error badge--sm">Pequeño</span>
+            <span class="badge badge--warning badge--tiny">Tiny</span>
+          </div>
+        </div>
+        <pre class="guide__code" tabindex="0"><code>&lt;div class=&quot;guide__row&quot;&gt;
+            &lt;span class=&quot;badge&quot;&gt;Neutro&lt;/span&gt;
+            &lt;span class=&quot;badge badge--brand&quot;&gt;Oferta -20 %&lt;/span&gt;
+            &lt;span class=&quot;badge badge--success&quot;&gt;Disponible&lt;/span&gt;
+            &lt;span class=&quot;badge badge--warning&quot;&gt;Stock bajo&lt;/span&gt;
+            &lt;span class=&quot;badge badge--error&quot;&gt;Agotado&lt;/span&gt;
+            &lt;span class=&quot;badge badge--info&quot;&gt;Nuevo&lt;/span&gt;
+            &lt;span class=&quot;badge badge--success badge--solid&quot;&gt;Pagado&lt;/span&gt;
+            &lt;span class=&quot;badge badge--error badge--sm&quot;&gt;Pequeño&lt;/span&gt;
+            &lt;span class=&quot;badge badge--warning badge--tiny&quot;&gt;Tiny&lt;/span&gt;
+          &lt;/div&gt;</code></pre>
+        <h3 class="guide__h3">Alertas</h3>
+        <div class="guide__demo">
+          <div class="alert alert--success"><svg class="alert__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <path d="m16 9-5.5 5.5L8 12" /></svg><p class="alert__body"><span class="alert__title">Pago registrado.</span> La venta nº 4 se ha guardado.</p></div>
+<div class="alert alert--info"><svg class="alert__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <path d="M12 16v-4" /> <path d="M12 8h.01" /></svg><p class="alert__body"><span class="alert__title">Exportación:</span> el archivo incluye 3 tickets.</p></div>
+<div class="alert alert--warning"><svg class="alert__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /> <path d="M12 9v4" /> <path d="M12 17h.01" /></svg><p class="alert__body"><span class="alert__title">Revisa el stock:</span> Orquídea blanca tiene stock bajo.</p></div>
+<div class="alert alert--error"><svg class="alert__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg><p class="alert__body"><span class="alert__title">No se ha podido guardar.</span> Revisa los campos marcados.</p></div>
+        </div>
+        <pre class="guide__code" tabindex="0"><code>&lt;div class=&quot;alert alert--success&quot;&gt;&lt;svg class=&quot;alert__icon&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; /&gt; &lt;path d=&quot;m16 9-5.5 5.5L8 12&quot; /&gt;&lt;/svg&gt;&lt;p class=&quot;alert__body&quot;&gt;&lt;span class=&quot;alert__title&quot;&gt;Pago registrado.&lt;/span&gt; La venta nº 4 se ha guardado.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;alert alert--info&quot;&gt;&lt;svg class=&quot;alert__icon&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; /&gt; &lt;path d=&quot;M12 16v-4&quot; /&gt; &lt;path d=&quot;M12 8h.01&quot; /&gt;&lt;/svg&gt;&lt;p class=&quot;alert__body&quot;&gt;&lt;span class=&quot;alert__title&quot;&gt;Exportación:&lt;/span&gt; el archivo incluye 3 tickets.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;alert alert--warning&quot;&gt;&lt;svg class=&quot;alert__icon&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;&lt;path d=&quot;m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3&quot; /&gt; &lt;path d=&quot;M12 9v4&quot; /&gt; &lt;path d=&quot;M12 17h.01&quot; /&gt;&lt;/svg&gt;&lt;p class=&quot;alert__body&quot;&gt;&lt;span class=&quot;alert__title&quot;&gt;Revisa el stock:&lt;/span&gt; Orquídea blanca tiene stock bajo.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;alert alert--error&quot;&gt;&lt;svg class=&quot;alert__icon&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; /&gt; &lt;line x1=&quot;12&quot; x2=&quot;12&quot; y1=&quot;8&quot; y2=&quot;12&quot; /&gt; &lt;line x1=&quot;12&quot; x2=&quot;12.01&quot; y1=&quot;16&quot; y2=&quot;16&quot; /&gt;&lt;/svg&gt;&lt;p class=&quot;alert__body&quot;&gt;&lt;span class=&quot;alert__title&quot;&gt;No se ha podido guardar.&lt;/span&gt; Revisa los campos marcados.&lt;/p&gt;&lt;/div&gt;</code></pre>
+        <h3 class="guide__h3">Tarjetas KPI</h3>
+        <div class="guide__demo">
+          <div class="kpi-grid">
+            <article class="kpi kpi--positive"><h4 class="kpi__label">Ingresos</h4><p class="kpi__value">18.677,30 €</p><p class="kpi__trend">Positivo</p></article>
+            <article class="kpi kpi--neutral"><h4 class="kpi__label">Pedidos</h4><p class="kpi__value">12</p><p class="kpi__trend">Neutro</p></article>
+            <article class="kpi kpi--negative"><h4 class="kpi__label">Gastos</h4><p class="kpi__value">16.571,30 €</p><p class="kpi__trend">Negativo</p></article>
+          </div>
+        </div>
+        <pre class="guide__code" tabindex="0"><code>&lt;div class=&quot;kpi-grid&quot;&gt;
+            &lt;article class=&quot;kpi kpi--positive&quot;&gt;&lt;h4 class=&quot;kpi__label&quot;&gt;Ingresos&lt;/h4&gt;&lt;p class=&quot;kpi__value&quot;&gt;18.677,30 €&lt;/p&gt;&lt;p class=&quot;kpi__trend&quot;&gt;Positivo&lt;/p&gt;&lt;/article&gt;
+            &lt;article class=&quot;kpi kpi--neutral&quot;&gt;&lt;h4 class=&quot;kpi__label&quot;&gt;Pedidos&lt;/h4&gt;&lt;p class=&quot;kpi__value&quot;&gt;12&lt;/p&gt;&lt;p class=&quot;kpi__trend&quot;&gt;Neutro&lt;/p&gt;&lt;/article&gt;
+            &lt;article class=&quot;kpi kpi--negative&quot;&gt;&lt;h4 class=&quot;kpi__label&quot;&gt;Gastos&lt;/h4&gt;&lt;p class=&quot;kpi__value&quot;&gt;16.571,30 €&lt;/p&gt;&lt;p class=&quot;kpi__trend&quot;&gt;Negativo&lt;/p&gt;&lt;/article&gt;
+          &lt;/div&gt;</code></pre>
+        <h3 class="guide__h3">Tabla</h3>
+          <p class="guide__text">Columnas numéricas con .num. En móvil cada fila se apila usando el atributo data-label de cada celda.</p>
+        <div class="guide__demo">
+          <div class="table-wrap">
+            <table class="table">
+              <caption class="visually-hidden">Ejemplo de tabla</caption>
+              <thead><tr><th scope="col">Nombre</th><th scope="col" class="num">Precio</th><th scope="col">Estado</th></tr></thead>
+              <tbody>
+                <tr><td data-label="Nombre" class="strong">Rosa roja</td><td data-label="Precio" class="num">2,42 €</td><td data-label="Estado"><span class="badge badge--success">Disponible</span></td></tr>
+                <tr aria-selected="true"><td data-label="Nombre" class="strong">Girasol (fila seleccionada)</td><td data-label="Precio" class="num">1,45 €</td><td data-label="Estado"><span class="badge badge--success">Disponible</span></td></tr>
+                <tr><td colspan="3" class="table__empty">Estado vacío: no hay resultados.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <pre class="guide__code" tabindex="0"><code>&lt;div class=&quot;table-wrap&quot;&gt;
+            &lt;table class=&quot;table&quot;&gt;
+              &lt;caption class=&quot;visually-hidden&quot;&gt;Ejemplo de tabla&lt;/caption&gt;
+              &lt;thead&gt;&lt;tr&gt;&lt;th scope=&quot;col&quot;&gt;Nombre&lt;/th&gt;&lt;th scope=&quot;col&quot; class=&quot;num&quot;&gt;Precio&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;Estado&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+              &lt;tbody&gt;
+                &lt;tr&gt;&lt;td data-label=&quot;Nombre&quot; class=&quot;strong&quot;&gt;Rosa roja&lt;/td&gt;&lt;td data-label=&quot;Precio&quot; class=&quot;num&quot;&gt;2,42 €&lt;/td&gt;&lt;td data-label=&quot;Estado&quot;&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Disponible&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr aria-selected=&quot;true&quot;&gt;&lt;td data-label=&quot;Nombre&quot; class=&quot;strong&quot;&gt;Girasol (fila seleccionada)&lt;/td&gt;&lt;td data-label=&quot;Precio&quot; class=&quot;num&quot;&gt;1,45 €&lt;/td&gt;&lt;td data-label=&quot;Estado&quot;&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Disponible&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td colspan=&quot;3&quot; class=&quot;table__empty&quot;&gt;Estado vacío: no hay resultados.&lt;/td&gt;&lt;/tr&gt;
+              &lt;/tbody&gt;
+            &lt;/table&gt;
+          &lt;/div&gt;</code></pre>
+        <h3 class="guide__h3">Navegación</h3>
+        <div class="guide__demo">
+          <nav aria-label="Ejemplo de migas"><ol class="breadcrumbs"><li><a href="#componentes">Dashboard</a></li><li><span aria-current="page">Productos</span></li></ol></nav>
+          <div class="tabs" role="tablist" aria-label="Ejemplo de pestañas"><button class="tabs__tab" role="tab" id="gt1" aria-controls="gp1" aria-selected="true" type="button">Ventas</button><button class="tabs__tab" role="tab" aria-selected="false" type="button">Gastos</button><button class="tabs__tab" role="tab" aria-selected="false" type="button" disabled>Productos</button></div>
+          <div class="guide__text" role="tabpanel" id="gp1" aria-labelledby="gt1">Panel de la pestaña «Ventas».</div>
+          <nav class="pagination" aria-label="Ejemplo de paginación"><p class="pagination__info">Mostrando 10 de 24</p><div class="pagination__list"><span class="pagination__item" aria-disabled="true">Anterior</span><a class="pagination__item" href="#componentes" aria-current="page">1</a><a class="pagination__item" href="#componentes">2</a><a class="pagination__item" href="#componentes">Siguiente</a></div></nav>
+          <div class="btn-group" role="group" aria-label="Ejemplo de grupo"><button class="btn-group__item" type="button" aria-pressed="false">Semana</button><button class="btn-group__item" type="button" aria-pressed="true">Mes</button><button class="btn-group__item" type="button" aria-pressed="false">Año</button></div>
+        </div>
+        <pre class="guide__code" tabindex="0"><code>&lt;nav aria-label=&quot;Ejemplo de migas&quot;&gt;&lt;ol class=&quot;breadcrumbs&quot;&gt;&lt;li&gt;&lt;a href=&quot;#componentes&quot;&gt;Dashboard&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;span aria-current=&quot;page&quot;&gt;Productos&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/nav&gt;
+          &lt;div class=&quot;tabs&quot; role=&quot;tablist&quot; aria-label=&quot;Ejemplo de pestañas&quot;&gt;&lt;button class=&quot;tabs__tab&quot; role=&quot;tab&quot; id=&quot;gt1&quot; aria-controls=&quot;gp1&quot; aria-selected=&quot;true&quot; type=&quot;button&quot;&gt;Ventas&lt;/button&gt;&lt;button class=&quot;tabs__tab&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; type=&quot;button&quot;&gt;Gastos&lt;/button&gt;&lt;button class=&quot;tabs__tab&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; type=&quot;button&quot; disabled&gt;Productos&lt;/button&gt;&lt;/div&gt;
+          &lt;div class=&quot;guide__text&quot; role=&quot;tabpanel&quot; id=&quot;gp1&quot; aria-labelledby=&quot;gt1&quot;&gt;Panel de la pestaña «Ventas».&lt;/div&gt;
+          &lt;nav class=&quot;pagination&quot; aria-label=&quot;Ejemplo de paginación&quot;&gt;&lt;p class=&quot;pagination__info&quot;&gt;Mostrando 10 de 24&lt;/p&gt;&lt;div class=&quot;pagination__list&quot;&gt;&lt;span class=&quot;pagination__item&quot; aria-disabled=&quot;true&quot;&gt;Anterior&lt;/span&gt;&lt;a class=&quot;pagination__item&quot; href=&quot;#componentes&quot; aria-current=&quot;page&quot;&gt;1&lt;/a&gt;&lt;a class=&quot;pagination__item&quot; href=&quot;#componentes&quot;&gt;2&lt;/a&gt;&lt;a class=&quot;pagination__item&quot; href=&quot;#componentes&quot;&gt;Siguiente&lt;/a&gt;&lt;/div&gt;&lt;/nav&gt;
+          &lt;div class=&quot;btn-group&quot; role=&quot;group&quot; aria-label=&quot;Ejemplo de grupo&quot;&gt;&lt;button class=&quot;btn-group__item&quot; type=&quot;button&quot; aria-pressed=&quot;false&quot;&gt;Semana&lt;/button&gt;&lt;button class=&quot;btn-group__item&quot; type=&quot;button&quot; aria-pressed=&quot;true&quot;&gt;Mes&lt;/button&gt;&lt;button class=&quot;btn-group__item&quot; type=&quot;button&quot; aria-pressed=&quot;false&quot;&gt;Año&lt;/button&gt;&lt;/div&gt;</code></pre>
+        <h3 class="guide__h3">Pop-up de confirmación</h3>
+          <p class="guide__text">En la aplicación va dentro de &lt;div class="modal-target" id="confirm-delete"&gt; y se abre con un enlace a #confirm-delete.</p>
+        <div class="guide__demo">
+          <section class="modal modal--danger modal--static" aria-labelledby="gm-title">
+            <span class="modal__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 11v6" /> <path d="M14 11v6" /> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /> <path d="M3 6h18" /> <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></span>
+            <h4 class="modal__title" id="gm-title">¿Eliminar producto?</h4>
+            <p class="modal__text">Se eliminará el registro seleccionado. Esta acción no se puede deshacer.</p>
+            <div class="modal__actions"><button class="btn btn--secondary" type="button">Cancelar</button><button class="btn btn--destructive" type="button">Eliminar</button></div>
+          </section>
+        </div>
+        <pre class="guide__code" tabindex="0"><code>&lt;section class=&quot;modal modal--danger modal--static&quot; aria-labelledby=&quot;gm-title&quot;&gt;
+            &lt;span class=&quot;modal__icon&quot;&gt;&lt;svg width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;&lt;path d=&quot;M10 11v6&quot; /&gt; &lt;path d=&quot;M14 11v6&quot; /&gt; &lt;path d=&quot;M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6&quot; /&gt; &lt;path d=&quot;M3 6h18&quot; /&gt; &lt;path d=&quot;M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2&quot; /&gt;&lt;/svg&gt;&lt;/span&gt;
+            &lt;h4 class=&quot;modal__title&quot; id=&quot;gm-title&quot;&gt;¿Eliminar producto?&lt;/h4&gt;
+            &lt;p class=&quot;modal__text&quot;&gt;Se eliminará el registro seleccionado. Esta acción no se puede deshacer.&lt;/p&gt;
+            &lt;div class=&quot;modal__actions&quot;&gt;&lt;button class=&quot;btn btn--secondary&quot; type=&quot;button&quot;&gt;Cancelar&lt;/button&gt;&lt;button class=&quot;btn btn--destructive&quot; type=&quot;button&quot;&gt;Eliminar&lt;/button&gt;&lt;/div&gt;
+          &lt;/section&gt;</code></pre>
+    </section>
+
+    <section class="guide__section" id="clases" aria-labelledby="clases-t">
+      <h2 class="guide__h2" id="clases-t">Clases, variantes y estados implementados</h2>
+      <div class="table-wrap">
+        <table class="table">
+          <caption class="visually-hidden">Clases del Design System</caption>
+          <thead><tr><th scope="col">Componente</th><th scope="col">Clases</th><th scope="col">Variantes y estados</th></tr></thead>
+          <tbody>
+<tr><td data-label="Componente" class="strong">Botón</td><td data-label="Clases">.btn + --primary · --secondary · --ghost · --destructive · --ghost-danger · --sm · --lg · --block · --icon</td><td data-label="Variantes y estados">hover, :focus-visible, :active, :disabled, aria-busy</td></tr>
+<tr><td data-label="Componente" class="strong">Enlace</td><td data-label="Clases">.link</td><td data-label="Variantes y estados">:visited, :hover, :active, :focus-visible, aria-disabled</td></tr>
+<tr><td data-label="Componente" class="strong">Campo</td><td data-label="Clases">.field, .field__label, .field__help, .field__error, .input, .input-wrap, .form-grid</td><td data-label="Variantes y estados">hover, foco, disabled, --success/--info/--warning/--error, :user-invalid</td></tr>
+<tr><td data-label="Componente" class="strong">Casilla / interruptor</td><td data-label="Clases">.check, .switch, .check-list</td><td data-label="Variantes y estados">:checked, :focus-visible</td></tr>
+<tr><td data-label="Componente" class="strong">Badge</td><td data-label="Clases">.badge + --success/--info/--warning/--error/--brand · --solid · --sm · --tiny</td><td data-label="Variantes y estados">neutro y 5 tonos</td></tr>
+<tr><td data-label="Componente" class="strong">Alerta</td><td data-label="Clases">.alert + --success/--info/--warning/--error</td><td data-label="Variantes y estados">icono + título + texto</td></tr>
+<tr><td data-label="Componente" class="strong">Tarjeta / KPI</td><td data-label="Clases">.card, .card__header, .card__title, .kpi + --positive/--neutral/--negative</td><td data-label="Variantes y estados">3 tonos</td></tr>
+<tr><td data-label="Componente" class="strong">Tabla</td><td data-label="Clases">.table-wrap, .table, .table--compact, .num, .strong, .actions</td><td data-label="Variantes y estados">hover de fila, aria-selected, vacía, apilada en móvil</td></tr>
+<tr><td data-label="Componente" class="strong">Navegación</td><td data-label="Clases">.breadcrumbs, .tabs, .pagination, .btn-group</td><td data-label="Variantes y estados">aria-current, aria-selected, aria-pressed, deshabilitado</td></tr>
+<tr><td data-label="Componente" class="strong">Pop-up</td><td data-label="Clases">.modal-target, .modal + --danger/--success</td><td data-label="Variantes y estados">:target</td></tr>
+<tr><td data-label="Componente" class="strong">Esqueleto</td><td data-label="Clases">.app, .sidebar, .topbar, .page-header, .toolbar, .kpi-grid, .split, .target-panel</td><td data-label="Variantes y estados">móvil, tablet, escritorio</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="guide__section" id="cambios" aria-labelledby="cambios-t">
+      <h2 class="guide__h2" id="cambios-t">Cambios respecto a la versión 1.0 (Hito 2)</h2>
+      <div class="table-wrap">
+        <table class="table">
+          <caption class="visually-hidden">Cambios de la guía de estilo</caption>
+          <thead><tr><th scope="col">Elemento</th><th scope="col">Cambio</th><th scope="col">Motivo</th></tr></thead>
+          <tbody>
+<tr><td data-label="Elemento" class="strong">Tokens</td><td data-label="Cambio">13 tokens nuevos en los dos temas (link-visited, on-error, error-hover, error-active, on-solid, sidebar-text-strong, sidebar-hover, sidebar-focus, logo-bg, primary-on-subtle, chart-1, chart-2, chart-axis, chart-grid).</td><td data-label="Motivo">Sustituyen colores escritos a mano en componentes y permiten colorear gráficos y estados con el tema.</td></tr>
+<tr><td data-label="Elemento" class="strong">Tema oscuro</td><td data-label="Cambio">Antes: botón sol/luna que guardaba la elección. Ahora: preferencia del sistema + hoja alternativa theme-dark.css + atributo data-theme.</td><td data-label="Motivo">El frontend es solo HTML y CSS; la hoja alternativa es el mecanismo estándar del HTML para variantes.</td></tr>
+<tr><td data-label="Elemento" class="strong">Pop-up</td><td data-label="Cambio">Antes: foco atrapado y Esc. Ahora: se abre con un enlace a #confirm-delete (:target) y se cierra con «Cancelar».</td><td data-label="Motivo">Sin código; se mantiene el aviso de acción irreversible y el foco pasa a «Cancelar» con Tab.</td></tr>
+<tr><td data-label="Elemento" class="strong">Menú móvil y de usuario</td><td data-label="Cambio">Menú lateral con :target y botón «Cerrar menú»; menú de usuario con &lt;details&gt;.</td><td data-label="Motivo">Funcionan sin scripts y con teclado.</td></tr>
+<tr><td data-label="Elemento" class="strong">Formularios</td><td data-label="Cambio">Estado de error automático con :user-invalid y mensaje .field__error; validación nativa del navegador.</td><td data-label="Motivo">El error aparece al intentar enviar, no al cargar la página.</td></tr>
+<tr><td data-label="Elemento" class="strong">Componentes nuevos</td><td data-label="Cambio">Grupo de botones, interruptor, lista de casillas, detalle desplegable de fila, gráfico SVG, estado vacío, «Saltar al contenido».</td><td data-label="Motivo">Pantallas reales que no estaban en el H2 (Ofertas, Pedidos, Informes).</td></tr>
+<tr><td data-label="Elemento" class="strong">Mixins</td><td data-label="Cambio">type($estilo, $peso) y focus-ring($offset); el responsive del sidebar vive en su propio parcial.</td><td data-label="Motivo">Correcciones detectadas al validar (duplicados) y al depurar la cascada.</td></tr>
+<tr><td data-label="Elemento" class="strong">Iconos y fuente</td><td data-label="Cambio">Inter recortada al juego latino (48 KB); logo en WebP de 80 px.</td><td data-label="Motivo">Menos peso sin cambiar el aspecto.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

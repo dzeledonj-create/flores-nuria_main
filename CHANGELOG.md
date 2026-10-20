@@ -1,5 +1,28 @@
 # Changelog
 
+## [H3 · revisión] — 2026-10-20
+
+### Añadido
+- Hoja alternativa `public/css/theme-dark.css` (fuente `resources/scss/themes/alt-dark.scss`) enlazada en las 19 vistas con `rel="alternate stylesheet"`.
+- Guía de estilo v1.1 en `docs/guia-estilo.html` (estilos en `resources/scss/docs/guia.scss`).
+- Práctica CE2B en `docs/practicas/inline-vs-externo.html` (estilos en `resources/scss/docs/practica.scss`).
+- Stylelint (`.stylelintrc.json` y `npm run lint:css`).
+
+### Cambiado
+- Vistas organizadas en carpetas: `productos/`, `pedidos/`, `pagos/`, `proveedores/`; `partials/` pasa a llamarse `parciales/`.
+- Estructura preparada para Laravel: vistas en `resources/views/`, SCSS en `resources/scss/`; lo que carga el navegador (CSS compilado, fuentes, imágenes, datos) en `public/`.
+- `index.html` redirige a `resources/views/login.html`.
+- El separador de las migas se escribe escapado (`\203A`): el CSS compilado es ASCII y Sass ya no le añade BOM.
+
+### Eliminado
+- `resources/js/menu.js`: JavaScript del proyecto PHP antiguo, sin uso en las vistas (el H3 es solo HTML y CSS).
+
+### Corregido
+- `font-weight` duplicado: el mixin `type()` acepta el peso como segundo parámetro.
+- Selectores duplicados al usar `type-responsive()` y al sobrescribir `:focus-visible`: nuevo parámetro `focus-ring($offset)`.
+- Bloque `.sidebar` repetido en `_sidebar.scss`.
+- Botón en estado «cargando»: se quita `opacity`, que bajaba el contraste a 4,06:1.
+
 ## [H3] Frontend estático rediseñado — 2026-10
 
 ### Añadido
