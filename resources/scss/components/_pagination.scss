@@ -1,3 +1,4 @@
+@use "sass:string";
 @use "../abstracts" as *;
 .pagination {
   display: flex; align-items: center; justify-content: space-between; gap: space(3); flex-wrap: wrap;
@@ -19,7 +20,8 @@
 .breadcrumbs {
   display: flex; flex-wrap: wrap; gap: space(2); @include type(b3); color: color(text-muted); list-style: none; padding: 0; margin: 0;
   li { display: flex; gap: space(2); }
-  li + li::before { content: "›"; color: color(label); }
+  li + li::before { content: string.unquote('"\\203A"'); // «›» escapado: así el CSS es ASCII y Sass no añade BOM
+    color: color(label); }
   a { color: color(text-muted); text-decoration: none; border-radius: radius(sm); @include focus-ring; &:hover { color: color(primary-strong); text-decoration: underline; } }
   [aria-current="page"] { color: color(primary-strong); font-weight: 500; }
 }
