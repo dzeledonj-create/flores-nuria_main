@@ -23,8 +23,13 @@ npm run build:css    # antes de hacer commit / entregar (CSS minificado)
 
 ```
 ├── index.html                 → redirige a app/views/login.html
-├── app/views/                 → una vista HTML por pantalla
-│   └── partials/              → plantillas de referencia: sidebar, topbar y «pantalla de listado»
+├── app/views/                 → vistas individuales y modelos con varias pantallas
+│   ├── login.html, dashboard.html, … → vistas con una sola pantalla
+│   ├── productos/             → productos y alta de productos
+│   ├── pedidos/               → pedidos y creación de pedidos
+│   ├── pagos/                 → pagos y creación de pagos
+│   ├── proveedores/           → proveedores y alta de proveedores
+│   └── parciales/             → plantillas de referencia: sidebar, topbar y «pantalla de listado»
 ├── scss/                      → CÓDIGO FUENTE de los estilos (no lo lee el navegador)
 │   ├── abstracts/             → _tokens, _functions, _mixins (no generan CSS)
 │   ├── base/                  → _root (custom properties + @font-face), _reset, _typography, _utilities
