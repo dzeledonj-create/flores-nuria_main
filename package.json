@@ -4,9 +4,9 @@
   "private": true,
   "description": "Frontend estático de Flores Nuria (Reto 1 · H3): HTML semántico + Sass a partir del Design System.",
   "scripts": {
-    "build:css": "sass scss/main.scss public/css/main.css --style=compressed --no-source-map",
-    "watch:css": "sass --watch scss/main.scss public/css/main.css --embed-source-map",
-    "dev:css": "sass scss/main.scss public/css/main.css --style=expanded --no-source-map"
+    "build:css": "sass scss/main.scss resources/css/main.css --style=compressed --no-source-map",
+    "watch:css": "sass --watch scss/main.scss resources/css/main.css --embed-source-map",
+    "dev:css": "sass scss/main.scss resources/css/main.css --style=expanded --no-source-map"
   },
   "devDependencies": {
     "sass": "1.105.1"

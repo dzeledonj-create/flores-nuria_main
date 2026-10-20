@@ -16,6 +16,6 @@
 - Colores sueltos sustituidos por tokens (también en los gráficos SVG).
 
 ### Eliminado
-- `public/css/styles.css` (CSS antiguo con 72 colores distintos y 44 clases de utilidad).
+- `resources/css` (CSS antiguo con 72 colores distintos y 44 clases de utilidad).
 - 3 estilos en línea, botones dentro de enlaces y atributos `fill` en los gráficos.
 - Imágenes sin uso (`eliminar.jpg`) y logos pesados (`logo.png` 30 KB → `logo.webp` 6 KB).
