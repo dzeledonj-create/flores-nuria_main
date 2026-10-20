@@ -4,11 +4,14 @@
   "private": true,
   "description": "Frontend estático de Flores Nuria (Reto 1 · H3): HTML semántico + Sass a partir del Design System.",
   "scripts": {
-    "build:css": "sass scss/main.scss public/css/main.css --style=compressed --no-source-map",
-    "watch:css": "sass --watch scss/main.scss public/css/main.css --embed-source-map",
-    "dev:css": "sass scss/main.scss public/css/main.css --style=expanded --no-source-map"
+    "build:css": "sass scss/main.scss:public/css/main.css scss/themes/alt-dark.scss:public/css/theme-dark.css scss/docs/guia.scss:docs/css/guia.css scss/docs/practica.scss:docs/css/practica.css --style=compressed --no-source-map",
+    "watch:css": "sass --watch scss/main.scss:public/css/main.css scss/themes/alt-dark.scss:public/css/theme-dark.css scss/docs/guia.scss:docs/css/guia.css scss/docs/practica.scss:docs/css/practica.css --embed-source-map",
+    "dev:css": "sass scss/main.scss:public/css/main.css scss/themes/alt-dark.scss:public/css/theme-dark.css scss/docs/guia.scss:docs/css/guia.css scss/docs/practica.scss:docs/css/practica.css --style=expanded --no-source-map",
+    "lint:css": "sass scss/main.scss:.lint/main.css --no-source-map && stylelint .lint/main.css"
   },
   "devDependencies": {
-    "sass": "1.105.1"
+    "sass": "1.105.1",
+    "stylelint": "17.16.0",
+    "stylelint-config-recommended": "18.0.0"
   }
 }

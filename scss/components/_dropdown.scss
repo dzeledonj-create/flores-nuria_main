@@ -9,8 +9,7 @@
     @include type(b3); color: color(text-secondary); cursor: pointer;
     svg { @include icon(16px); }
     &:hover, &.is-hover { background: color(primary-subtle); color: color(text); }
-    @include focus-ring;
-    &:focus-visible { outline-offset: -2px; }
+    @include focus-ring(-2px);
     &[aria-selected="true"] { background: color(primary-muted); color: color(primary-active); font-weight: 500; }
     &[aria-disabled="true"] { color: color(text-disabled); cursor: not-allowed; background: none; }
   }

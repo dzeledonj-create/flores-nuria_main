@@ -23,14 +23,13 @@
     &[aria-current] { background: color(sidebar-active); color: color(sidebar-text-strong); font-weight: 600; }
   }
   // Colapsado: solo iconos; el texto sigue existiendo para lectores de pantalla
+  &__close { display: none; } // solo existe en móvil (ver más abajo)
   &--collapsed { width: $sidebar-collapsed; align-items: center; .sidebar__text { @include visually-hidden; } .sidebar__label { font-size: 0; height: 8px; padding: 0; } .sidebar__brand { padding: space(2) 0 space(6); } }
 }
 // --- Responsive (mobile-first) -------------------------------------------
 // Móvil: el sidebar es un panel lateral que se abre SOLO CON CSS.
 // El botón ☰ es un enlace a #sidebar; cuando la URL termina en #sidebar, :target lo muestra.
 .sidebar {
-  scroll-margin-top: 0;
-  &__close { display: none; }
   @include below(tablet) {
     position: fixed; inset: 0 auto 0 0; z-index: 50; width: min(280px, 85vw);
     overflow-y: auto; box-shadow: shadow(600);
@@ -78,5 +77,5 @@
   &__crumbs { min-width: 0; @include below(tablet) { display: none; } }
   &__brand { display: none; @include below(tablet) { display: block; @include type(s2); } }
 }
-.avatar { width: 32px; height: 32px; border-radius: radius(full); background: color(primary-muted); color: color(primary-on-subtle); display: inline-grid; place-items: center; @include type(c2); font-weight: 600; }
+.avatar { width: 32px; height: 32px; border-radius: radius(full); background: color(primary-muted); color: color(primary-on-subtle); display: inline-grid; place-items: center; @include type(c2, 600); }
 

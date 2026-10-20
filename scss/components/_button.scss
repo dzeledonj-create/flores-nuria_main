@@ -7,8 +7,7 @@
   border: $border-width solid transparent;
   border-radius: radius(md);
   font-family: inherit;
-  @include type(b4);
-  font-weight: 600;
+  @include type(b4, 600);
   white-space: nowrap;
   text-decoration: none; // también cuando es un <a class="btn">
   cursor: pointer;
@@ -24,7 +23,7 @@
   &--ghost-danger { @include button-variant(transparent, color(error-strong), color(error-subtle), color(error-subtle)); }
 
   // Tamaños
-  &--sm { height: var(--control-small); padding: 0 space(3); @include type(c2); font-weight: 600; }
+  &--sm { height: var(--control-small); padding: 0 space(3); @include type(c2, 600); }
   &--lg { @include type(s2); }
   &--block { width: 100%; }
 
@@ -36,8 +35,9 @@
     background: color(surface-disabled); color: color(text-disabled);
     border-color: transparent; cursor: not-allowed;
   }
-  // Estado de carga: se mantiene el ancho y se anuncia con aria-busy
-  &[aria-busy="true"] { cursor: progress; opacity: .85; }
+  // Estado de carga: se mantiene el ancho y se anuncia con aria-busy.
+  // Sin opacity: al 85 % el texto blanco bajaba a 4,06:1 (detectado con axe en la guía de estilo).
+  &[aria-busy="true"] { cursor: progress; }
 }
 
 // Grupo de botones (estado del pedido, periodo de Informes)
@@ -53,8 +53,7 @@
     @include type(c2); cursor: pointer;
     &:last-child { border-right: 0; }
     &:hover { background: color(primary-subtle); }
-    @include focus-ring;
-    &:focus-visible { outline-offset: -2px; }
+    @include focus-ring(-2px);
     &[aria-pressed="true"] { background: color(primary-strong); color: color(on-primary); font-weight: 600; }
   }
 }

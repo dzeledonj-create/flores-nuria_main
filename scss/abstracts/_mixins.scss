@@ -12,18 +12,21 @@
 }
 
 // Aplica un estilo de la escala tipográfica: @include type(b3)
-@mixin type($style) {
+// El peso se puede cambiar con el 2.º parámetro: @include type(b4, 600)
+// (así no se escribe font-weight dos veces en la misma regla)
+@mixin type($style, $weight: null) {
   $v: map.get(t.$type-scale, $style);
   font-size: f.rem(list.nth($v, 1));
   line-height: list.nth($v, 2);
-  font-weight: list.nth($v, 3);
+  @if $weight { font-weight: $weight; } @else { font-weight: list.nth($v, 3); }
 }
 
 // Anillo de foco común para todos los controles (solo con teclado)
-@mixin focus-ring {
+// $offset negativo dibuja el anillo por dentro (elementos pegados entre sí, como un grupo de botones)
+@mixin focus-ring($offset: t.$focus-offset) {
   &:focus-visible {
     outline: t.$focus-width solid var(--color-focus);
-    outline-offset: t.$focus-offset;
+    outline-offset: $offset;
   }
 }
 

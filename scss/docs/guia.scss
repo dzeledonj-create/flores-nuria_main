@@ -1,0 +1,46 @@
+// Estilos SOLO de la guía de estilo (docs/guia-estilo.html). No se cargan en la aplicación.
+// Las muestras de color se generan desde los mapas de tokens: si cambia un token, cambia la guía.
+@use "../abstracts" as *;
+
+.guide {
+  max-width: 1120px; margin: 0 auto; padding: space(8) space(4) space(12);
+  display: flex; flex-direction: column; gap: space(12);
+  @include respond(tablet) { padding: space(12) space(8); }
+  &__header { display: flex; flex-direction: column; gap: space(2); }
+  &__title { color: color(text); @include type-responsive(h2); }
+  &__lead { @include type(b1); color: color(text-muted); max-width: 70ch; }
+  &__section { display: flex; flex-direction: column; gap: space(4); scroll-margin-top: space(4); }
+  &__h2 { @include type-responsive(h4); color: color(text); padding-bottom: space(2); border-bottom: $border-width solid color(divider); }
+  &__h3 { @include type(s1); color: color(text); margin-top: space(4); }
+  &__text { @include type(b3); color: color(text-secondary); max-width: 75ch; }
+  &__steps { list-style: decimal; padding-left: space(6); display: flex; flex-direction: column; gap: space(2); }
+  &__toc { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: space(2); }
+  &__row { display: flex; flex-wrap: wrap; gap: space(3); align-items: center; }
+  &__grid { display: grid; gap: space(4); grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  &__demo { padding: space(6); border: $border-width dashed color(divider); border-radius: radius(lg); background: color(surface); display: flex; flex-direction: column; gap: space(4); }
+  &__code {
+    margin: 0; padding: space(4); overflow-x: auto;
+    background: color(surface-alt); border: $border-width solid color(border); border-radius: radius(md);
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: rem(13px); line-height: 1.5; color: color(text-secondary);
+    white-space: pre;
+  }
+  &__label { @include type(c2); color: color(label); text-transform: uppercase; letter-spacing: .04em; }
+}
+
+.swatch {
+  display: flex; flex-direction: column; border: $border-width solid color(border); border-radius: radius(md); overflow: hidden; background: color(surface);
+  &__color { height: 64px; border-bottom: $border-width solid color(border); }
+  &__info { padding: space(2) space(3); display: flex; flex-direction: column; gap: 2px; }
+  &__name { @include type(c2, 600); color: color(text); }
+  &__value { @include type(c1); color: color(text-muted); font-family: ui-monospace, Consolas, monospace; }
+}
+@each $name, $value in $theme-light {
+  .swatch--#{$name} .swatch__color { background: var(--color-#{$name}); }
+}
+.space-demo { height: 16px; background: color(primary-muted); border-left: 2px solid color(primary); }
+@each $step in $space-steps { .space-demo--#{$step} { width: space($step); } }
+.radius-demo { width: 72px; height: 48px; background: color(primary-subtle); border: 2px solid color(primary); }
+@each $name, $value in $radius { .radius-demo--#{$name} { border-radius: radius($name); } }
+.shadow-demo { width: 120px; height: 64px; border-radius: radius(md); background: color(surface); display: grid; place-items: center; @include type(c2); color: color(label); }
+@each $name, $value in $shadows { .shadow-demo--#{$name} { box-shadow: shadow($name); } }
+.modal--static { margin: 0; }

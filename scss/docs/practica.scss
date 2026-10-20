@@ -1,0 +1,14 @@
+// Hoja de la práctica CE2B (docs/practicas/inline-vs-externo.html). No forma parte de la aplicación.
+@use "../abstracts" as *;
+
+.practice {
+  max-width: 1120px; margin: 0 auto; padding: space(8) space(4) space(12);
+  display: flex; flex-direction: column; gap: space(8);
+  &__title { color: color(text); @include type-responsive(h3); }
+  &__grid { display: grid; gap: space(6); grid-template-columns: 1fr; @include respond(tablet) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  &__case { display: flex; flex-direction: column; gap: space(3); }
+  &__code { margin: 0; padding: space(3); background: color(surface-alt); border: $border-width solid color(border); border-radius: radius(md); font-family: ui-monospace, Consolas, monospace; font-size: rem(12px); line-height: 1.5; white-space: pre-wrap; color: color(text-secondary); }
+  &__result { @include type(b3); color: color(text-secondary); }
+}
+// Caso 2 y 3 de la prueba de cascada: una regla de la hoja con !important
+.prueba-importante { background: #DBEAFE !important; color: #1E40AF !important; }

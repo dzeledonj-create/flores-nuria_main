@@ -28,7 +28,7 @@
 // Cabecera de página: título + descripción (+ acción opcional)
 .page-header {
   display: flex; flex-direction: column; gap: space(2);
-  &__title { @include type-responsive(h3); color: color(text); }
+  &__title { color: color(text); @include type-responsive(h3); }
   &__desc { @include type(b3); color: color(text-muted); }
   &__back { align-self: flex-start; margin-bottom: space(1); }
 }

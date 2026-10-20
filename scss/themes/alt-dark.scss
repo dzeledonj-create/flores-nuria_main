@@ -1,0 +1,24 @@
+// =====================================================================
+// HOJA ALTERNATIVA · Tema oscuro (se compila a public/css/theme-dark.css)
+// Se enlaza en cada vista como <link rel="alternate stylesheet" title="Tema oscuro">.
+// El navegador NO la aplica hasta que el usuario la elige (Firefox: Ver → Estilo de página).
+// Solo redefine tokens: el HTML y las clases son exactamente los mismos.
+// =====================================================================
+@use "../abstracts" as *;
+@use "../base/root" as root;
+
+:root {
+  @include root.emit-colors($theme-dark);
+  @include root.emit-shadows($shadows-dark);
+  color-scheme: dark;
+}
+
+// Los mismos tres ajustes de componente que aplica el mixin dark() en main.css
+.badge--success, .badge--info, .badge--warning, .badge--error, .badge--brand {
+  &.badge--solid { background: var(--tone-subtle); color: var(--tone-on-subtle); }
+}
+.field--success, .field--info, .field--warning, .field--error {
+  .input { background-color: color(surface); }
+  .field__help { color: var(--tone); }
+}
+.field:has(.input:user-invalid) .input { background-color: color(surface); }
