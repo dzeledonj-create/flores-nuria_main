@@ -1,0 +1,3 @@
+diff --git a/public/data/tickets.json b/data/tickets.json
+rename from public/data/tickets.json
+rename to data/tickets.json

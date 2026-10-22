@@ -1,20 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const sidebar = document.querySelector('.sidebar');
-    
+
     if (menuToggle && sidebar) {
+        // Restaurar el estado guardado en localStorage (si existe)
+        const savedState = localStorage.getItem('sidebar-hidden');
+        if (savedState === 'true') {
+            sidebar.classList.add('sidebar--hidden');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        } else {
+            menuToggle.setAttribute('aria-expanded', 'true');
+        }
+
         menuToggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            sidebar.classList.toggle('active');
-        });
-
-        // Cerrar el sidebar al hacer clic fuera de él (solo en pantallas móviles <= 900px)
-        document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 900) {
-                if (sidebar.classList.contains('active') && !sidebar.contains(e.target) && e.target !== menuToggle) {
-                    sidebar.classList.remove('active');
-                }
-            }
+            const isHidden = sidebar.classList.toggle('sidebar--hidden');
+            menuToggle.setAttribute('aria-expanded', String(!isHidden));
+            // Guardar preferencia del usuario
+            localStorage.setItem('sidebar-hidden', String(isHidden));
         });
     }
 

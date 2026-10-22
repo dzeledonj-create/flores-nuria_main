@@ -54,8 +54,37 @@
   @include below(tablet) { .sidebar:target + & { display: block; } }
 }
 
+// --- Botón de alternar sidebar (desktop / tablet) -------------------------
+// position: absolute sobre .app (que tiene position: relative en _app.scss)
+// para que no participe en el grid y no rompa el layout.
+// En móvil se oculta: ya existe el botón ☰ del topbar.
+.menu-toggle {
+  display: none; // móvil: oculto
+  @include respond(tablet) {
+    display: flex; align-items: center; justify-content: center;
+    position: absolute;
+    top: 76px; // debajo del topbar (64 px) + margen
+    left: $sidebar-width - 14px;
+    z-index: 25;
+    width: 28px; height: 28px;
+    padding: 0;
+    border-radius: radius(full);
+    background: color(surface);
+    border: $border-width solid color(border);
+    box-shadow: shadow(200);
+    cursor: pointer;
+    transition: left var(--transition);
+    @include focus-ring;
+    svg { @include icon(14px); }
+  }
+  // En tablet (sidebar colapsado por defecto) el botón se ajusta
+  @include respond(tablet) { @include below(desktop) {
+    left: $sidebar-collapsed - 14px;
+  } }
+}
+
 @include respond(tablet) {
-  .sidebar { position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+  .sidebar { position: sticky; top: 0; height: 100vh; overflow-y: auto; transition: width var(--transition), padding var(--transition); }
 }
 // Tablet: sidebar colapsado automáticamente (mismo HTML, solo cambia el CSS)
 @include respond(tablet) { @include below(desktop) {
@@ -66,6 +95,18 @@
     .sidebar__link { width: 44px; justify-content: center; padding: 0; }
   }
 } }
+
+// --- Sidebar oculto (toggle con JS) ---
+// Ancho 0 con overflow hidden para que desaparezca con transición suave
+@include respond(tablet) {
+  .sidebar.sidebar--hidden {
+    width: 0; padding: 0; overflow: hidden;
+  }
+  // Cuando el sidebar está oculto, el botón se pega al borde izquierdo
+  .sidebar.sidebar--hidden ~ .menu-toggle {
+    left: -2px;
+  }
+}
 
 .topbar {
   position: sticky; top: 0; z-index: 20;
@@ -78,4 +119,3 @@
   &__brand { display: none; @include below(tablet) { display: block; @include type(s2); } }
 }
 .avatar { width: 32px; height: 32px; border-radius: radius(full); background: color(primary-muted); color: color(primary-on-subtle); display: inline-grid; place-items: center; @include type(c2, 600); }
-

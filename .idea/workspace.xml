@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e5bf70e3-d47c-47cf-9027-77e958831879" name="Changes" comment="Cambio a estructura MVC para views/ y resources/. Añadido js antiguo para modificar">
+      <change beforePath="$PROJECT_DIR$/resources/views/budgets.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/budgets.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/create_tiket.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/create_tiket.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customers.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/deliveries.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/deliveries.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employees.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employees.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/invoices.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/invoices.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/offers.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/offers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pagos/create_payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pagos/create_payment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pagos/payments.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pagos/payments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/parciales/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/parciales/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pedidos/create_order.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pedidos/create_order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pedidos/orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pedidos/orders.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/productos/create_product.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/create_product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/productos/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/productos/products.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/proveedores/create_supplier.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/create_supplier.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/proveedores/suppliers.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proveedores/suppliers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/reports.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reports.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/schedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/schedule.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <execution>
+      <phar pharPath="C:\ProgramData\ComposerSetup\bin\composer.phar" />
+    </execution>
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="78" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;dsanchezg-campus&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/dzeledonj-create/flores-nuria_main.git&quot;,
+    &quot;accountId&quot;: &quot;b6d1a327-8f04-461c-ba22-02319cd84eab&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.000000000000055" />
+      <entry key="MS500" value="1.0031883779446216" />
+      <entry key="S2" value="1.4520755212191256" />
+      <entry key="S5" value="3.067784382956759" />
+      <entry key="S10" value="6.151473808541709" />
+      <entry key="S30" value="17.47717622518502" />
+      <entry key="S60" value="27.94108458990774" />
+      <entry key="M2" value="37.22721178953244" />
+      <entry key="M5" value="46.83034848673262" />
+      <entry key="M10" value="53.30842427683365" />
+      <entry key="M15" value="56.535096781298655" />
+      <entry key="M30" value="60.65035624685902" />
+      <entry key="H1" value="63.14436541632863" />
+      <entry key="H2" value="64.52315039861352" />
+      <entry key="H4" value="65.24880201249715" />
+      <entry key="D1" value="65.87298074952338" />
+      <entry key="W1" value="65.98180922516347" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.9794202975869803" />
+      <entry key="MS500" value="0.9990218318883384" />
+      <entry key="S2" value="1.4504563096029508" />
+      <entry key="S5" value="3.0661896032169165" />
+      <entry key="S10" value="6.149666930984283" />
+      <entry key="S30" value="17.475156125455886" />
+      <entry key="S60" value="27.93936035956773" />
+      <entry key="M2" value="37.226013039464696" />
+      <entry key="M5" value="46.82965553299899" />
+      <entry key="M10" value="53.30796000052696" />
+      <entry key="M15" value="56.534741604485944" />
+      <entry key="M30" value="60.650147539223255" />
+      <entry key="H1" value="63.14425123002963" />
+      <entry key="H2" value="64.52309053590469" />
+      <entry key="H4" value="65.24877134581423" />
+      <entry key="D1" value="65.87297553243373" />
+      <entry key="W1" value="65.981808477218" />
+    </decayedShown>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3KMZKg5LT2tDkvJhFpbKjJQdA8n" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript Debug.index.html.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/david/PhpstormProjects/flores-nuria_main/resources/js",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.stylelint": "C:\\Users\\david\\PhpstormProjects\\flores-nuria_main\\node_modules\\stylelint",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\david\PhpstormProjects\flores-nuria_main\resources\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\david\PhpstormProjects\flores-nuria_main\public" />
+      <recent name="C:\Users\david\PhpstormProjects\flores-nuria_main\resources" />
+      <recent name="C:\Users\david\PhpstormProjects\flores-nuria_main\" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/flores-nuria_main/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-PS-262.10968.76" />
+        <option value="bundled-php-predefined-a98d8de5180a-9522f28f0b20-com.jetbrains.php.sharedIndexes-PS-262.10968.76" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e5bf70e3-d47c-47cf-9027-77e958831879" name="Changes" comment="" />
+      <created>1791369334693</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1791369334693</updated>
+      <workItem from="1791369335695" duration="2338000" />
+      <workItem from="1791441445976" duration="699000" />
+      <workItem from="1791442182438" duration="1000" />
+      <workItem from="1791452274810" duration="4853000" />
+      <workItem from="1791535328827" duration="263000" />
+      <workItem from="1791535607861" duration="1261000" />
+      <workItem from="1792046556976" duration="3460000" />
+      <workItem from="1792485825074" duration="5194000" />
+      <workItem from="1792497149094" duration="104000" />
+      <workItem from="1792497263728" duration="267000" />
+      <workItem from="1792578896056" duration="2920000" />
+      <workItem from="1792656114608" duration="36000" />
+      <workItem from="1792662728644" duration="1488000" />
+    </task>
+    <task id="LOCAL-00001" summary="reestructura de carpeta config y public">
+      <option name="closed" value="true" />
+      <created>1791370399293</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1791370399293</updated>
+    </task>
+    <task id="LOCAL-00002" summary="reestructura de carpeta para los datos">
+      <option name="closed" value="true" />
+      <created>1791371117194</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1791371117194</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Cambio a estructura MVC para views/ y resources/. Añadido js antiguo para modificar">
+      <option name="closed" value="true" />
+      <created>1792486315342</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1792486315342</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Cambio a estructura MVC para views/ y resources/. Añadido js antiguo para modificar">
+      <option name="closed" value="true" />
+      <created>1792489436085</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1792489436085</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="reestructura de carpeta config y public" />
+    <MESSAGE value="reestructura de carpeta para los datos" />
+    <MESSAGE value="Cambio a estructura MVC para views/ y resources/. Añadido js antiguo para modificar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambio a estructura MVC para views/ y resources/. Añadido js antiguo para modificar" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

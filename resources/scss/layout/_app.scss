@@ -6,7 +6,7 @@
 //   tablet (768-1023) : sidebar colapsado, solo iconos
 //   escritorio (≥1024): sidebar expandido
 // ---------------------------------------------------------------------
-.app { min-height: 100vh; }
+.app { min-height: 100vh; position: relative; } // relative para que .menu-toggle se posicione respecto a .app
 .app__main { display: flex; flex-direction: column; min-width: 0; min-height: 100vh; }
 .app__content {
   flex: 1;
