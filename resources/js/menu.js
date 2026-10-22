@@ -1,3 +1,11 @@
+// =========================================================================
+// GESTIÓN DEL MENÚ LATERAL (SIDEBAR)
+// =========================================================================
+
+/* =========================================================================
+   VERSIÓN ANTERIOR (Comentada):
+   Toggle del sidebar colapsable (ancho 0) en escritorio con guardado en localStorage.
+
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const sidebar = document.querySelector('.sidebar');
@@ -20,6 +28,84 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('sidebar-hidden', String(isHidden));
         });
     }
+});
+========================================================================= */
+
+/* =========================================================================
+   VERSIÓN ALTERNATIVA (Activa):
+   - El botón está en el header (.menu-toggle).
+   - El menú (.sidebar) está oculto por defecto en todas las resoluciones.
+   - Al pulsar el botón del header, el menú sale por encima de la página
+     y el fondo se oscurece mediante .nav-backdrop.
+   - En el menú hay un botón con una 'X' en la esquina (.sidebar__close) para cerrarlo.
+   - También se cierra haciendo clic en el fondo oscurecido o pulsando Escape.
+   ========================================================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    const sidebarClose = document.querySelector('.sidebar__close');
+    const backdrop = document.querySelector('.nav-backdrop');
+
+    function openSidebar() {
+        if (!sidebar) return;
+        sidebar.classList.add('sidebar--open');
+        sidebar.classList.add('active'); // Compatibilidad con estilos legacy
+        if (backdrop) {
+            backdrop.classList.add('is-visible');
+            backdrop.classList.add('active');
+        }
+        if (menuToggle) menuToggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('sidebar-open-scroll-lock');
+    }
+
+    function closeSidebar() {
+        if (!sidebar) return;
+        sidebar.classList.remove('sidebar--open');
+        sidebar.classList.remove('active');
+        if (backdrop) {
+            backdrop.classList.remove('is-visible');
+            backdrop.classList.remove('active');
+        }
+        if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('sidebar-open-scroll-lock');
+    }
+
+    // Botón en el header para alternar / abrir el menú
+    if (menuToggle) {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            if (sidebar && (sidebar.classList.contains('sidebar--open') || sidebar.classList.contains('active'))) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
+        });
+    }
+
+    // Botón 'X' en la esquina del menú para cerrarlo
+    if (sidebarClose) {
+        sidebarClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            closeSidebar();
+        });
+    }
+
+    // Cerrar al hacer clic en el fondo oscurecido (backdrop)
+    if (backdrop) {
+        backdrop.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeSidebar();
+        });
+    }
+
+    // Cerrar al pulsar la tecla Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && sidebar && (sidebar.classList.contains('sidebar--open') || sidebar.classList.contains('active'))) {
+            closeSidebar();
+        }
+    });
 
     // --- Menú desplegable de usuario (Dropdown) ---
     const userMenuBtn = document.getElementById('userMenuBtn');
