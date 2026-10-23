@@ -3,34 +3,42 @@
 // ---------------------------------------------------------------------
 // Esqueleto de todas las pantallas internas (mobile-first)
 // ---------------------------------------------------------------------
-// VERSIÓN ANTERIOR (Comentada):
-//   móvil  (<768)     : sidebar oculto, se abre como panel con el botón ☰
-//   tablet (768-1023) : sidebar colapsado, solo iconos
-//   escritorio (≥1024): sidebar expandido fijo en grid de 2 columnas
-// .app { min-height: 100vh; position: relative; }
-// @include respond(tablet) {
-//   .app { display: grid; grid-template-columns: auto minmax(0, 1fr); }
-// }
 
-// VERSIÓN ALTERNATIVA (Activa):
-// El menú lateral es un desplegable/overlay por encima de la página.
-// El contenido principal ocupa el 100% del ancho en todas las pantallas.
-.app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-.app__main { display: flex; flex-direction: column; min-width: 0; min-height: 100vh; width: 100%; }
+// Base común del contenedor y elementos estructurales (NUNCA COMENTAR)
+.app { min-height: 100vh; position: relative; }
+.app__main { display: flex; flex-direction: column; min-width: 0; min-height: 100vh; }
 .app__content {
   flex: 1;
   width: 100%; max-width: $content-max; margin: 0 auto;
   padding: space(6) space(4);
   display: flex; flex-direction: column; gap: space(6);
-  &:focus { outline: none; } // recibe el foco del "saltar al contenido", sin anillo
+  &:focus { outline: none; }
   @include respond(tablet) { padding: space(8); }
 }
 .app__footer { padding: space(4) space(8); @include type(c1); color: color(text-muted); text-align: center; border-top: $border-width solid color(border); }
+
+// =====================================================================
+// >>>>> [VERSIÓN 1: ANTERIOR] (ACTIVA) <<<<<
+// Sidebar estático como columna de grid en tablet y escritorio.
+// Para desactivar: pon /* al inicio y */ al final de este bloque.
+// =====================================================================
+@include respond(tablet) {
+  .app { display: grid; grid-template-columns: auto minmax(0, 1fr); }
+}
+// FIN DE VERSIÓN 1
+
+
+// =====================================================================
+// >>>>> [VERSIÓN 2: ALTERNATIVA] (COMENTADA) <<<<<
+// Sidebar como overlay/drawer por encima; el contenido ocupa todo el ancho.
+// Para activar: quita el /* del inicio y el */ del final de este bloque.
+// =====================================================================
+/*
+@include respond(tablet) {
+  .app { display: flex; flex-direction: column; }
+}
+*/
+// FIN DE VERSIÓN 2
 
 // Cabecera de página: título + descripción (+ acción opcional)
 .page-header {

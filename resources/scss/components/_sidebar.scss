@@ -3,7 +3,199 @@
 // =========================================================================
 // SIDEBAR (MENÚ LATERAL)
 // =========================================================================
+// INSTRUCCIONES PARA CAMBIAR DE VERSIÓN:
+// - Para usar VERSIÓN 1: Deja la Versión 1 descomentada y la Versión 2 con /* al inicio y */ al final.
+// - Para usar VERSIÓN 2: Pon /* al inicio y */ al final de la Versión 1, y quita /* y */ de la Versión 2.
+// (Nota: Dentro de cada versión solo se usan comentarios con // para que no interfieran al comentar en bloque)
+// =========================================================================
 
+// =========================================================================
+// >>>>> [VERSIÓN 1: ANTERIOR] (ACTIVA) <<<<<
+// - Sidebar visible y estático en desktop dentro de la columna del grid.
+// - Botón .menu-toggle flotante al lado de la barra (fuera del header).
+// - Ocultamiento mediante clase .sidebar--hidden (ancho 0).
+// - En móvil se abre con hash :target y se cierra con <a class="sidebar__close">.
+// =========================================================================
+
+.sidebar {
+  background: color(sidebar);
+  color: color(sidebar-text);
+  width: $sidebar-width;
+  padding: space(4) space(3);
+  display: flex;
+  flex-direction: column;
+  gap: space(1);
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: space(3);
+    padding: space(2) space(2) space(6);
+    color: color(sidebar-text-strong);
+    text-decoration: none;
+    @include type(s2);
+    border-radius: radius(md);
+    &:focus-visible { outline: $focus-width solid color(sidebar-focus); outline-offset: 2px; }
+  }
+
+  &__logo {
+    width: 40px;
+    height: 40px;
+    border-radius: radius(md);
+    background: color(logo-bg);
+    padding: 2px;
+    flex: none;
+  }
+
+  &__label {
+    @include type(c2);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: color(sidebar-label);
+    padding: 0 space(3) space(2);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: space(1);
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: space(3);
+    height: 40px;
+    padding: 0 space(3);
+    border-radius: radius(md);
+    color: color(sidebar-text);
+    text-decoration: none;
+    @include type(b3);
+    svg { @include icon(20px); }
+    &:hover { background: color(sidebar-hover); color: color(sidebar-text-strong); }
+    &:focus-visible { outline: $focus-width solid color(sidebar-focus); outline-offset: 2px; }
+    &[aria-current] { background: color(sidebar-active); color: color(sidebar-text-strong); font-weight: 600; }
+  }
+
+  // Colapsado: solo iconos; el texto sigue existiendo para lectores de pantalla
+  &__close { display: none; } // solo existe en móvil
+  &--collapsed {
+    width: $sidebar-collapsed;
+    align-items: center;
+    .sidebar__text { @include visually-hidden; }
+    .sidebar__label { font-size: 0; height: 8px; padding: 0; }
+    .sidebar__brand { padding: space(2) 0 space(6); }
+  }
+}
+
+// Responsive móvil para Versión 1 (:target)
+@include below(tablet) {
+  .sidebar {
+    position: fixed; inset: 0 auto 0 0; z-index: 50; width: min(280px, 85vw);
+    overflow-y: auto; box-shadow: shadow(600);
+    transform: translateX(-100%); visibility: hidden;
+    transition: transform var(--transition), visibility 0s linear 150ms;
+    &:target { transform: none; visibility: visible; transition-delay: 0s; }
+    &:focus { outline: none; }
+    &__close {
+      display: flex; align-items: center; gap: space(2); align-self: flex-end;
+      margin-bottom: space(2); padding: space(2) space(3); border-radius: radius(md);
+      color: color(sidebar-text); text-decoration: none; @include type(b4);
+      svg { @include icon(18px); }
+      &:hover { background: color(sidebar-hover); color: color(sidebar-text-strong); }
+      &:focus-visible { outline: $focus-width solid color(sidebar-focus); outline-offset: 2px; }
+    }
+  }
+}
+
+// Fondo oscurecido para Versión 1 en móvil
+.nav-backdrop {
+  display: none; position: fixed; inset: 0; z-index: 40; background: color(overlay);
+  @include below(tablet) { .sidebar:target + & { display: block; } }
+}
+
+// Botón de alternar sidebar en Versión 1 (flotante al lado del sidebar en escritorio)
+.menu-toggle {
+  display: none;
+  @include respond(tablet) {
+    display: flex; align-items: center; justify-content: center;
+    position: absolute;
+    top: 76px;
+    left: $sidebar-width - 14px;
+    z-index: 25;
+    width: 28px; height: 28px;
+    padding: 0;
+    border-radius: radius(full);
+    background: color(surface);
+    border: $border-width solid color(border);
+    box-shadow: shadow(200);
+    cursor: pointer;
+    transition: left var(--transition);
+    @include focus-ring;
+    svg { @include icon(14px); }
+  }
+  @include respond(tablet) { @include below(desktop) {
+    left: $sidebar-collapsed - 14px;
+  } }
+}
+
+// Sticky en tablet/desktop para Versión 1
+@include respond(tablet) {
+  .sidebar { position: sticky; top: 0; height: 100vh; overflow-y: auto; transition: width var(--transition), padding var(--transition); }
+}
+
+// Tablet: sidebar colapsado automáticamente en Versión 1
+@include respond(tablet) { @include below(desktop) {
+  .sidebar {
+    width: $sidebar-collapsed;
+    align-items: center;
+    .sidebar__text { @include visually-hidden; }
+    .sidebar__label { @include visually-hidden; }
+    .sidebar__brand { padding: space(2) 0 space(6); }
+    .sidebar__link { width: 44px; justify-content: center; padding: 0; }
+  }
+} }
+
+// Sidebar oculto (toggle con JS a ancho 0) en Versión 1
+@include respond(tablet) {
+  .sidebar.sidebar--hidden {
+    width: 0; padding: 0; overflow: hidden;
+  }
+  .sidebar.sidebar--hidden ~ .menu-toggle {
+    left: -2px;
+  }
+}
+
+// Barra superior común (topbar / header) para Versión 1
+.topbar {
+  position: sticky; top: 0; z-index: 20;
+  height: 64px; display: flex; align-items: center; gap: space(3);
+  padding: 0 space(6); background: color(surface); border-bottom: $border-width solid color(border);
+  @include below(tablet) { padding: 0 space(4); }
+  &__spacer { flex: 1; }
+  &__menu { @include respond(tablet) { display: none; } } // Botón hamburguesa solo en móvil
+  &__crumbs { min-width: 0; @include below(tablet) { display: none; } }
+  &__brand { display: none; @include below(tablet) { display: block; @include type(s2); } }
+}
+
+.avatar { width: 32px; height: 32px; border-radius: radius(full); background: color(primary-muted); color: color(primary-on-subtle); display: inline-grid; place-items: center; @include type(c2, 600); }
+
+// =========================================================================
+// FIN DE VERSIÓN 1: ANTERIOR
+// =========================================================================
+
+
+// =========================================================================
+// >>>>> [VERSIÓN 2: ALTERNATIVA] (COMENTADA) <<<<<
+// - El menú está OCULTO por defecto en todas las resoluciones.
+// - El botón de apertura se ubica en el header (.topbar__menu / .menu-toggle).
+// - Al pulsar el botón, el menú sale por encima de la página oscureciendo el fondo.
+// - Dentro del menú hay un botón con una 'X' en la esquina (.sidebar__close) para cerrarlo.
+// - El fondo oscurecido (.nav-backdrop) cubre toda la pantalla.
+// Para activar: Quita el /* del inicio y el */ del final de este bloque, y comenta la Versión 1.
+// =========================================================================
+
+/*
 .sidebar {
   background: color(sidebar);
   color: color(sidebar-text);
@@ -113,69 +305,6 @@
   }
 }
 
-/* =========================================================================
-   VERSIÓN ANTERIOR (Comentada):
-   - Sidebar visible y estático en desktop dentro del grid de 2 columnas.
-   - Botón .menu-toggle flotando fuera del header al lado de la barra.
-   - Ocultamiento mediante clase .sidebar--hidden (ancho 0).
-   - En móvil se abría con :target y se cerraba con enlace <a class="sidebar__close">.
-
-.sidebar {
-  width: $sidebar-width;
-  &__close { display: none; }
-  &--collapsed { width: $sidebar-collapsed; align-items: center; .sidebar__text { @include visually-hidden; } .sidebar__label { font-size: 0; height: 8px; padding: 0; } .sidebar__brand { padding: space(2) 0 space(6); } }
-}
-
-@include below(tablet) {
-  .sidebar {
-    position: fixed; inset: 0 auto 0 0; z-index: 50; width: min(280px, 85vw);
-    overflow-y: auto; box-shadow: shadow(600);
-    transform: translateX(-100%); visibility: hidden;
-    transition: transform var(--transition), visibility 0s linear 150ms;
-    &:target { transform: none; visibility: visible; transition-delay: 0s; }
-    &:focus { outline: none; }
-    &__close {
-      display: flex; align-items: center; gap: space(2); align-self: flex-end;
-      margin-bottom: space(2); padding: space(2) space(3); border-radius: radius(md);
-      color: color(sidebar-text); text-decoration: none; @include type(b4);
-      svg { @include icon(18px); }
-      &:hover { background: color(sidebar-hover); color: color(sidebar-text-strong); }
-      &:focus-visible { outline: $focus-width solid color(sidebar-focus); outline-offset: 2px; }
-    }
-  }
-}
-
-.menu-toggle {
-  display: none;
-  @include respond(tablet) {
-    display: flex; align-items: center; justify-content: center;
-    position: absolute;
-    top: 76px;
-    left: $sidebar-width - 14px;
-    z-index: 25;
-    width: 28px; height: 28px;
-    padding: 0;
-    border-radius: radius(full);
-    background: color(surface);
-    border: $border-width solid color(border);
-    box-shadow: shadow(200);
-    cursor: pointer;
-    transition: left var(--transition);
-    @include focus-ring;
-    svg { @include icon(14px); }
-  }
-  @include respond(tablet) { @include below(desktop) {
-    left: $sidebar-collapsed - 14px;
-  } }
-}
-
-@include respond(tablet) {
-  .sidebar { position: sticky; top: 0; height: 100vh; overflow-y: auto; transition: width var(--transition), padding var(--transition); }
-  .sidebar.sidebar--hidden { width: 0; padding: 0; overflow: hidden; }
-  .sidebar.sidebar--hidden ~ .menu-toggle { left: -2px; }
-}
-========================================================================= */
-
 // Fondo oscurecido detrás del menú abierto (cubre toda la pantalla)
 .nav-backdrop {
   display: none;
@@ -200,7 +329,7 @@ body.sidebar-open-scroll-lock {
   overflow: hidden;
 }
 
-// Barra superior común (topbar / header)
+// Barra superior común (topbar / header) para Versión 2
 .topbar {
   position: sticky; top: 0; z-index: 20;
   height: 64px; display: flex; align-items: center; gap: space(3);
@@ -208,10 +337,7 @@ body.sidebar-open-scroll-lock {
   @include below(tablet) { padding: 0 space(4); }
   &__spacer { flex: 1; }
 
-  // VERSIÓN ANTERIOR (Comentada): el botón del menú solo se mostraba en móvil:
-  // &__menu { @include respond(tablet) { display: none; } }
-
-  // VERSIÓN ALTERNATIVA (Activa): botón en el header visible en todos los tamaños
+  // En Versión 2 el botón en el header está SIEMPRE visible para abrir el overlay
   &__menu {
     display: inline-flex;
     align-items: center;
@@ -224,3 +350,13 @@ body.sidebar-open-scroll-lock {
 }
 
 .avatar { width: 32px; height: 32px; border-radius: radius(full); background: color(primary-muted); color: color(primary-on-subtle); display: inline-grid; place-items: center; @include type(c2, 600); }
+*/
+
+// =========================================================================
+// FIN DE VERSIÓN 2: ALTERNATIVA
+// =========================================================================
+
+// =========================================================================
+// FIN DE VERSIÓN 2: ALTERNATIVA
+// =========================================================================
+

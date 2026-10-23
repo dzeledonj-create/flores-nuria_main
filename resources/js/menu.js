@@ -1,11 +1,16 @@
 // =========================================================================
 // GESTIÓN DEL MENÚ LATERAL (SIDEBAR)
 // =========================================================================
+// Puedes cambiar entre versiones comentando un bloque y descomentando el otro.
+// =========================================================================
 
 /* =========================================================================
-   VERSIÓN ANTERIOR (Comentada):
-   Toggle del sidebar colapsable (ancho 0) en escritorio con guardado en localStorage.
-
+   ========================= VERSIÓN 1: ANTERIOR ==========================
+   (ACTIVA)
+   - Toggle del sidebar colapsable a ancho 0 en escritorio mediante botón .menu-toggle.
+   - Guarda y restaura la preferencia en localStorage.
+   Para desactivar: comentar este bloque [VERSIÓN 1] y descomentar [VERSIÓN 2].
+   ========================================================================= */
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const sidebar = document.querySelector('.sidebar');
@@ -29,17 +34,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-========================================================================= */
 
 /* =========================================================================
-   VERSIÓN ALTERNATIVA (Activa):
+   ======================= VERSIÓN 2: ALTERNATIVA =========================
+   (COMENTADA)
    - El botón está en el header (.menu-toggle).
    - El menú (.sidebar) está oculto por defecto en todas las resoluciones.
    - Al pulsar el botón del header, el menú sale por encima de la página
      y el fondo se oscurece mediante .nav-backdrop.
    - En el menú hay un botón con una 'X' en la esquina (.sidebar__close) para cerrarlo.
    - También se cierra haciendo clic en el fondo oscurecido o pulsando Escape.
-   ========================================================================= */
+   Para activar: descomentar este bloque [VERSIÓN 2] y comentar [VERSIÓN 1].
+   =========================================================================
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const sidebar = document.querySelector('.sidebar');
@@ -106,7 +112,14 @@ document.addEventListener('DOMContentLoaded', () => {
             closeSidebar();
         }
     });
+});
+========================================================================= */
 
+// =========================================================================
+// FUNCIONES GENERALES DE LA APLICACIÓN (Comunes a ambas versiones)
+// =========================================================================
+
+document.addEventListener('DOMContentLoaded', () => {
     // --- Menú desplegable de usuario (Dropdown) ---
     const userMenuBtn = document.getElementById('userMenuBtn');
     const userDropdown = document.getElementById('userDropdown');
@@ -180,6 +193,7 @@ function editSupplier(id, nombre, direccion, telefono, correo) {
     
     form.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
 function filterSelect(type) {
     const searchValue = document.getElementById('search-filter-' + type).value.toLowerCase();
     const selectElement = document.getElementById('select-filter-' + type);
@@ -202,6 +216,7 @@ function filterSelect(type) {
         }
     }
 }
+
 function deleteSupplier(id) {
     if (confirm("¿Estás seguro de que quieres eliminar este proveedor? Esta acción no se puede deshacer.")) {
         document.getElementById('delete-id').value = id;
