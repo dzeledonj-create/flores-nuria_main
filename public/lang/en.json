@@ -343,5 +343,14 @@
   "Elige en qué idioma quieres ver el panel.": "Choose the language you want to see the panel in.",
   "Elige el idioma": "Choose the language",
   "El panel se mostrará en el idioma que elijas. Puedes cambiarlo cuando quieras.": "The panel will be shown in the language you choose. You can change it at any time.",
-  "Idioma cambiado.": "Language changed."
+  "Idioma cambiado.": "Language changed.",
+  "Aviso de stock": "Stock alert",
+  "· Ver detalles": "· View details",
+  "Ver productos": "View products",
+  "Opción 1 · Estática": "Option 1 · Static",
+  "Opción 2 · Desplegable": "Option 2 · Expandable",
+  "Opción 3 · Cerrable": "Option 3 · Dismissible",
+  "Alerta oculta.": "Alert hidden.",
+  "Deshacer": "Undo",
+  "Cerrar alerta": "Close alert"
 }
