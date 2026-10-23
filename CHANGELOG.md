@@ -1,5 +1,25 @@
 # Changelog
 
+## [Selector de idioma] — 2026-10-23
+### Añadido
+- Selector de idioma con **español (original), inglés y francés** en `resources/js/idioma.js`.
+- Tres variantes; al final del archivo se deja una sola sin comentar:
+  - **A · Menú desplegable** (`<details>`, como el menú de usuario) con notificación flotante.
+  - **B · Aviso en banda** encima del contenido, con un botón por idioma.
+  - **C · Ventana emergente** (`<dialog>`) con los tres idiomas y «Cancelar».
+- Traducciones en `public/lang/en.json` y `public/lang/fr.json`, con el texto español como clave.
+- Traduce textos, atributos (`placeholder`, `aria-label`, `title`, `alt`, `data-label`) y el título de la pestaña.
+- Cambia el `lang` de la página.
+- Guarda la elección en `localStorage`.
+- Estilos en `resources/scss/components/_idioma.scss`, reutilizando `.menu`, `.alert`, `.modal` y `.btn`.
+
+### Verificado
+- W3C Nu: 0 errores en las 19 vistas.
+- Stylelint: 0 errores y sin advertencias nuevas.
+- axe: 0 fallos en las tres variantes, en tema claro y oscuro.
+- Sin scroll horizontal a 390 px.
+- es → en → fr → es deja la página como estaba.
+
 ## [H3 · revisión] — 2026-10-20
 
 ### Añadido

@@ -1,0 +1,41 @@
+@use "../abstracts" as *;
+
+// =========================================================================
+// SELECTOR DE IDIOMA (lo crea resources/js/idioma.js)
+// Casi todo viene de componentes que ya existen: .menu, .alert, .modal, .btn
+// =========================================================================
+
+// Botón activo: el idioma elegido se marca en las tres variantes
+// (también al pasar el ratón, para que no lo pise el :hover del botón)
+[data-idioma][aria-pressed="true"] {
+  &, &:hover:not(:disabled) { background: color(primary-strong); color: color(on-primary); border-color: transparent; }
+}
+
+// A · Menú desplegable (reutiliza .user-menu y .menu)
+.idioma-menu {
+  &__boton { list-style: none; gap: space(1); padding: 0 space(3); }
+  &__boton::-webkit-details-marker { display: none; }
+}
+
+// A · Notificación flotante abajo a la derecha
+.idioma-notificacion {
+  position: fixed; right: space(6); bottom: space(6); z-index: 60;
+  margin: 0; box-shadow: shadow(400);
+}
+
+// B · Aviso en banda (reutiliza .alert)
+.idioma-banda {
+  align-items: center; flex-wrap: wrap; margin-bottom: space(4);
+  .alert__body { flex: 1 1 240px; }
+  &__botones { display: flex; flex-wrap: wrap; gap: space(2); }
+}
+
+// C · Ventana emergente (reutiliza .modal)
+.idioma-ventana {
+  border: 0; border-top: 4px solid var(--color-primary); color: inherit;
+  &::backdrop { background: rgba(17, 24, 39, .55); }
+  &__opciones { display: grid; gap: space(2); margin: space(4) 0; }
+}
+
+// En el login no hay barra superior: el botón flota arriba a la derecha
+.idioma-flotante { position: fixed; top: space(4); right: space(4); z-index: 30; }
