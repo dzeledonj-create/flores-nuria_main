@@ -1,0 +1,6 @@
+# Flores Nuria · panel de gestión interna (H8 · CE5H)
+# No se bloquea el rastreo: si se bloqueara, el buscador no podría leer el
+# <meta name="robots" content="noindex"> de las pantallas internas y podría
+# seguir mostrando sus URL. Solo el login es una página pública.
+User-agent: *
+Allow: /

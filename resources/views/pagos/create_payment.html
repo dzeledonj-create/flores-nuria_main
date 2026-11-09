@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Registrar venta · Flores Nuria</title>
   <meta name="description" content="Registra una venta: producto, cliente, importe y forma de pago.">
+  <meta name="robots" content="noindex, nofollow"><!-- H8 CE5H: pantalla interna, detrás del login -->
   <link rel="icon" href="../../../public/img/favicon.png" type="image/png">
   <link rel="preload" href="../../../public/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../../public/css/main.css">
@@ -77,23 +78,23 @@
             <div class="form-grid">
             <div class="field field--span-2">
               <label class="field__label" for="producto">Producto<span class="field__req" aria-hidden="true">*</span></label>
-              <select id="producto" class="input" name="producto_id" required><option value="">Selecciona un producto</option><option value="1">Rosa roja · stock 120</option><option value="2">Tulipán amarillo · stock 200</option><option value="3">Orquídea blanca · stock 15</option><option value="5">Girasol · stock 80</option></select>
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Selecciona una opción.</p>
+              <select id="producto" aria-describedby="producto-error" class="input" name="producto_id" required><option value="">Selecciona un producto</option><option value="1">Rosa roja · stock 120</option><option value="2">Tulipán amarillo · stock 200</option><option value="3">Orquídea blanca · stock 15</option><option value="5">Girasol · stock 80</option></select>
+              <p class="field__error" id="producto-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Selecciona una opción.</p>
             </div>
             <div class="field field--span-2">
               <label class="field__label" for="cliente">Cliente<span class="field__req" aria-hidden="true">*</span></label>
-              <select id="cliente" class="input" name="cliente_id" required><option value="">Selecciona un cliente</option><option value="1">Maria Menendez · maria@correo.com</option><option value="2">Jose Maria Garcia · josemaria@correo.com</option></select>
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Selecciona una opción.</p>
+              <select id="cliente" aria-describedby="cliente-error" class="input" name="cliente_id" required><option value="">Selecciona un cliente</option><option value="1">Maria Menendez · maria@correo.com</option><option value="2">Jose Maria Garcia · josemaria@correo.com</option></select>
+              <p class="field__error" id="cliente-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Selecciona una opción.</p>
             </div>
             <div class="field">
               <label class="field__label" for="monto">Importe (€)<span class="field__req" aria-hidden="true">*</span></label>
-              <input id="monto" class="input" type="number" name="monto" step="0.01" min="0.01" required inputmode="decimal">
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Introduce un número igual o mayor que 0.01.</p>
+              <input id="monto" aria-describedby="monto-error" class="input" type="number" name="monto" step="0.01" min="0.01" required inputmode="decimal">
+              <p class="field__error" id="monto-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Introduce un importe de 0,01 € o más (usa coma para los decimales).</p>
             </div>
             <div class="field">
               <label class="field__label" for="metodo">Forma de pago<span class="field__req" aria-hidden="true">*</span></label>
-              <select id="metodo" class="input" name="metodo" required><option value="">Selecciona</option><option value="efectivo">Efectivo</option><option value="tarjeta">Tarjeta</option><option value="transferencia">Transferencia</option><option value="otros">Otros</option></select>
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Selecciona una opción.</p>
+              <select id="metodo" aria-describedby="metodo-error" class="input" name="metodo" required><option value="">Selecciona</option><option value="efectivo">Efectivo</option><option value="tarjeta">Tarjeta</option><option value="transferencia">Transferencia</option><option value="otros">Otros</option></select>
+              <p class="field__error" id="metodo-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Selecciona una opción.</p>
             </div>
             <div class="field">
               <label class="field__label" for="fecha">Fecha</label>

@@ -16,9 +16,13 @@
   &__title { font-weight: 600; }
   &__icon { @include icon(18px); margin-top: 1px; color: var(--tone-strong); }
   &__close {
-    margin-left: auto; background: none; border: 0; color: inherit; cursor: pointer;
-    border-radius: radius(sm); padding: 2px; display: grid; place-items: center;
+    background: none; border: 0; color: inherit; cursor: pointer;
+    border-radius: radius(sm); display: grid; place-items: center;
+    // H8 (CE5D, error A3): área táctil mínima de 24 × 24 px (WCAG 2.2 · 2.5.8). Antes medía 20 × 20.
+    min-width: 32px; min-height: 32px; margin: -6px -8px -6px auto;
     svg { @include icon(16px); }
     @include focus-ring;
   }
 }
+// Aviso de confirmación tras guardar o eliminar (resources/js/feedback.js) · H9 CE6C-U3
+.feedback { margin-bottom: space(6); }

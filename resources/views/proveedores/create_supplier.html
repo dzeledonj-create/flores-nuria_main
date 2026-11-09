@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nuevo proveedor · Flores Nuria</title>
   <meta name="description" content="Añade un proveedor con sus datos de contacto.">
+  <meta name="robots" content="noindex, nofollow"><!-- H8 CE5H: pantalla interna, detrás del login -->
   <link rel="icon" href="../../../public/img/favicon.png" type="image/png">
   <link rel="preload" href="../../../public/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../../public/css/main.css">
@@ -77,8 +78,8 @@
             <div class="form-grid">
             <div class="field field--span-2">
               <label class="field__label" for="nombre">Nombre del proveedor<span class="field__req" aria-hidden="true">*</span></label>
-              <input id="nombre" class="input" type="text" name="nombre" placeholder="Ej.: Viveros el Sol" required autocomplete="organization">
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Este campo es obligatorio.</p>
+              <input id="nombre" aria-describedby="nombre-error" class="input" type="text" name="nombre" placeholder="Ej.: Viveros el Sol" required autocomplete="organization">
+              <p class="field__error" id="nombre-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Este campo es obligatorio.</p>
             </div>
             <div class="field field--span-2">
               <label class="field__label" for="direccion">Dirección</label>
@@ -86,14 +87,14 @@
             </div>
             <div class="field">
               <label class="field__label" for="telefono">Teléfono</label>
-              <input id="telefono" aria-describedby="telefono-help" class="input" type="tel" name="telefono" placeholder="600123456" pattern="[0-9]{9}" maxlength="9" autocomplete="tel">
+              <input id="telefono" aria-describedby="telefono-help telefono-error" class="input" type="tel" name="telefono" placeholder="600123456" pattern="[0-9]{9}" maxlength="9" autocomplete="tel">
               <p class="field__help" id="telefono-help">9 cifras, sin espacios.</p>
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Deben ser 9 cifras, sin espacios.</p>
+              <p class="field__error" id="telefono-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Deben ser 9 cifras, sin espacios.</p>
             </div>
             <div class="field">
               <label class="field__label" for="correo">Correo electrónico</label>
-              <input id="correo" class="input" type="email" name="correo" placeholder="proveedor@correo.com" autocomplete="email">
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Escribe un correo válido, por ejemplo nombre@dominio.es.</p>
+              <input id="correo" aria-describedby="correo-error" class="input" type="email" name="correo" placeholder="proveedor@correo.com" autocomplete="email">
+              <p class="field__error" id="correo-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Escribe un correo válido, por ejemplo nombre@dominio.es.</p>
             </div>
             </div>
             <div class="form-actions">

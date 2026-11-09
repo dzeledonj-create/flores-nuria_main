@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Proveedores · Flores Nuria</title>
   <meta name="description" content="Proveedores de Flores Nuria: datos de contacto y gestión.">
+  <meta name="robots" content="noindex, nofollow"><!-- H8 CE5H: pantalla interna, detrás del login -->
   <link rel="icon" href="../../../public/img/favicon.png" type="image/png">
   <link rel="preload" href="../../../public/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../../public/css/main.css">
@@ -113,8 +114,8 @@
             <div class="form-grid">
             <div class="field field--span-2">
               <label class="field__label" for="edit-nombre">Nombre del proveedor<span class="field__req" aria-hidden="true">*</span></label>
-              <input id="edit-nombre" class="input" type="text" name="nombre" value="Viveros el Sol" required autocomplete="organization">
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Este campo es obligatorio.</p>
+              <input id="edit-nombre" aria-describedby="edit-nombre-error" class="input" type="text" name="nombre" value="Viveros el Sol" required autocomplete="organization">
+              <p class="field__error" id="edit-nombre-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Este campo es obligatorio.</p>
             </div>
             <div class="field field--span-2">
               <label class="field__label" for="edit-direccion">Dirección</label>
@@ -122,14 +123,14 @@
             </div>
             <div class="field">
               <label class="field__label" for="edit-telefono">Teléfono</label>
-              <input id="edit-telefono" aria-describedby="edit-telefono-help" class="input" type="tel" name="telefono" value="600123456" pattern="[0-9]{9}" maxlength="9" autocomplete="tel">
+              <input id="edit-telefono" aria-describedby="edit-telefono-help edit-telefono-error" class="input" type="tel" name="telefono" value="600123456" pattern="[0-9]{9}" maxlength="9" autocomplete="tel">
               <p class="field__help" id="edit-telefono-help">9 cifras, sin espacios.</p>
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Deben ser 9 cifras, sin espacios.</p>
+              <p class="field__error" id="edit-telefono-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Deben ser 9 cifras, sin espacios.</p>
             </div>
             <div class="field">
               <label class="field__label" for="edit-correo">Correo electrónico</label>
-              <input id="edit-correo" class="input" type="email" name="correo" value="ventas@viveroselsol.com" autocomplete="email">
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Escribe un correo válido, por ejemplo nombre@dominio.es.</p>
+              <input id="edit-correo" aria-describedby="edit-correo-error" class="input" type="email" name="correo" value="ventas@viveroselsol.com" autocomplete="email">
+              <p class="field__error" id="edit-correo-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Escribe un correo válido, por ejemplo nombre@dominio.es.</p>
             </div>
             </div>
             <div class="form-actions">
@@ -143,17 +144,19 @@
     </div>
   </div>
   <div class="modal-target" id="confirm-delete">
-    <section class="modal modal--danger" role="dialog" aria-labelledby="confirm-title" aria-describedby="confirm-text">
+    <section class="modal modal--danger" role="dialog" aria-modal="true" aria-labelledby="confirm-title" aria-describedby="confirm-text">
       <span class="modal__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 11v6" /> <path d="M14 11v6" /> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /> <path d="M3 6h18" /> <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></span>
       <h2 class="modal__title" id="confirm-title">¿Eliminar proveedor?</h2>
       <p class="modal__text" id="confirm-text">Se eliminará el registro seleccionado. Esta acción no se puede deshacer.</p>
       <div class="modal__actions">
         <a class="btn btn--secondary" href="#main">Cancelar</a>
-        <form action="suppliers.html" method="get"><button class="btn btn--destructive" type="submit">Eliminar</button></form>
+        <form action="suppliers.html" method="get"><input type="hidden" name="eliminado" value="1"><button class="btn btn--destructive" type="submit">Eliminar</button></form>
       </div>
     </section>
   </div>
   <script src="../../../resources/js/menu.js"></script>
+  <script src="../../../resources/js/feedback.js"></script>
+  <script src="../../../resources/js/modal.js"></script>
   <script src="../../../resources/js/idioma.js"></script>
 </body>
 </html>

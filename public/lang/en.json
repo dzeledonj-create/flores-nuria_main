@@ -160,7 +160,7 @@
   "Selecciona una opción.": "Select an option.",
   "Selecciona un cliente": "Select a customer",
   "Importe (€)": "Amount (€)",
-  "Introduce un número igual o mayor que 0.01.": "Enter a number equal to or greater than 0.01.",
+  "Introduce un importe de 0,01 € o más (usa coma para los decimales).": "Enter an amount of €0.01 or more.",
   "Forma de pago": "Payment method",
   "Selecciona": "Select",
   "Efectivo": "Cash",

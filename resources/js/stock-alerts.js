@@ -13,32 +13,23 @@ const options = [
   `<div class="stock-alerts__option"><p class="stock-alerts__name">Opción 3 · Cerrable</p><div class="alert alert--warning" data-dismissible>${warningIcon}<p class="alert__body">${message}<br>${tableLink}</p><button class="alert__close" type="button" aria-label="Cerrar alerta">${closeIcon}</button></div><p class="stock-alerts__undo" role="status" hidden>Alerta oculta. <button class="stock-alerts__link" type="button" data-action="undo">Deshacer</button></p></div>`
 ];
 
-// Los estilos quedan limitados a las clases de este componente.
-const styles = document.createElement('style');
-styles.textContent = `
-  .stock-alerts { display: grid; gap: 14px; margin-bottom: 20px; }
-  .stock-alerts__name { margin: 0 0 6px; color: var(--color-text-muted); font-size: .8rem; font-weight: 600; }
-  .stock-alerts__details summary { cursor: pointer; list-style: none; }
-  .stock-alerts__details summary::-webkit-details-marker { display: none; }
-  .stock-alerts__details summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
-  .stock-alerts__hint { font-size: .85em; }
-  .stock-alerts__chevron { margin-left: auto; transition: transform .2s; }
-  .stock-alerts__details[open] .stock-alerts__chevron { transform: rotate(180deg); }
-  .stock-alerts__message { margin: 4px 0 0; }
-  .stock-alerts__message .alert__body { margin: 0; }
-  .stock-alerts__link { display: inline-block; margin-top: 6px; padding: 0; border: 0; background: none; color: inherit; font: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
-  .stock-alerts__link:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
-  .stock-alerts__undo { margin: 8px 0 0; color: var(--color-text-muted); font-size: .9rem; }
-  .stock-alerts__undo[hidden] { display: none; }
-  @media (min-width: 900px) { .stock-alerts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-`;
-document.head.append(styles);
+// H9 (CE6C, cambio U2): los estilos se han movido a resources/scss/components/_stock-alerts.scss.
+// Antes se inyectaba un <style> con colores y tamaños sueltos; ahora usan los tokens del Design System
+// y también funcionan con la hoja alternativa.
+
+// H9 (CE6C, cambio U2): en la página solo se muestra la propuesta elegida.
+// Con las tres a la vez el mismo aviso se leía tres veces, añadía 5 paradas de tabulador
+// y en móvil empujaba la tabla de productos fuera de la primera pantalla.
+// Elegida: 3 · Cerrable → mensaje completo visible, se puede descartar y tiene «Deshacer».
+// Para volver a comparar las tres, poner OPCION_ELEGIDA = 0.
+const OPCION_ELEGIDA = 3;
 
 // El resto del módulo depende de este contenedor; falla explícitamente si falta en la página.
 const container = document.querySelector('#stock-alert-options');
 if (!container) throw new Error('No se encontró el contenedor de propuestas de alerta.');
 container.className = 'stock-alerts';
-container.innerHTML = options.join('');
+container.innerHTML = OPCION_ELEGIDA ? options[OPCION_ELEGIDA - 1] : options.join('');
+if (OPCION_ELEGIDA) container.classList.add('stock-alerts--single');
 
 // Un único listener en el contenedor gestiona los botones de la opción cerrable.
 container.addEventListener('click', (event) => {

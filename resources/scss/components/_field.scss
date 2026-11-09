@@ -50,7 +50,9 @@
   &::placeholder { color: color(label); opacity: 1; }
   &:hover:not(:disabled) { border-color: color(text-muted); }
   &:focus-visible, &.is-focus {
-    outline: none; border-color: color(focus);
+    // H8 (CE5D, error A2): con outline: none el foco desaparecía en el modo de alto contraste
+    // de Windows, que elimina las sombras. Un contorno transparente se vuelve visible allí.
+    outline: $focus-width solid transparent; border-color: color(focus);
     box-shadow: 0 0 0 $focus-width color(focus);
   }
   &:disabled { background-color: color(surface-disabled); color: color(text-disabled); border-color: color(surface-disabled); cursor: not-allowed; }

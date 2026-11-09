@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Realizar pedido · Flores Nuria</title>
   <meta name="description" content="Crea un pedido a un proveedor y añade hasta tres productos con sus cantidades.">
+  <meta name="robots" content="noindex, nofollow"><!-- H8 CE5H: pantalla interna, detrás del login -->
   <link rel="icon" href="../../../public/img/favicon.png" type="image/png">
   <link rel="preload" href="../../../public/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../../public/css/main.css">
@@ -77,13 +78,13 @@
             <div class="form-grid">
             <div class="field field--span-2">
               <label class="field__label" for="proveedor">Proveedor<span class="field__req" aria-hidden="true">*</span></label>
-              <select id="proveedor" class="input" name="id_proveedor" required><option value="">Selecciona un proveedor</option><option value="1">Viveros el Sol</option><option value="2">Flores del Valle</option><option value="3">Cerámicas Ruiz</option></select>
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Selecciona una opción.</p>
+              <select id="proveedor" aria-describedby="proveedor-error" class="input" name="id_proveedor" required><option value="">Selecciona un proveedor</option><option value="1">Viveros el Sol</option><option value="2">Flores del Valle</option><option value="3">Cerámicas Ruiz</option></select>
+              <p class="field__error" id="proveedor-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Selecciona una opción.</p>
             </div>
             <div class="field">
               <label class="field__label" for="fecha-pedido">Fecha del pedido<span class="field__req" aria-hidden="true">*</span></label>
-              <input id="fecha-pedido" class="input" type="date" name="fecha" value="2026-10-07" required>
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Este campo es obligatorio.</p>
+              <input id="fecha-pedido" aria-describedby="fecha-pedido-error" class="input" type="date" name="fecha" value="2026-10-07" required>
+              <p class="field__error" id="fecha-pedido-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Este campo es obligatorio.</p>
             </div>
             <div class="field">
               <label class="field__label" for="estado">Estado</label>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nuevo producto · Flores Nuria</title>
   <meta name="description" content="Da de alta un producto en el catálogo con su precio, IVA y stock inicial.">
+  <meta name="robots" content="noindex, nofollow"><!-- H8 CE5H: pantalla interna, detrás del login -->
   <link rel="icon" href="../../../public/img/favicon.png" type="image/png">
   <link rel="preload" href="../../../public/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../../public/css/main.css">
@@ -77,28 +78,28 @@
             <div class="form-grid">
             <div class="field field--span-2">
               <label class="field__label" for="nombre">Nombre del producto<span class="field__req" aria-hidden="true">*</span></label>
-              <input id="nombre" class="input" type="text" name="nombre" placeholder="Ej.: Rosa roja" required>
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Este campo es obligatorio.</p>
+              <input id="nombre" aria-describedby="nombre-error" class="input" type="text" name="nombre" placeholder="Ej.: Rosa roja" required>
+              <p class="field__error" id="nombre-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Este campo es obligatorio.</p>
             </div>
             <div class="field">
               <label class="field__label" for="precio">Precio base (€)<span class="field__req" aria-hidden="true">*</span></label>
-              <input id="precio" class="input" type="number" name="precio" step="0.01" min="0.01" required inputmode="decimal">
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Introduce un número igual o mayor que 0.01.</p>
+              <input id="precio" aria-describedby="precio-error" class="input" type="number" name="precio" step="0.01" min="0.01" required inputmode="decimal">
+              <p class="field__error" id="precio-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Introduce un importe de 0,01 € o más (usa coma para los decimales).</p>
             </div>
             <div class="field">
               <label class="field__label" for="iva">IVA (%)<span class="field__req" aria-hidden="true">*</span></label>
-              <input id="iva" class="input" type="number" name="iva" step="0.01" min="0" max="100" value="21.00" required inputmode="decimal">
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Introduce un número entre 0 y 100.</p>
+              <input id="iva" aria-describedby="iva-error" class="input" type="number" name="iva" step="0.01" min="0" max="100" value="21" required inputmode="decimal">
+              <p class="field__error" id="iva-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Introduce un número entre 0 y 100.</p>
             </div>
             <div class="field">
               <label class="field__label" for="stock">Stock inicial</label>
-              <input id="stock" class="input" type="number" name="stock" min="0" value="0" inputmode="numeric">
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Introduce un número igual o mayor que 0.</p>
+              <input id="stock" aria-describedby="stock-error" class="input" type="number" name="stock" min="0" value="0" inputmode="numeric">
+              <p class="field__error" id="stock-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Introduce un número igual o mayor que 0.</p>
             </div>
             <div class="field">
               <label class="field__label" for="categoria">Familia<span class="field__req" aria-hidden="true">*</span></label>
-              <select id="categoria" class="input" name="categoria" required><option value="">Selecciona una familia</option><option value="flor">Flor</option><option value="planta">Planta</option><option value="accesorio">Accesorio</option></select>
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Selecciona una opción.</p>
+              <select id="categoria" aria-describedby="categoria-error" class="input" name="categoria" required><option value="">Selecciona una familia</option><option value="flor">Flor</option><option value="planta">Planta</option><option value="accesorio">Accesorio</option></select>
+              <p class="field__error" id="categoria-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Selecciona una opción.</p>
             </div>
             </div>
             <div class="form-actions">

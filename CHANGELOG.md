@@ -1,5 +1,28 @@
 # Changelog
 
+## [H7 · H8 · H9] — 2026-11-05
+### Cambiado
+- **Tablas (H7):** pasan a tarjetas según el ancho de su contenedor (`@container`, 928 px; tablas compactas 416 px), no según la ventana. En tablet ya no se ocultan las columnas Estado y Acciones.
+- **Avisos de stock (H9):** en Productos se muestra solo la propuesta elegida (3 · Cerrable). Sus estilos pasan de un `<style>` inyectado a `resources/scss/components/_stock-alerts.scss`.
+- **Formularios (H9):** el IVA por defecto se escribe `21` (antes `21.00`) y el mensaje de importe usa coma decimal.
+
+### Añadido
+- `resources/js/modal.js` (H8): el pop-up de confirmación recibe el foco al abrirse, deja inerte el resto de la página, se cierra con Escape y devuelve el foco al botón que lo abrió.
+- `resources/js/feedback.js` (H9): aviso de confirmación (`role="status"`) después de guardar o eliminar en Productos, Proveedores, Pedidos y Ofertas.
+- `<meta name="robots" content="noindex, nofollow">` en las 18 pantallas internas y `robots.txt` (H8 · CE5H).
+
+### Corregido (accesibilidad, H8)
+- Los mensajes `.field__error` se asocian a su campo con `aria-describedby` (28 campos en 9 vistas).
+- Foco visible en modo de alto contraste: los campos usan `outline` transparente en lugar de `outline: none`.
+- Botón «Cerrar alerta» de 20 × 20 a 32 × 32 px (WCAG 2.2 · 2.5.8).
+- El emoji 🌐 del selector de idioma ya no forma parte del nombre accesible.
+- Con el menú lateral oculto en escritorio, sus enlaces ya no reciben el foco (`visibility: hidden`).
+
+### Verificado
+- axe-core 4.10 (WCAG 2.2 A/AA): 0 incumplimientos en 19 vistas × 3 anchos × tema claro, oscuro del sistema y hoja alternativa.
+- Nu Html Checker: 0 errores en las 19 vistas. Stylelint: 0 errores.
+- Sin scroll horizontal en las 19 vistas a 320, 390, 768, 1024, 1180 y 1440 px.
+
 ## [Selector de idioma] — 2026-10-23
 ### Añadido
 - Selector de idioma con **español (original), inglés y francés** en `resources/js/idioma.js`.

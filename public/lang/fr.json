@@ -151,7 +151,7 @@
   "Selecciona una opción.": "Sélectionnez une option.",
   "Selecciona un cliente": "Sélectionnez un client",
   "Importe (€)": "Montant (€)",
-  "Introduce un número igual o mayor que 0.01.": "Saisissez un nombre supérieur ou égal à 0,01.",
+  "Introduce un importe de 0,01 € o más (usa coma para los decimales).": "Saisissez un montant de 0,01 € ou plus (virgule pour les décimales).",
   "Forma de pago": "Mode de paiement",
   "Selecciona": "Sélectionner",
   "Efectivo": "Espèces",

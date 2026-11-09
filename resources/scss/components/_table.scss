@@ -1,5 +1,25 @@
 @use "../abstracts" as *;
+// Ancho mínimo para mostrar una tabla de 7-8 columnas sin scroll horizontal
+$table-stack-width: 58rem; // 928 px
+$table-compact-stack-width: 26rem; // 416 px
+
+@mixin table-stacked {
+    thead { @include visually-hidden; }
+    tr { display: block; border-bottom: $border-width solid color(divider); padding: space(2) 0; }
+    tbody tr:nth-child(even) td { background: transparent; }
+    tbody tr:nth-child(even) { background: color(surface-alt); }
+    td { display: flex; justify-content: space-between; align-items: center; gap: space(4); border: 0; height: auto; min-height: 40px; padding: space(1) space(4); text-align: right; }
+    td::before { content: attr(data-label); @include type(c2); color: color(label); text-align: left; }
+    td.num { text-align: right; }
+    .actions { justify-content: flex-end; }
+    td.table__empty { display: block; }
+    td.table__empty::before { content: none; }
+}
+
 .table-wrap { position: relative; overflow-x: auto; // relative: contiene los .visually-hidden absolutos
+  // H7: la tabla se adapta al ANCHO REAL de su contenedor, no al de la ventana.
+  // Con el menú abierto o colapsado el espacio libre cambia; una container query lo tiene en cuenta.
+  container-type: inline-size; container-name: tabla;
   border: $border-width solid color(border); border-radius: radius(lg); background: color(surface); box-shadow: shadow(200); }
 .card .table-wrap { box-shadow: none; }
 .table {
@@ -27,19 +47,13 @@
   td.table__empty, td.table__loading { text-align: center; padding: space(12) space(4); color: color(text-muted); }
   &__skeleton { display: block; height: 12px; border-radius: radius(sm); background: color(surface-disabled); }
 
-  // Móvil: cada fila se convierte en tarjeta apilada (data-label en cada td)
-  @include below(tablet) {
-    thead { @include visually-hidden; }
-    tr { display: block; border-bottom: $border-width solid color(divider); padding: space(2) 0; }
-    tbody tr:nth-child(even) td { background: transparent; }
-    tbody tr:nth-child(even) { background: color(surface-alt); }
-    td { display: flex; justify-content: space-between; align-items: center; gap: space(4); border: 0; height: auto; min-height: 40px; padding: space(1) space(4); text-align: right; }
-    td::before { content: attr(data-label); @include type(c2); color: color(label); text-align: left; }
-    td.num { text-align: right; }
-    .actions { justify-content: flex-end; }
-    td.table__empty { display: block; }
-    td.table__empty::before { content: none; }
-  }
+  // Contenedor estrecho (móvil y tablet, o escritorio con poco espacio): cada fila se convierte
+  // en tarjeta apilada (data-label en cada td). Antes era @include below(tablet) y en tablet
+  // las columnas Estado y Acciones quedaban fuera de la vista (H7, incidencia R1).
+  @container tabla (max-width: #{$table-stack-width}) { &:not(.table--compact) { @include table-stacked; } }
+  // Las tablas compactas (3 columnas, Dashboard) caben en mucho menos espacio
+  @container tabla (max-width: #{$table-compact-stack-width}) { &.table--compact { @include table-stacked; } }
+
 }
 // Tabla compacta (Dashboard, detalles)
 .table--compact td { height: 44px; padding-top: space(2); padding-bottom: space(2); }

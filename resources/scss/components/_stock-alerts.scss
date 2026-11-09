@@ -1,0 +1,25 @@
+@use "../abstracts" as *;
+// Avisos de stock de Productos (resources/js/stock-alerts.js).
+// H9 (CE6C, cambio U2): antes estos estilos se inyectaban desde JavaScript con valores sueltos.
+.stock-alerts {
+  display: grid; gap: space(3); margin-bottom: space(6);
+  @include respond(desktop) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  &--single { @include respond(desktop) { grid-template-columns: minmax(0, 1fr); } }
+  &--single &__name { @include visually-hidden; } // con una sola opción la etiqueta «Opción 3» sobra
+  &__name { margin: 0 0 space(1); color: color(text-muted); @include type(c2); }
+  &__details summary { cursor: pointer; list-style: none; @include focus-ring; }
+  &__details summary::-webkit-details-marker { display: none; }
+  &__hint { font-size: .85em; }
+  &__chevron { margin-left: auto; transition: transform var(--transition); }
+  &__details[open] &__chevron { transform: rotate(180deg); }
+  &__message { margin: space(1) 0 0; }
+  &__message .alert__body { margin: 0; }
+  &__link {
+    display: inline-block; margin-top: space(1); padding: 0; border: 0; background: none;
+    color: inherit; font: inherit; font-weight: 600;
+    text-decoration: underline; text-underline-offset: 2px; cursor: pointer;
+    @include focus-ring;
+  }
+  &__undo { margin: space(2) 0 0; color: color(text-muted); @include type(b3); }
+  &__undo[hidden] { display: none; }
+}

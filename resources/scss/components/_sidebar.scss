@@ -160,6 +160,9 @@
 @include respond(tablet) {
   .sidebar.sidebar--hidden {
     width: 0; padding: 0; overflow: hidden;
+    // H8 (CE5D, error A6): con ancho 0 los enlaces seguían recibiendo el foco con Tab
+    // y el foco «desaparecía» en 9 paradas invisibles. visibility: hidden los saca del orden de tabulación.
+    visibility: hidden;
   }
   .sidebar.sidebar--hidden ~ .menu-toggle {
     left: -2px;

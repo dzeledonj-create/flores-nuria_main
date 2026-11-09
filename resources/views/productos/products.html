@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Productos · Flores Nuria</title>
   <meta name="description" content="Catálogo y stock de Flores Nuria: consulta, filtra por familia y edita productos.">
+  <meta name="robots" content="noindex, nofollow"><!-- H8 CE5H: pantalla interna, detrás del login -->
   <link rel="icon" href="../../../public/img/favicon.png" type="image/png">
   <link rel="preload" href="../../../public/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../../public/css/main.css">
@@ -127,23 +128,23 @@
             <div class="form-grid">
             <div class="field field--span-2">
               <label class="field__label" for="edit-nombre">Nombre del producto<span class="field__req" aria-hidden="true">*</span></label>
-              <input id="edit-nombre" class="input" type="text" name="nombre" value="Rosa roja" required>
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Este campo es obligatorio.</p>
+              <input id="edit-nombre" aria-describedby="edit-nombre-error" class="input" type="text" name="nombre" value="Rosa roja" required>
+              <p class="field__error" id="edit-nombre-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Este campo es obligatorio.</p>
             </div>
             <div class="field">
               <label class="field__label" for="edit-precio">Precio base (€)<span class="field__req" aria-hidden="true">*</span></label>
-              <input id="edit-precio" class="input" type="number" name="precio" value="2.50" step="0.01" min="0.01" required inputmode="decimal">
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Introduce un número igual o mayor que 0.01.</p>
+              <input id="edit-precio" aria-describedby="edit-precio-error" class="input" type="number" name="precio" value="2.50" step="0.01" min="0.01" required inputmode="decimal">
+              <p class="field__error" id="edit-precio-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Introduce un importe de 0,01 € o más (usa coma para los decimales).</p>
             </div>
             <div class="field">
               <label class="field__label" for="edit-iva">IVA (%)<span class="field__req" aria-hidden="true">*</span></label>
-              <input id="edit-iva" class="input" type="number" name="iva" value="21.00" step="0.01" min="0" max="100" required inputmode="decimal">
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Introduce un número entre 0 y 100.</p>
+              <input id="edit-iva" aria-describedby="edit-iva-error" class="input" type="number" name="iva" value="21" step="0.01" min="0" max="100" required inputmode="decimal">
+              <p class="field__error" id="edit-iva-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Introduce un número entre 0 y 100.</p>
             </div>
             <div class="field">
               <label class="field__label" for="edit-stock">Cantidad en stock</label>
-              <input id="edit-stock" class="input" type="number" name="stock" value="120" min="0" inputmode="numeric">
-              <p class="field__error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Introduce un número igual o mayor que 0.</p>
+              <input id="edit-stock" aria-describedby="edit-stock-error" class="input" type="number" name="stock" value="120" min="0" inputmode="numeric">
+              <p class="field__error" id="edit-stock-error"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /> <line x1="12" x2="12" y1="8" y2="12" /> <line x1="12" x2="12.01" y1="16" y2="16" /></svg>Introduce un número igual o mayor que 0.</p>
             </div>
             <div class="field">
               <label class="field__label" for="edit-categoria">Familia</label>
@@ -165,17 +166,19 @@
     </div>
   </div>
   <div class="modal-target" id="confirm-delete">
-    <section class="modal modal--danger" role="dialog" aria-labelledby="confirm-title" aria-describedby="confirm-text">
+    <section class="modal modal--danger" role="dialog" aria-modal="true" aria-labelledby="confirm-title" aria-describedby="confirm-text">
       <span class="modal__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 11v6" /> <path d="M14 11v6" /> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /> <path d="M3 6h18" /> <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg></span>
       <h2 class="modal__title" id="confirm-title">¿Eliminar producto?</h2>
       <p class="modal__text" id="confirm-text">Se eliminará el registro seleccionado. Esta acción no se puede deshacer.</p>
       <div class="modal__actions">
         <a class="btn btn--secondary" href="#main">Cancelar</a>
-        <form action="products.html" method="get"><button class="btn btn--destructive" type="submit">Eliminar</button></form>
+        <form action="products.html" method="get"><input type="hidden" name="eliminado" value="1"><button class="btn btn--destructive" type="submit">Eliminar</button></form>
       </div>
     </section>
   </div>
   <script src="../../../resources/js/menu.js"></script>
+  <script src="../../../resources/js/feedback.js"></script>
+  <script src="../../../resources/js/modal.js"></script>
   <script src="../../../resources/js/idioma.js"></script>
   <script src="../../../resources/js/stock-alerts.js"></script>
 </body>

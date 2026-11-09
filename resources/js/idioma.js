@@ -98,7 +98,7 @@ function varianteDesplegable() {
   const menu = document.createElement('details');
   menu.className = 'user-menu idioma-menu';
   menu.innerHTML = `
-    <summary class="btn btn--ghost idioma-menu__boton">🌐 <span class="idioma-actual">ES</span>
+    <summary class="btn btn--ghost idioma-menu__boton"><span aria-hidden="true">🌐</span> <span class="idioma-actual">ES</span>
       <span class="visually-hidden">Cambiar idioma</span></summary>
     <div class="menu user-menu__panel">${botonesIdioma('menu__item')}</div>`;
   ponerEnBarra(menu);
@@ -152,7 +152,7 @@ function varianteVentana() {
   const boton = document.createElement('button');
   boton.className = 'btn btn--ghost idioma-menu__boton';
   boton.type = 'button';
-  boton.innerHTML = '🌐 <span class="idioma-actual">ES</span><span class="visually-hidden">Cambiar idioma</span>';
+  boton.innerHTML = '<span aria-hidden="true">🌐</span> <span class="idioma-actual">ES</span><span class="visually-hidden">Cambiar idioma</span>';
   ponerEnBarra(boton);
 
   const ventana = document.createElement('dialog');
