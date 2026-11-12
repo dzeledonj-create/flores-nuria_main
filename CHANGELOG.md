@@ -1,5 +1,16 @@
 # Changelog
 
+## [Modo oscuro] — 2026-11-12
+### Añadido
+- Botón de modo oscuro (🌙/☀️) en la barra superior, en `resources/js/tema.js`.
+- Pone `data-theme="dark"` o `"light"` en `<html>`; los colores ya los define `resources/scss/themes/_dark.scss`.
+- Guarda la elección en `localStorage` (clave `tema`). Si no hay elección, sigue el modo del sistema.
+- Se enlaza en el `<head>` de todas las vistas de `resources/views/` para aplicar el tema antes de pintar y evitar el parpadeo. En el login no hay botón, pero se respeta el tema elegido.
+- Traducción del nombre del botón en `public/lang/en.json` («Dark mode») y `public/lang/fr.json` («Mode sombre»).
+
+### Cambiado
+- `README.md` y la guía de estilo (`docs/guia-estilo.html`) describen el nuevo botón.
+
 ## [H7 · H8 · H9] — 2026-11-05
 ### Cambiado
 - **Tablas (H7):** pasan a tarjetas según el ancho de su contenedor (`@container`, 928 px; tablas compactas 416 px), no según la ventana. En tablet ya no se ocultan las columnas Estado y Acciones.

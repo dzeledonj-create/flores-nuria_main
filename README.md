@@ -53,10 +53,14 @@ Las vistas enlazan los recursos con rutas relativas (`../../public/…` desde `r
 `../../../public/…` desde sus subcarpetas), así funcionan con Live Server o XAMPP. Al pasar a Laravel
 serán plantillas Blade y enlazarán con `asset('css/main.css')`, porque allí `public/` es la raíz web.
 
-## Tema oscuro (hoja alternativa)
+## Tema oscuro
 
-Cada vista enlaza `public/css/theme-dark.css` como `<link rel="alternate stylesheet" title="Tema oscuro">`.
-Se activa de cuatro formas: en Firefox con *Ver → Estilo de página → Tema oscuro*; con el modo oscuro del
+La forma normal es el **botón 🌙/☀️ de la barra superior** (`resources/js/tema.js`, enlazado en el `<head>`
+de cada vista): pone `data-theme` en `<html>` y guarda la elección en `localStorage`. Si el usuario no ha
+elegido, se sigue el modo del sistema.
+
+Además, cada vista enlaza `public/css/theme-dark.css` como `<link rel="alternate stylesheet" title="Tema oscuro">`.
+Sin el botón, se activa de cuatro formas: en Firefox con *Ver → Estilo de página → Tema oscuro*; con el modo oscuro del
 sistema (`prefers-color-scheme`); en Chrome DevTools con *Rendering → Emulate prefers-color-scheme: dark*;
 o escribiendo `data-theme="dark"` en `<html>`.
 
